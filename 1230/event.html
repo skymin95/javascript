@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02event(이벤트)</title>
+  <style>
+    .tab_color *{margin: 0px; padding: 0px;}
+    .tab_color{
+      width: 300px;
+    }
+    .tab_color ul{
+      display: flex;
+    }
+    .tab_color ul li{
+      width: 33.3%;
+      border: 1px solid #ccc;
+      list-style: none;
+      text-align: center;
+      line-height: 40px;
+    }
+    #result{
+      width: 100%;
+      height: 200px;
+      border: 1px solid #ccc;
+    }
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <h2>>02event(이벤트)</h2>
+  <p>event:(특별한 상황,상황,사건)</p>
+  <p>웹페이지에서는 클릭,오버,아웃,더블클릭,스크롤,키보드 등의 행위를 했을때 일어나는 사건을 이벤트라고 한다.</p>
+
+
+  <dl>
+    <dt>이벤트의 종류</dt>
+    <dd>onclick()-마우스를 클릭했을 때 이벤트 발생</dd>
+    <dd>ondbclick()-마우스를 더블클릭했을때 이벤트 발생</dd>
+    <dd>onkeydown()-키보드를 눌렀을 때 이벤트 발생</dd>
+    <dd>onkeypress()-키보드 눌렀다가 때었을때 이벤트 발생</dd>
+    <dd>onkeyup()-키보드 놓았을때 이벤트 발생</dd>
+    <dd>onmousedown()-마우스를 버튼을 눌렀을 때 이벤트 발생</dd>
+    <dd>onmouseup()-마우스로 버튼을 놓았을때 이벤트 발생</dd>
+    <dd>onmouseover()-마우스로 버튼을 올렸을때 이벤트 발생</dd>
+    <dd>onmouseout()-마우스로 버튼에 올렸다가 떼었을  대 이벤트 발생</dd>
+  </dl>
+
+  <dl>
+    <dt>window객체의 이벤트 종류</dt>
+    <dd>window.onload-페이지의 로딩이 완료되었을 때  이벤트발생</dd>
+    <dd>abort-문서가 완전히 로딩되기 전 이미지의 로딩이 중단되었을 때 이벤트발생</dd>
+    <dd>load-문서의 로딩이 끝나면 이벤트 발생</dd>
+    <dd>ubload-페이지가 다른 곳으로 이동할 때 이벤트 발생</dd>
+    <dd>resize-요소에 사이즈가 변경되었을때 이벤트 발생</dd>
+    <dd>scroll-스크롤바를 움직였을때 이벤트 발생</dd>
+  </dl>
+
+
+  <h3>이미지에 마우스 오버시 다른 이미지로 대체하기</h3>
+<!-- this.src로 이미지 바꾸게끔 -->
+  <img src="./images/mbn04.png" alt="배너" onmouseover="this.src='./images/mbn04ov.png'"
+  onmouseout="this.src='./images/mbn04.png'" id="banner">
+
+
+
+
+<p>
+  <input type="button" value="이미지 변경하기" onclick="imgchange01()">
+  <input type="button" value="이미지 원래대로" onclick="imgchange02()">
+</p>
+
+
+<h3>이벤트의 사용방식 3가지</h3>
+<p>사용자가 실제 이벤트를 발생시켰을때 그이벤트를 대응하여 처리하는것을 '이벤트 핸들러' 라고한다.</p>
+<p>이벤트 핸들러는 앞에 on을 붙여주고 이벤트에 대한 동작(함수)를 처리합니다.</p>
+
+
+<!-- 추천 x 테스트 할때 사용 -->
+<h4 style="color: #f00;">1. 인라인 방식으로 이벤트 처리하기</h4>
+<p>태그랑 on이벤트명 = 자바스크립트 코드 예) div onclick="실행할 코드"</p>
+<p>이미지 태그에 직접 onclick='this.src'로 작생해 실행</p>
+
+
+
+<h4>2. 고전방식</h4>
+<p>객체.on이벤트명 = function(){실행할코드;}</p>
+<p>객체.on이벤트명 = 함수명; function(){실행할코드;}</p>
+
+
+
+<h4>3. 표준방식</h4>
+<p>표준방식으로 위 제목을 클릭하면 메세지 창 띄우기</p>
+<input type="button" id="btn" value="표준방식으로 이벤트 실행하기 ">
+
+
+<h4>4.실습예제 - 탭메뉴를 클릭시 해당 색상이 적용되게 하기</h4>
+<article class="tab_color">
+<ul>
+  <!-- 클릭하면 위로가는데 href에 아래 3개 하면 위로 안올라가게 해준다 -->
+  <li><a href="#none" title="red" onclick="changeColor('red')">red</a></li>
+  <li><a href="javascript:;" title="green" onclick="changeColor('green')">green</a></li>
+  <li><a href="javscript:void(0);" title="blue"  onclick="changeColor('blue')">blue</a></li>
+</ul>
+
+<div id="result">이곳에 배경색상이 변경됩니다.</div>
+
+</article>
+<!-- 참고페이지: https://imnews.imbc.com/more/board/#page=1 -->
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    // 1.이미지를 변경하는 함수
+    function imgchange01(){
+      // alert('함수실행1');
+    document.getElementById('banner').src='./images/mbn04ov.png';
+    }
+    
+    // 2.이미지를 원래대로 변경하는 함수
+    function imgchange02(){
+      // alert('함수실행2');
+      document.getElementById('banner').src='./images/mbn04.png';
+    }
+
+    // 표준방식으로 이벤트 내용 출력하기
+    // 값이 안변할때 const /////quarySelector  css 처럼 #,. 붙인다고생각
+    const btn = document.getElementById('btn');
+    // 사용자가 제목을 클릭시 해당 이벤트를 발생하게 하여 메세지를 띄운다 .
+    btn.addEventListener('click',function(){
+      //switch case문으로 다른 이벤트를 추가해 사용.
+      alert('표준방식으로 이벤트를 처리하였습니다.');
+    });
+
+
+
+    function changeColor(color){
+      console. log(color);
+
+      
+      document.getElementById('result').style.backgroundColor=color;
+      }
+    
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

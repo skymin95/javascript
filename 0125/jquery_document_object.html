@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jquery_document_object(문서객체,DOM)관련 매서드</title>
+  <style>
+    *{margin: 0px; padding: 0px;}
+    ul,ol,li{list-style: none;}
+    a{text-decoration: none; color: #000;}
+
+
+    .banner{
+      width: 720px; height: 445px;
+      border: 3px solid#000;
+      position: relative;
+      }
+    .banner nav{
+      background: rgba(255, 255, 255, 0.8);
+      position: absolute; height: 55%;
+      right: 10px; top: 10px;
+    }
+    .banner nav li{line-height: 60px; padding: 0px 10px;}
+    .banner nav a:hover{text-decoration: underline;}
+
+
+
+
+
+  .txt01{background: #ff0;}
+  .txt02{background:#0f0};
+
+  </style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+$(function(){
+$('#btn01').click(function(){
+  $('.txt01').text('text메서드로 내용을 변경하였습니다,')
+});
+$('#btn02').click(function(){
+  $('.txt02').html('<address>copyright&copy:2022allright reserved.</address>')
+});
+
+
+$('#btn03').click(function(){
+  $('.url').attr('href','http://www.daum.net')
+});
+
+
+// 텍스트에 마우스 오버시 href속성안에 값을 가져와서 변수에 담는다.
+$('.banner nav li a').mouseenter(function(){
+  let url = $(this).attr('href');
+  // console.log(url);
+$('.banner div img').attr('src',url);//이미지 src속성에 대입한다.
+
+});
+
+
+
+
+
+});
+
+
+
+
+</script>
+
+
+</head>
+<body>
+  <h2>제이쿼리 문서객체 (DOM)관련 매서드</h2>
+  <p>문서객체조작이란? DOM(문서객체모델)에서 HsTML문서안에서 모든 요소들과 내용들을 제이쿼리를
+    사용해 글자를 변경하거나 추가,삭제,속성값을 변경할 수 있는 것을 말한다.
+  </p>
+    <p>https://oscarotero.com/jquery/페이지의 API에서 ATTRIBUTES.MANIPULATION카테고리에서 매소드 확인가능.</p>
+
+    <h3>문서내용을 변경하기 위한 매서드</h3>
+    <ul>
+      <li>$('대상').text();-html요소를 선택해 내용을 입력하거나 가져오기 위한 메소드()==,document.getElementById.innerText="",)</li>
+      <li>$('대상').htmnl();-html요소를 선택해 html내그요소를 추가하거나 가져오기 위한 메소드()==,document.getElementById.innerHTML="",)</li>
+      <li>$('대상').attr();-html요소를 선택해 속성값을 추가하거나 변경하기 위한 메소드()==,document.getElementById.innerHTML="",)</li>
+      <li>$('대상').val();-html요소를 선택해 input요소의 속성값을 추가하거나 변경하기 위한 메소드()</li>
+      <li>$('대상').empty();-내용지우기</li>
+      <li>$('대상').remove();-요소지우기</li>
+      <li>$('대상').addClass();-클라스 추가하기</li>
+      <li>$('대상').removeClass();-클라스 지우기</li>
+      <li>$('대상').hasClass();-클라스 존재여부확인</li>
+      <li>$('대상').toggleClass();-클라스 토글 적용</li>
+      <li>$('대상').append TO();-부모내용 마지막 위치로 이동하기</li>
+      <li>$('대상').prependTO();-보모내용 처음위치로 이동하기</li>
+    </ul>
+    <h3>실습1-버튼을 클릭하면 선택한 요소에 문서내용을 삽입하거나  내용이 변하지 않도록 한다,</h3>
+    <p class="txt01">아래text();버튼을 클릭하면  이곳에 택스트 내용이 변경됩니다</p>
+    <p class="txt02">아래 html();버튼을 클릭하면 이곳에 html태그요소가 추가돠어 변경됩니다,</p>
+    <input type="buyyon" value="text();메서드 실행하기"  id="btn01">
+    <input type="buyyon" value="html();메서드 실행하기"  id="btn02">
+
+    <h3>실습2.버튼을 클릭하면 선택한 이미지 요소에 속성값을 변경해 다른 이미지가 나오게 하기</h3>
+    <a href="http://www.naver.com" title="네이버로 바로가기" class="url">네이버</a>
+    <br>
+    <input type="button" value="네이버 버튼 클릭시 다음 사이트로 변경되게 하기" id="btn03">
+
+
+<article class="banner">
+  <div>
+    <img src="./images02/tab1.jpg" alt="큰사진">
+  </div>
+  <nav>
+    <ul>
+
+      <li>
+        <a href="./images02/tab1.jpg">현대렌탈케어 페이스북 이벤트</a>
+      </li>
+
+      <li>
+        <a href="./images02/tab2.jpg">현대백화점 공식 블로그 리뉴얼 오픈 이벤트</a>
+      </li>
+
+      <li>
+        <a href="./images02/tab3.jpg">현대 모터스스튜디오,풀 바셋 커피클라스 참가자 모집</a>
+      </li>
+
+      <li>
+        <a href="./images02/tab4.jpg">현대렌탈케어,큐밍 더 케어 큐브는 몇번??</a>
+      </li>
+
+    </ul>
+  </nav>
+</article>
+
+<p>$('대상').attr('속성');-사용자가 선택한 요소의 속성값을 가져온다.</p>
+<p>$('대상').attr('속성','값');-사용자가 선택한 요소의 속성값을 변경한다.</p>
+<p>$('대상').attr('속성':'값','속성':'값');-사용자가 선택한 속성들에  값을 대입한다.</p>
+
+
+
+
+
+
+</body>
+</html>

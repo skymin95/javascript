@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02jquery_속성관련(offset,위치)</title>
+    <style>
+        .box01{width: 500px; height: 250px; background: #ff0;border: 3px solid #000;}
+        .result{background: #ccc; line-height: 50px; color: #f00;}
+
+       
+        .s01,.s02{
+            color: #f00;
+            background: #ff0;
+            position: fixed;
+        }
+        .s01{right: 10px; top: 10px;}
+        .s02{left: 10px; bottom: 10px;}
+        #top_btn{
+            background: #000;
+            color: #fff;
+            padding: 10px 5px;
+            border-radius: 50%;
+            text-decoration: none;
+            position: fixed; bottom: 50px; right: 50px; 
+            display: none;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('#btn01').click(function(){
+                let b_os = $('.box01').offset();
+                $('.result').text('box01이 왼쪽에서 떨어진 값은'+b_os.left+'이고 위에서 떨어진 값은'+b_os.top+'입니다');
+            });
+            
+            $(window).scroll(function(){//브라우저의 화면스크롤이 변경이 되는 순간 아래 내용을 실행한다.
+                let sPos1 =$(this).scrollTop();
+                let sPos2=$(this).scrollLeft();
+            $('.s01').html(sPos1);
+            $('.s02').html(sPos2);
+                if(sPos1>300){
+                    $('#top_btn').fadeIn();
+
+                }else{
+                    $('#top_btn').fadeOut();
+                }
+            });
+                //top버튼 클릭시 화면 세로스크롤이 0이 될때까지 부드럽게 올라간다.
+                $('#top_btn').click(function(){
+                    $('html,body').animate({scrollTop:'0px'},300);
+                    return false;
+                });   
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+    <h2>02jquery_속성관련(offset,위치)</h2>
+    
+    <h3>1.offset메서드</h3>
+    <p>사용자가 선택한 요소의 위쪽이나 왼쪽을 기준으로 브라우저에서 떨어져 있는 위치값을 구하고자 할 때 사용하는 메소드이다</p>
+    <p>문법-> $('대상').offset() ,$('대상').offset().top ,$('대상').offset().left</p>
+
+    
+    
+    <div class="box01">
+        현재 box01의 위치값을 알아보기
+    </div>
+    <p class="result"></p>
+    <input type="button" value="버튼을 글릭하면 박스의 위치값이 표시됩니다." id="btn01">
+
+    <p>onepagelove.com사이트에서 상단'templates'메뉴에서 'free template'메뉴를 클릭해 '데모'사이트에서 확인 </p>
+    
+    <h3>2.scroll메서드</h3>
+    <p>scroll메서드는 윈도우의 스크롤바의 위치값을 반환하고 설정해주는 메서드이다.(가로,세로)</p>
+    <ul>
+        <li>scrollTop(); -스크롤바의 세로 위칙값을 설정한다</li>
+        <li>scrollLeft(); -스크롤바의 가로 위치값을 설정한다.</li>
+    </ul>
+
+    <span class="s01">세로 스크롤값 나오는곳</span>
+    <span class="s02">가로 스크롤값 나오는곳</span>
+
+    <a href="#" title="화면 위로 올라가기" id="top_btn">Top</a>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+</body>
+</html>

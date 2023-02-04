@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습예제 탭메뉴</title>
+    <style>
+        *{margin: 0px; padding: 0px;}
+        ul,li,ol{list-style: none;}
+        a{text-decoration: none; color: #000;}
+
+        .wrap{
+            /* border: 1px solid #000; */
+            width: 900px; height: 635px;
+            margin: 0px auto;
+        }
+        .wrap > h2{
+            /* border-bottom: 1px solid #000; */
+            display: none;
+        }
+        .wrap > ul{
+            border: 1px solid #000;
+            display: flex;
+            justify-content: space-around;
+            width: 900px;
+            /* background: #000; */
+        }
+        .wrap > ul > li{ 
+            /* border: 1px solid #000; */
+            width: 100%; height:100px;   
+            text-align: center;
+            /* background: #000; */
+        }
+        
+        .wrap > ul > li > a{
+            width: 100%;
+        }
+        .img_box{
+            width: 900px; height: 628px;
+            position: relative;
+           /* background: #f00; */
+        }
+        .img_box img:not(.img1){display: none;}
+
+        .img_all{
+            position: absolute;
+            width: 100%; 
+            
+        }
+    .img_all:not(.img1){display: none;}
+
+    .on{background: #f06d01;}
+    .asd{color: #fff;}
+    
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            let i_btn = $('.wrap > ul > li ');
+
+            i_btn.click(function(){
+                let n = $(this).index();
+                $('.wrap > ul > li ').each(function(i){ //li태그에 각각 기능을 삽입한다.
+          
+          $(this).find('img').attr('src',$(this).find('img').attr('src').replace('_off','_on'));
+          if(n!=i){ //만약에 선택한 요소의 인덱스 번호가 아니라면 아래 내용을 실행하고
+            $(this).find('img').attr('src',$(this).find('img').attr('src').replace('_on','_off'));
+          }
+        });
+
+                let a = $(this).index();
+                $(this).addClass('on').siblings().removeClass('on');
+                $(this).find('div').addClass('asd');
+                $(this).siblings().find('div').removeClass('asd');
+                $('.img_box img').hide();
+                $('.img_box img').eq(a).show();
+                $
+                // console.log(n);
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <article class="wrap">
+        <h2>실습예제</h2>
+        <ul>
+            <li class>
+                <a href="#" title="테마여행">
+                    <img src="./img/ico_theme_zone_1_off.png" alt="">
+                    
+                    <div>테마여행</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="">
+                    <img src="./img/ico_theme_zone_2_off.png" alt="">
+                    
+                    <div>추천일정</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="">
+                    <img src="./img/ico_theme_zone_3_off.png" alt="">
+                   
+                    <div>스크린속 제주</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="">
+                    <img src="./img/ico_theme_zone_4_off.png" alt="">
+                   
+                    <div>교통정보</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="">
+                    <img src="./img/ico_theme_zone_5_off.png" alt="">
+                    <div>안전.안심관광가이드</div>
+                </a>
+            </li>
+            
+        </ul>
+        
+        <div class="img_box">
+            <img src="./img/01.jpg" alt="" class="img1 img_all">
+            <img src="./img/02.jpg" alt="" class="img2 img_all">
+            <img src="./img/03.jpg" alt="" class="img3 img_all">
+            <img src="./img/04.jpg" alt="" class="img4 img_all">
+            <img src="./img/05.jpg" alt="" class="img5 img_all">
+        </div>
+    </article>
+    
+</body>
+</html>

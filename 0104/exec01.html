@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트 문서객체모델_속성값을 활용한 상품 미리보기 콘텐츠</title>
+  <style>
+    *{margin: 0px; padding: 0px;}
+    li{list-style: none;}
+
+    .big_image{width: 40%; }
+
+    li{display: inline;}
+    
+    ul>li>img{margin-top: 10px;
+    width: 7.8%; 
+    /* display: inline-block; line-height: 40px; */
+    }
+
+.porduct{
+  position: relative;
+}
+
+.c_right{width: 60%; height: 30%;
+  position: absolute;right:0px  ; top: 100px;
+}
+
+.c_right >h3{
+  margin-bottom: 20px;
+  color: #f00;
+  font-size: 15px;
+}
+
+.p01{font-size: 18px;
+  margin-top: 8px;
+font-weight: bold;}
+
+p> span{color: #f00;
+font-size: 30px; 
+margin-right: 10px;
+}
+
+.p02{ margin-top: 30px;
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+.p02 > a {font-size: 15px;
+  display: inline-block;
+  width: 85px; height: 25px;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 25px;
+}
+
+p > a{text-decoration: none; 
+  color: #333;  
+}
+.p03{
+  margin-top: 50px;
+}
+
+.p03> a {
+
+  display: inline-block;
+  width: 250px; height: 30px;
+  text-align: left;
+  background-color: rgb(126, 121, 121);
+  color: #ccc;
+  line-height: 30px;
+}
+  </style>
+</head>
+<body>
+  <h2>자바스크립트 문서객체모델_속성값을 활용한 상품 미리보기 콘텐츠</h2>
+  <p>이미지 5장을 사용해 썸네일 이미지를 클릭시 큰사진이 보이게 하기</p>
+<section class="product">
+  <article class="photo">
+    <img src="./images2/photo01.jpg" alt="포토1" class="big_image" id="b_iMage">
+    <!-- 먼저 해볼 테스트-(썸네일 클릭시 해당 속성 src값을 변수에 담아서 출력한다.) -->
+<ul>
+  <li><img src="./images2/photo01.jpg" alt="썸네일" class="small"></li>
+  <li><img src="./images2/photo02.jpg" alt="썸네일"class="small"></li>
+  <li><img src="./images2/photo03.jpg" alt="썸네일"class="small"></li>
+  <li><img src="./images2/photo04.jpg" alt="썸네일"class="small"></li>
+  <li><img src="./images2/photo05.jpg" alt="썸네일"class="small"></li>
+</ul>
+  </article>
+  
+  
+  
+  
+  <article class="c_right">
+    <h3><span>오늘 마감</span></h3><hr>
+    <p class="p01">[최대 40%쿠폰] 머렐 헤비다운 외 스포츠 특가</p>
+    
+<p class="p02"><span>10%</span>151,200원~ <a href="#" title="혜택보기">혜택보기</a></p><hr>
+<p class="p03"><a href="#" title="구매 전 적립급 5,000원 받기">구매 전 적립급 5,000원 받기</a>
+   <a href="#" title="카드 무이자 혜택보기(최대 6개월)">카드 무이자 혜택보기(최대 6개월)</a>
+</p>
+  
+</article>
+</section>
+
+
+<script>
+  // 큰사진 변수에 저장
+let photo = document.querySelector('#b_iMage');
+// 작은사진 변수에 저장
+let s_img = document.querySelectorAll('.small');
+
+// 반복문을 통해 목록안에 이미지를 개별적으로 선택해 클릭이벤트만듬
+for(let i=0; i<s_img.length;i++){
+  // 변수 초기값 설정 = let i = 0
+  // .small 개수만큼 반복 실행한다.
+  // i ++ = 1씩 증가
+  console.log('s_img[i]');//출력해 테스트 확인
+//  changePc 자리에 function 와도 됨 선생님은 밖에 따로 함수지정
+  s_img[i].addEventListener('click', changePc);
+}//이미지를 각각 클릭하면 해당함수 실행
+function changePc(){//이미지를 변경하는 함수
+  let newPic= this.src;//사용자가 선택한 이미지 속성을 변수에 저장
+  console.log(newPic);//dlalwl src값을 출력확인
+//src값을 big_img의 src속성값에 대입해 이미지가 변경되도록 한다.
+
+photo.setAttribute('src',newPic);
+
+for(let j = 0; j<s_img.length; j++){
+  s_img[j].style.border='none';//모든 서식을 제거하고
+  this.style.border='1px solid #f00';//선택한 썸네일 이미지에 테두리 적용
+}
+}
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

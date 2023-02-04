@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_window(브라우저)_object(객체)</title>
+  <style>
+    *{margin: 0px; padding: 0px;}
+
+
+
+    .modal{
+      /* 2번 방법 */
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, .8);
+      position: fixed; left: 0px; top: 0px;
+    }
+    .modal > .banner{
+
+      /* 1번 방법 */
+      /* transform: translate (자기자리위치에서 이동기능) */
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+
+
+     width: 380px; height: 420px;
+    }
+    /* 이미지는 인라인 요소리(이미지의 여백을 없애기 위해 두개의 방법이 있음) */
+    /* 포지션으로 박스 중앙배치  */
+    .modal > .banner img{
+      display: block;
+      vertical-align: top;
+    }
+    .modal > .banner > p{
+      line-height: 40px;
+      background: #ccc;
+      text-align: center;
+    }
+    .modal input[type=button]{
+      color: #333;
+      background: none;
+      border: none;
+    }
+
+
+
+  </style>
+  <script>
+    // open()메서드
+    function popup(){
+      window.open('02_popup.html','width=400px;,height=410px;');
+      // window.open('파일경로와 파일이름, 확장자, 옵션, width=가로크기, height=세로크기')
+    };
+
+  </script>
+</head>
+<body>
+  <h2>01_window(브라우저)_object(객체)</h2>
+<p>브라우저 객체는 사용자가 사용하는 웹브라우저의 창에서 다양한 동작이나 속성을 설정하고자 할 때 사용하는 객체이다.</p>
+
+<h3>Window 객체</h3>
+<p>window 객체는 브라우저 객체 중 최상위 객체로서 현재 실행되고 있는 브라우저 창을 나타낸다.</p>
+
+
+<dl>
+  <dt>window객체의 속성(프로퍼티)</dt>
+  <dd>document</dd>
+  <dd>frameElement</dd>
+  <!-- 윈도우창 가로 세로높이 -->
+  <dd>innerHeight</dd>
+  <dd>innerWidth</dd>
+  <!-- 현재 브라우저 주소 가져오거나 설정할때 -->
+  <dd>location</dd>
+  <!-- 브라우저 타이틀 네임 -->
+  <dd>name</dd>
+  <!-- 스크린 xy값 좌표 -->
+  <dd>screenX</dd>
+  <dd>screenY</dd>
+  <!-- 스크롤시 수평 수직으로 이동하는 픽셀수 -->
+  <dd>scrollX, scrollY</dd>
+  <!-- 브라우저 데이터 저장하는 세션스토리지 -->
+  <dd>sessionStorage</dd>
+</dl>
+
+<dl>
+  <dt>window 객체의 메서드</dt>
+  <dd>alert(); - 윈도우창에서 경고창(메세지)를 띄울때 사용</dd>
+  <dd>blur(); - 현재창에서 포커스를 제거</dd>
+  <dd>close(); - 현재 창을 닫기</dd>
+  <dd>confirm(); - 확인,취소 버튼이 있는 확인창을 표시</dd>
+  <dd>focus(); - 현재창에 포커스를 부여합니다.</dd>
+  <dd>moveBy(); - 현재창을 지정한 크기만큼 이동</dd>
+  <dd>moveTo(); - 현재창을 지정한 좌표로 이동</dd>
+  <dd>open(); - 새로운청을 연다. (요즘 잘 안씀)</dd>
+  <dd>prompt(); - 사용자가 입력 가능한 프롬프트창을 연다 </dd>
+  <dd>resizeTo(); - 동적으로 브라우저의 창의 크기를 조정</dd>
+  <dd>scroll(); - 문서의 특정 위치로 스크롤 합니다.</dd>
+  <dd>sizeToContent(); - 내용에 맞게 창의 크기를 조절</dd>
+  <dd>stop - 로딩 중지</dd>
+</dl>
+
+
+<!-- 사용자가 입력을 잘못하였을때,입력하지 않고 버튼을 클릭한 경우 -->
+<input type="button" id="btn01" value="alert()실행하기" onclick="alert('메세지를 띄웁니다.');">
+<!-- 본인 인증시 인증번호 입력 -->
+<input type="button" id="btn02" value="prompt()실행하기" onclick="prompt('내용을 입력하세요.');">
+<!-- 결재,예약,주문확인,가입확인 -->
+<input type="button" id="btn03" value="confirm()실행하기" onclick="confirm('결재를 진행하시겠습니까?');">
+<!-- 팝업차단 기능이있어서 요즘에는 팝업창을 자주 안씀 -->
+<input type="button" id="btn04" value="open()실행하기" onclick="popup();">
+<input type="button" id="btn05" value="close()실행하기">
+
+<p>팝업창은 브라우저의 팝업차단 기능으로 인해 사용자가 보지 않을 가능성이 많아 요즘 팝업창을 뛰우지 않고,팝업레이어,모달윈도(css로 박스 포지션을 배치)를 활용해 띄운다.</p>
+
+<dl>
+  <dt>모달윈도(modal Window)</dt>
+  <dd>모달윈도(modal Window)는 사용자 인터페이스(UI)디자인 개념에서 자식 윈도에서 부모 윈도우로 돌아가기전에 사용자의 상호동작을 요구하는 창을 말한다</dd>
+  <dd>모달 윈도우는 부모창을 배경으로 어둡게 하고 자식요소가 화면의 가운데 중앙에 배치하도록 하며, 오른쪽 상단에 '닫기'버튼을 만들어 닫을수 있도록 한다.</dd>
+</dl>
+
+<div class="modal" id="m_box">
+  <div class=" banner">
+    <a href="#" title="">
+      <img src="./images/banner02.jpg" alt="광고배너">
+    </a>
+    <p><input type="button" value="닫기" onclick="hide();"></p>
+  </div>
+</div>
+
+<h3>실습예제 푸터영역에 있는 관련사이트(패밀리사이트) 바로가기 구현하기</h3>
+<!-- 사용자가 사이트 선택하면 선택한 값을 포함하여 함수를 적용한다. -->
+<select onchange="siteUrl(this.value);">
+  <option value="">관련사이트 바로가기</option>
+  <option value="https://www.lotteria.com/">롯데리아</option>
+  <option value="https://www.angelinus.com/About/VideoAdvertise_List.asp">엔젤리너스커피</option>
+  <option value="https://www.lotteshopping.com/">롯데백화점</option>
+  <option value="https://www.lotteimall.com/">롯데홈쇼핑</option>
+</select>
+
+<h3>실습예제.location객체를 사용해 웹페이지의 url정보를 표시하기</h3>
+<div id="location"></div>
+
+<h3>실습예제.screen 객체를 사용해 현재 화면크기 해상도 표시하기</h3>
+<p id="screen"></p>
+
+
+<script>
+  // 모달윈도우 숨기기
+  function hide(){
+    document.getElementById('m_box').style.display='none';
+  }
+// a는 사이트를 클릭하면 this.value(함수)값에서 a로 전달 아래는 조건식 값이잇으면 사이트 열림
+ function siteUrl(a){
+  if(a!=''){//만약 a값이 있다면   [!= (not이라는 뜻)]
+window.open(a,'_self');//윈도우창을 열어 해당페이지로 나오도록 한다.
+  }
+
+ }
+
+// 닷홈페이지의 주소 정보 가져오기
+document.getElementById('location').innerHTML="<p>전체주소: "+ location.href +"<br> 호스트주소: "+
+location.host+"<br> 프로토콜: "+location.protocol+"</p>";
+
+
+// 스크린 화면 크기 표시하기
+document.getElementById('screen').innerHTML="<p> 현재화면의 가로 해상도는"+screen.width+"이고 세로 해상도의 크기는"+screen.height+"입니다.</p>";
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

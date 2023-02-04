@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_변수(variable)</title>
+  <script>
+    //1.변수선언하기
+    let name ,region;
+    //2. 데이터 입력
+    name=prompt('이름을 입력하세요')
+    region=prompt('지역을 입력하세요')
+    //3.데이터 출력
+    document.write(`${name}가 사는 지역은 ${region}입니다`);
+    // 출력 예)입력하신 id는 0000이고 pw는 0000입니다 
+    let id, pw;
+    id=prompt('id를 입력하세요')
+    pw=prompt('pw를 입력하세요')
+
+    document.write(`<p>입력하신 id는 ${id}이고 비밀번호는 ${pw}입니다</p>`)
+
+
+
+
+  </script>
+</head>
+<body>
+  <h2>변수(variable)</h2>
+  <p>변수란? 변하는 데이터를 저장하기 위한 메모리 공간이다. 한번에 하나의 데이터만 담을
+    수 있고, 맨 마지막에 저장된 데이터가 남는다.</p>
+    <p>변수는 전역, 지역변수가 잇다</p>
+    <p>변수선언시 var, const, let키워드를 사용한다.</p>
+    <p>변수명 작성시 규칙에 의해 작성된다.</p>
+
+    <h3>예제1. 사용자가 입력한 이름과 지역명을 변수에 담아 내용출력해 보기</h3>
+    <p>예) '철수'가 사는 지역은 '서울'입니다</p>
+
+<h3>예제2_자신의 태어난 년도를 입력하여 나이 계산하여 출력하기</h3>
+    <p>pormpt명령어로 사용자가 태어난 년도를 입력할 수 있게 창을 띄우고, 변수에 담는다.</p>
+    <p>현재년도-태어난년도 + 1 식을 계산해 변수에 담는다.</p>
+    <p>계산된 결과값을 출력한다.</p>
+
+    <script>
+      let current_year = 2022;
+      let birth_year = prompt('태어난 년도 입력하세요');
+      let age;
+      age=current_year - birth_year + 1;
+      document.write(`당신의 나이는 ${age}입니다.`);
+
+
+
+    </script>
+
+
+</body>
+</html>

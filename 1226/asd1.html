@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01제어문(2_선택문) p 487</title>
+</head>
+<body>
+  <h2>01제어문(2_선택문 switch case) p487</h2>
+  <p>선택문(switch case) 은 사용자가 만든 조건이 만족할 때 까지 계속 실행하면서 조건에 맞으면 실행되고 프로그램이 그자리에서 종료됨</p>
+  <p>선택문은 조건의 값이 정확하게 일치해야 하는게 다른 조건문과의 차이점이다.</p>
+  <p>break문 - 조건식에서 원하는 값이 나왔을 때 프로그램이 정지돰</p>
+
+  <h3>사용자가 입력한 값에 따라 원하는 결과 나오게 하기</h3>
+  <p>1을 입력하면 '해외여행 상품권'.2를 입력하면 '대형tv'. 3을 입력하면 '상품권'. 그외는 '다음 기회에... 라고 출력하기'</p>
+
+
+  <script>
+    //switch case문 사용자가 입력한 데이터가 정확하게 일치 할때만 결과가 나온다.
+    let n = prompt('숫자를 입력해 주세요 예) 1,2,3,4....');
+    switch(n){
+      case '1':document.write('해외여행 상품권에 당첨되셨습니다.'); break;
+
+      case '2':document.write('축 대형 TV에 당첨되셨습니다.');break;
+
+      case '3':document.write('축 상품권에 당첨되셨습니다.');break;
+
+      default: document.write('다음 기회에....');
+    }
+
+    document.write('<br>');
+
+// switch case문을 사용해 현재 요일 표시하기
+// 요일에 맞는 해당하는 번호구하기
+let today = new Date();
+document.write(today+'<br>');//현재시간 날짜 년도 모두 표시하기
+document.write(today.getDay()+'<br>')
+
+
+document.write('오늘의 요일은');
+let num = today.getDay();
+switch(num){
+  case 0:document.write('일');break
+  case 1:document.write('월');break
+  case 2:document.write('화');break
+  case 3:document.write('수');break
+  case 4:document.write('목');break
+  case 5:document.write('금');break
+  default :document.write('토');
+}
+document.write('요일입니다');
+
+  </script>
+
+
+
+
+</body>
+</html>

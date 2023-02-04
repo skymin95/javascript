@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_animate메서드</title>
+  <style>
+  .circle{
+    width: 100px; height: 100px; background: #f00;
+    border: 1px solid #f00;
+    border-radius: 50%;
+    /* 위치를 움직이게 하기 위해서 */
+    position: relative;/*현위치가 기준*/
+    /**/
+    text-align: center;
+    line-height: 100px;
+    color: #fff;
+  }
+#kakao{
+  position: relative;
+  width: 200px;
+}
+.box{
+  background: #00f;
+  width: 60px; height: 60px;
+  margin-bottom: 10px;
+  position: relative;
+}
+/* 바 서식 */
+.bar01,.bar02,.bar03{
+  background: #f00;
+  width: 20px; height: 50px;
+  position: relative;
+  left: 0px;
+  margin-bottom: 10px;
+}
+/* 예제 */
+ul,ol,li{
+  list-style: none;
+}
+
+ul{
+  display: flex;
+ 
+}
+li{
+ position: relative;
+  background: #fff;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 500px;
+}
+ul>.exec{
+  /* border: 1px solid #ff0; */
+  width: 20px;
+  padding-left: 20px;
+  padding-right: 100px;
+}
+.e_bar,.e_bar1{
+  /* display: none; */
+}
+.e_bar{
+ position: absolute; top: 0px;
+  border: 1px solid rgb(56, 56, 228);
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 0%;
+  border: 1px solid rgb(56, 56, 228);
+  background: rgb(56, 56, 228);
+}
+
+.e_bar1{
+  position: absolute; top: 0px;
+  border: 1px solid rgb(56, 56, 228);
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 0%;
+  border: 1px solid rgb(56, 56, 228);
+  background: rgb(56, 56, 228);
+
+}
+
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<!-- 제이쿼리 ui라이브러리 -->
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<script>
+  $(function(){
+    $('#btn01').click(function(){//play 버튼 클릭시 애니메이션 동작함
+    $('.circle').animate({'left':'800px'},500).animate({'left':'0px'},1500);
+  })
+
+
+ $('#btn02').click(function(){//stop버튼을 클릭시 애니메이션 중지
+  $('.circle').stop();
+});
+
+$('#btn03').click(function(){//원우치로 버튼 클릭시 처음위치로
+  $('.circle').animate({'left':'0px'},1000);
+})
+
+
+// 버튼 클릭시 캐릭터 사진 이동하기
+let n = 50;//이동할 초기값
+$('#l_btn').click(function(){
+  $('#kakao').animate({'left':'-='+n},500);
+
+
+});
+// 오른쪽
+$('#r_btn').click(function(){
+
+  $('#kakao').animate({'left':'+='+n},500);
+
+
+});
+// 위쪽
+$('#t_btn').click(function(){
+$('#kakao').animate({'top':'-='+n},500);
+});
+// 아래쪽
+$('#b_btn').click(function(){
+$('#kakao').animate({'top':'+='+n},500);
+});
+
+// 4번. 박스 마우스 오버시
+
+$('.box').mouseenter(function(){
+  $(this).animate({'left':'800px'},600);
+})
+
+$('.box').mouseleave(function(){
+  $(this).animate({'left':'0px'},1200);
+})
+
+// easing값 사용하기
+$('#btn04').click(function(){
+  $('.bar01').animate({'width':'500px'},500,'easeOutQuint');
+})
+$('#btn05').click(function(){
+  $('.bar02').animate({'width':'800px'},500,'easeOutElastic');
+})
+$('#btn06').click(function(){
+  $('.bar03').animate({'width':'400px'},500,'easeInBounce');
+})
+
+
+// 예제
+$('.e_bar').animate({'width':'80%'},500,'easeOutQuint');
+$('.e_bar1').animate({'width':'60%'},500,'easeOutQuint');
+
+
+
+  })
+
+</script>
+
+
+
+
+
+
+
+</head>
+<body>
+  <h2>01_animate메서드</h2>
+  <p>제이쿼리에서는 효과와 애니메이트 메소드를 사용해 사용자가 선택한 요소를 다양하게 움직이게 만들수 있다.</p>
+  <h3>1.animate메서드 작성법</h3>
+  >$('대상').animate({'속성':'값'},시간,가속도,콜백함수);
+    <p>{'속성':'값'} - css속성과 값을 말하며, '값'에는 자바스크립트 변수나 연산자를 사용할 수 있다.</p>
+    <p>시간 - 애니메이션 동작하는 시간을 말하며 1/1000초=1초를 나타냄</p>
+    <p>가속도-easing메소드를 활용한 값을 말함(이미지 참조)</p>
+    <p>콜백함수-callback function으로서 애니메이션 동작이 끝나면 다음 동작을 이어서 실행하고자 할 때
+      사용.
+    </p>
+
+
+    <h3>2.animate메소드 사용해 원 움직이게 하기</h3>
+    <div class="circle">원</div>
+    <input type="button" value="play" id="btn01">
+    <input type="button" value="stop" id="btn02">
+    <input type="button" value="원위치" id="btn03">
+
+
+    <h3>3. 자바스크립트 절대값을 활용해 캐릭터 위치 조정하기</h3>
+    <img src="./images/라이언.jpg" alt="" id="kakao"><br>
+    <input type="button" value="&#x2190" id="l_btn">
+    <input type="button" value="&#x2192" id="r_btn">
+    <input type="button" value="&#x2191" id="t_btn">
+    <input type="button" value="&#x2193" id="b_btn">
+
+
+
+
+
+
+
+    <h3>4.box에 마우스 오버시 애니메이션 연속 동작하게 하기</h3>
+    <div class="box">&nbsp;</div>
+    <div class="box">&nbsp;</div>
+    <div class="box">&nbsp;</div>
+    <div class="box">&nbsp;</div>
+    <div class="box">&nbsp;</div>
+
+
+
+
+    <h3>5. 제이쿼리 UI라이브러리를 사용해 속도감 주기</h3>
+    <p>jquery.com사이트 왼쪽 상단의 ui탭을 클릭하고 왼쪽 easing메뉴에서 jquery.ui라이브러리를 찾아 연결하여 사용한다.</p>
+    <img src="./images/easing.png" alt="속도감주기">
+    <div class="bar01"></div>
+    <input type="button" value="easeOutQuint" id="btn04">
+    <div class="bar02"></div>
+    <input type="button" value="easeOutElastic" id="btn05">
+    <div class="bar03"></div>
+    <input type="button" value="easeInBounse" id="btn06">
+
+
+
+
+
+
+
+    <h3>6. 실습-자신의 능력치 표현하기 (html,css,javascript/jquery,UI,UX design)</h3>
+    <article>
+      <ul>
+      <div class="exec">HTML</div>
+        <li>&nbsp; <div class="e_bar">&nbsp;</div></li>
+        <div class="exec">80%</div>
+      </ul>
+
+      <ul>
+      <div class="exec">CSS</div>
+        <li>&nbsp; <div class="e_bar">&nbsp;</div></li>
+        <div class="exec">80%</div>
+      </ul>
+      
+      <ul>
+      <div class="exec">javascript</div>
+        <li>&nbsp; <div class="e_bar1">&nbsp;</div></li>
+        <div class="exec">60%</div>
+      </ul>
+    </article>
+  
+
+
+  </p>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03문자열(string) 객체</title>
+  <style>
+    .p01{
+      color: #f00;
+      background: #ff0;
+      width: 500px;
+    }
+    textarea{height: 50px;}
+  </style>
+</head>
+<body>
+  <h2>03문자열(string) 객체</h2>
+  <p>자바스크립트의 내장객체 중에서 활용도가 많은 객체이며, 문자열 값을 인덱스 번호를 통해 값을 찾거나 다른 문자로 변경도 가능하다.</p>
+  <p>아이디, 패스워드 입력창 문자열 개수 체크 , 단문 메시지 문자열 개수 체크, 패스워드 문자열 찾아서 다른 문자열로 변경, 이미지 갤러리등.....</p>
+  <p>문자열 객체는 다른 내장 객체와는 다르게 new 키워드를 생략해도 된다.</p>
+
+
+  <dl>
+    <dt>메서드의 종류</dt>
+    <dd>replace-문자열 치환하기</dd>
+    <dd>split-문자열 분리하기</dd>
+    <dd>substring-인덱스번호 구간까지 문자 데이터를 찾아줌</dd>
+     <dd>length- 문자열 개수를 체크해줌</dd>
+     <dd>indexof-문자열과 일치하는 인덱스 번호를 반환해줌</dd>
+  </dl>
+
+  <h3>실습예제- textarea태그를 활용하여 상요자가 입력한 글자수를 체크해 더이상 글자가 써지지 않도록 하여 몇글자 남았는지 체크하자</h3>
+  <form action="" name="" method="">
+    <legend>글자수 체크하기-댓글,답변글,상품평 남기기,실시간 문의글 등에 활용</legend>
+    <p class="p01">&#x261e;소감을 125자 이내로 적어주세요 </p>
+    <textarea name="msg" cols="50" rows="10" onkeydown="txtCount(this.form.msg.this.form.txtLen,125)"
+    onkeyup="txtCount(this.form.msg.this.form.txtLen,125)">
+
+    </textarea>
+    <p class="p01">&#x261e;현재
+      <input type="text" name="txtLen" size="3" maxlength="3" value="125" readonly>글자가 남았습니다
+    </p>
+
+  </form>
+
+<script>
+  // 위 텍스트박스에서 입력한 데이터값 매개변수 3가지를 함수로 뽑는다.
+  //msg: 텍스트박스의 이름
+  //txtLen: 사용자가 입력한 문자
+  // 125:최대값
+function txtCount(msg,txtLen,maxlimit){
+ if(msg.vaule.length>maxlimit){
+  // 더이상 입력이 안되게 한다.
+  msg.vaule=msg.vaule.substring(0,maxlimit);
+
+ }else{
+  // 125자에서 글자개수만큼 빼서 변수에 넣어 남은 숫자를 출력한다.
+  txtLen.vaule = maxlimit - msg.vaule.length;
+ }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//변수에 값 대입하기
+
+let url = 'http://www.naver.com';
+
+// 1.replace(a,b) - a를 찾아서 b로 변경한다.
+url=url.replace('naver','imbc');
+
+document.write('네이버 주소가' +url+'로 변경되었습니다')
+
+
+// 2. splite('a') - a를찾아서 문자를 분리한다
+url = url.split('.');
+document.write('<hr>'+url+'<br>');
+
+// 파일 확장자명도 알 수 있다.??
+
+
+// 3.substring - 해당하는 인덱스번호부터 문자열 표시
+// let src1 = prompt('사이트 주소를 입력하세요 예)http://www.naver.com');
+src1 = src1.substring(7);
+document.write(`<p>입력하신주소는 <strong>${src1}</storng>입니다.</p>`);
+
+  //4. length - 문자열의 개수를 체크한다
+  src1 = src1.length;
+  document.write(`<p>입력하신 주소의 문자열 개수는 <strong>${src1} </strong>입니다 </p>`)
+
+
+</script>
+</body>
+</html>

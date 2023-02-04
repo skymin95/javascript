@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 jquery_traversing(문서객체 탐색)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        ul{border: 2px solid rgb(45, 190, 40);
+            list-style: none;}
+            .page{
+                display: flex;
+                justify-content: center;
+                font-size: 12px;
+            }
+            .page>li{
+                padding: 0px 5px;
+                margin-right: -1px;
+                text-align: center;
+                width: 40px; height: 40px;
+                border: 1px solid #000;
+                line-height: 40px;
+            }
+            .page > li:hover{background: #ccc;}
+            .page > li:first-child{border-radius: 2px 0px 0px 2px;}
+            .page > li:last-child{border-radius: 0px 2px 2px 0px;}
+
+        .on{background: #fff;}
+
+
+
+
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('#btn01').click(function(){
+                $('.list01 > li').parent().css('border','3px solid #f00');
+            });
+
+            $('#btn02').click(function(){
+                $('.list01 > li').parents().css('border','2px dotted #00f');
+            });
+
+            $('#btn03').click(function(){
+                $('.list01 > li').parentsUntil('html').css('border','3px double #000');//.parentsUntil('html') ()안에 전까지만 찾아라
+            });
+
+
+
+            // 2.자식찾기
+            $('#btn04').click(function(){
+                $('.list02').children().css('color','#f00');
+            });
+
+
+            $('#btn05').click(function(){
+                $('.list02').find('.last').css('background','#ff0');
+            });
+
+
+
+            // 3.형제요소 찾기
+            $('#btn06').click(function(){
+                $('.list03 li:nth-child(3)').siblings().css('color','#f00');//자신자기를 제외한 형제 찾기
+            });
+
+            $('#btn07').click(function(){
+                $('.list03 li:first-child').next().css('color','#00f');
+            });
+
+            $('#btn08').click(function(){
+                $('.list03 li:first-child').nextUntil('.center').css('color','#0f0');
+            });
+
+            $('#btn09').click(function(){
+                $('.list03 li:first-child').nextAll().css('color','#fd1f7b');
+            });
+
+            $('#btn10').click(function(){
+                $('.list03 li:last-child').prev().css('background','#ff0');
+            });
+
+        
+            $('#btn11').click(function(){
+                $('.list03 li:last-child').prevAll().css('background','#0f0');
+            });
+
+        
+            $('#btn12').click(function(){
+                $('.list03 li:last-child').prevUntil('.center').css('background','#ffc107');
+            });
+
+        
+            //4.팀색메서드
+            $('#btn13').click(function(){
+                $('.list04 li').first().css('background','#ff0')
+            });
+
+            $('#btn14').click(function(){
+                $('.list04 li').last().css('background','#ff0')
+            });
+            
+            $('#btn15').click(function(){
+                $('.list04 li').eq(2).css('background','#0f0')
+            });
+            
+            $('#btn16').click(function(){
+                $('.list04 li').filter('.two').css('color','#f00') //.filter('.two') ()안에있는 값을 찾아라
+            });
+            
+            $('#btn17').click(function(){
+                $('.list04 li').not('.two').css('color','#00f')
+            });
+            
+
+
+            // 실습예제
+            $('.page li').not('.ctrl_btn').click(function(){
+                $(this).siblings().css('background','#fff');
+                $(this).css('background','#ccc');
+
+                // 선생님꺼
+                // if($(this).hasClass('.ctrl_btn')==false){
+                //     $(this).addClass('on').siblings().removeClass('on');
+                // }
+            
+                //  
+                    // $('.page li').not('.crtl_btn').click(function(){
+                    //     $(this).addClass(on).siblings().removeClass(on);  
+                    // })
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <h2>01 jquery DOM_traversing(문서객체 탐색)</h2>
+    <p>문서객체모델DOM-제이쿼리 traversing(탐색)메서드는 기존의 선택자보다 좀더 html문서의 요소들을 정확하게 선택해 주는 메소드이다.</p>
+    <p>css 선택자 부모아래 자식요소 선택은 '부모>자손' , '부모 자손', 형제요소 선택시 'A+B','A~B'방법을 사용한다.</p>
+    <p>제이쿼리에서는 html문서의 구조에서 부모요소를 찾거나 부모의 현제들, 부모아래 자식요소들,자식요소에서 부모의 부모를 찾을 수 있는 메소드드 들이다.</p>
+
+    <h3>1. 부모요소 찾기</h3>
+        <ul class="list01">
+            <li>parent(); - 선택한 요소의 바로 위에 위치한 부모요소를 선택한다</li>
+            <li>parents(); - 선택한 요소의 위에 위치한 모든 부모요소를 선택한다</li>
+            <li>parentUntil(); - 선택한 요소에서 부터 지정한 요소전까지 부모요소를 선택한다.</li>
+        </ul>
+        <input type="button" value="선택한 요소의 부모찾기(parent)" id="btn01">
+        <input type="button" value="선택한 요소의 부모들 찾기(parents)" id="btn02">
+        <input type="button" value="선택한 요소부터 지정한 선택자 전 까지의 부모들 찾기(parentUntil)" id="btn03">
+
+
+
+
+    <h3>2. 자식요소 찾기</h3>
+        <p>사용자가 선택한 요소를 기준으로 아래 자식요소를 찾는 메서드이다.</p>
+        <ul class="list02">
+            <li>childern(); -선택한 요소의 아래에서 자식요소를 선택</li>
+            <li class="last">find(); - 사용자가 선택한 요소의 아래에서 지정한 이름과 일치하는 요소선택</li>
+        </ul>
+        <input type="button" value="부모아래 자식요소 선택(childern())" id="btn04">
+        <input type="button" value="부모아래 자식요소 검색하여 선택(find())" id="btn05">
+
+
+
+
+
+    <h3>3. 형제요소 찾기</h3>
+        <p>Siblings메소드는 사용자가 선택한 요소를 기준으로 형제관계에 있는 (동일한)요소에서 이전, 다음요소들을 선택할 때 사용</p>
+        <ul class="list03">
+            <li>Siblings() - 현재요소의 형제관계인 요소를 모두 선택한다 (자신은 제외)</li>
+            <li>next() - 현재요소의 다음에 오는 요소를 선택</li>
+            <li>nextUntil() - 현재요소의 다음에서 부터 ~ 이전까지를 선택</li>
+            <li class="center">nextAll() - 현재요소의 다음에 있는 모든 요소를 선택</li>
+            <li>prev() - 현재요소의 이전에 있는 요소를 선택</li>
+            <li>prevAll() - 현재요소의 이전에 있는 모든 요소를 선택</li>
+            <li>prevUntill() - 현재요소의 이전에 있는 요소부터~전까지를 선택</li>
+        </ul>
+        <input type="button" value="siblings()" id="btn06">
+        <input type="button" value="next()" id="btn07">
+        <input type="button" value="nextUntil()" id="btn08">
+        <input type="button" value="nextAll()" id="btn09">
+        <input type="button" value="prev()" id="btn10">
+        <input type="button" value="prevAll()" id="btn11">
+        <input type="button" value="prevUntill()" id="btn12">
+
+
+
+
+
+
+
+    <h3>4. 탐색(taversing)메서드 -필터링</h3>
+        <p>html문서의 구조에서 사용자가 선택한 요소를 정확하게 찾아 낼 수 있는 메소드중의 하나이다.</p>
+        <ul class="list04">
+            <li>first() - 형제관계 요소들 중에서 첫번째 요소를 선택</li>
+            <li>last() - 형제관계 요소들 중에서 마지막번째 요소를 선택</li>
+            <li>eq(n) -  인덱스값의 n 번째에 해당하는 요소를 선택</li>
+            <li class="two">filter() - 사용자가 지정ㅎ나 이름에 맞는 요소를 선택</li>
+            <li>not() - 사용자가 지정한 이름이 아닌 요소를 선택</li>
+        </ul>
+        <input type="button" value="first()" id="btn13">
+        <input type="button" value="last()" id="btn14">
+        <input type="button" value="eq(n) " id="btn15">
+        <input type="button" value="filter()" id="btn16">
+        <input type="button" value="not()" id="btn17">
+
+
+
+<h3>실습예제 -닷홈 공지사항 페이지번호 목록구현</h3>
+<ul class="page">
+    <li class="ctrl_btn"><i class="fa-solid fa-angles-left"></i></li>
+    <li class="ctrl_btn"><i class="fa-solid fa-angle-left"></i></li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li class="ctrl_btn"><i class="fa-solid fa-angle-right"></i></li>
+    <li class="ctrl_btn"><i class="fa-solid fa-angles-right"></i></li>
+</ul>
+
+
+
+</body>
+</html>

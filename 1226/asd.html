@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_제어문(1_조건문) p.481</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  
+  <style>
+    span{color: #f00; font-size: 30px;}
+    
+    article{
+      width: 400px;
+      height: 730px;
+      border: 5px solid #fff;
+      box-shadow: 0px 0px 6px #333;
+      text-align: right;
+    }
+
+    i.fas{
+      padding: 4px 8px;
+      border: 1px solid #333333; cursor: pointer;
+    }
+
+    #page{
+      padding: 10px 20px; font-weight: bold;
+    }
+
+
+
+
+
+
+
+    </style>
+   
+
+
+
+
+
+
+
+   
+ <script>
+    // 1.if문 
+    if(1 == '1'){// 숫자 1과 문자 1이 같은지 (==값이 같냐)
+      document.write('<p>위 수식은 <span>참</span>입니다</p>');
+    }
+// 2.
+if(1 === '1'){// 숫자 1과 문자 1이 같은지   (=== 데이터도 같냐)
+      document.write('<p>위 수식은 <span>참</span>입니다</p>');
+    }
+    else{
+      document.write('<p>위 수식은<span>거짓</span>입니다</p>');
+    }
+
+    // 3. 사용자가 입력한 숫자데이터를 비교하여 '홀수','짝수'판단
+    let num = prompt('숫자를 입력하세요 예)1,2,3,4,5.....');
+
+    if(num%2==0){
+      document.write('<p>입력하신 숫자데이터는<span>짝수</span>입니다</p>');
+    }
+      else{
+        document.write('<p>입력하신 숫자데이터는<span>홀수</span>입니다</p>');
+      }
+    
+    // 4. else if문을 사용해 여러 조건식에 맞는 결과 나타내기
+    let jumsu = prompt('자신의 성적평균을 입력하세요. 예) 90,80,70,60,50');
+    if(jumsu >=90){
+      document.write('<p>당신의 성격은<span>수</span>입니다</p>')
+    }
+    else if(jumsu >=80){
+      document.write('<p>당신의 성격은<span>우</span>입니다</p>')
+    }
+    else if(jumsu >=70){
+      document.write('<p>당신의 성격은<span>미</span>입니다</p>')
+    }
+    else if(jumsu >=60){
+      document.write('<p>당신의 성격은<span>양</span>입니다</p>')
+    }
+    else{
+      document.write('<p>당신의 성격은<span>가</span>입니다</p>')
+    }
+
+
+
+   
+
+
+
+
+  </script>
+</head>
+<body>
+  <h2>01 제어문 (1_조건문) p/281</h2>
+  <p>제어문이란? 프로그램의 실행을 제어(control)하기 위해 사용하는 실행문으로서<br>
+    1.조건문
+    2.선택문
+    3.반복문
+  </p>
+
+  <h3>1.조건문- if,else, else if</h3>
+  <ul>
+    <li>if문:조건식에 만족하면 실행되는 조건문임</li>
+    <li>else문: 조건식에 만족하면 true(합격),만족하지않으면 false(불합격)값이 출력되는 조건문임</li>
+    <li>if else문:조건식이 여러개일 경우 다양한 결과값을 얻기 위한 조건문이다.</li>
+  </ul>
+
+<article>
+  <h2>교보문고 책이미지 콘텐츠 구현하기</h2>
+  <p>좌,우측방향 버튼을 클릭시 숫자 증가/감소 기능 만들기</p>
+  <p>변수값이 변경될 때 이미지 파일도 같이 변경되게 변수를 파일명에 대입</p>
+<i id="page">&nbsp;</i>
+<!-- left누르면 마이너스   right누르면 플러스 -->
+<i class="fas fa-angle-left" onclick="minus()"></i> 
+<i class="fas fa-angle-right" onclick="plus()"></i>
+  <div>
+    <img src="./images/book1.jpg" alt="책" id="book">
+  </div>
+
+
+
+
+</article>
+<script>
+   //5.좌우 방향버튼을 클릭하면 해당 함수가 호출되게 하여 1씩 증가되거나, 1씩 감소가
+   let n=1;//초기값
+    document.getElementById('page').innerHTML=n+'/10';
+
+    // 증가하는 함수
+    function plus(){
+      if(n==10){//만약에 n이 10이라면
+        n=1; //n에 1을 대입해 첫번째가 나오게
+      }
+      else{ //그렇지 않으면
+        n++; //1씩 증가해 다음이미지가 나오게
+      }
+      document.getElementById('page').innerHTML=n+'/10';
+      document.getElementById('book').src="./images/book"+n+".jpg";
+    }
+
+    // 감소하는 함수
+    function minus(){
+      if(n==1){ //만약 n이 1이라면
+        n=10; // n은 마지막
+      }
+      else{
+        n--;
+      }
+
+      document.getElementById('page').innerHTML=n+'/10';
+      document.getElementById('book').src="./images/book"+n+".jpg";
+      
+    }
+
+
+
+
+</script>
+
+
+</body>
+</html>

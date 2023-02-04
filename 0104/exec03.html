@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문자열 객체를 이용한 이미지 갤러리</title>
+  <style>
+
+
+
+
+
+
+#img_box *{margin:0px;padding:0px;}
+    #img_box{
+      width:600px;border:3px solid #000;
+      margin:0px auto;
+      overflow:hidden;
+    }
+    #img_box .lnb{display:flex;}
+    #img_box .lnb li{width:100%;list-style:none;}
+    #img_box img{width:100%;}
+    #img_box .lnb img:hover{opacity:0.8;}
+   
+    </style>
+    <script src="../script/main01.js" defer></script>
+
+</head>
+<body>
+  
+  <article id="img_box">
+    <ul class="lnb">
+      <li><img src="./images/movie_image0.jpg" alt="" class="s_img"></li>
+      <li><img src="./images/movie_image1.jpg" alt="" class="s_img"></li>
+      <li><img src="./images/movie_image2.jpg" alt="" class="s_img"></li>
+      <li><img src="./images/movie_image3.jpg" alt="" class="s_img"></li>
+      <li><img src="./images/movie_image4.jpg" alt="" class="s_img"></li>
+      <li><img src="./images/movie_image5.jpg" alt="" class="s_img"></li>
+      <li><img src="./images/movie_image6.jpg" alt="" class="s_img"></li>
+      <li><img src="./images/movie_image7.jpg" alt="" class="s_img"></li>
+     
+    </ul>
+    <div id="big_img">
+      <img src="./images/movie_image0.jpg" alt="" id="photo">
+    </div>
+  </article>
+  
+  
+  
+  
+</body>
+</html>

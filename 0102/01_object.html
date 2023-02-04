@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_객체(object) p.544</title>
+  <style>
+    .p01{
+      color: #f00;
+      font-weight: bold;
+      background: #ff0;
+    }
+  </style>
+</head>
+<body>
+  <h2>01_객체(object)</h2>
+  <p>자바스크립트는 객체기반의 언어입니다. 모든 명령어가 객체로 이루어져 있으며, 크기 <br>
+    1.사용자 정의 객체.<br>
+    2.내장객체로 나눕니다.
+  </p>
+
+  <h3>객체(object)란?</h3>
+  <p>1.이름(ke)과 값(value)로 이루어진 속성을 담아놓은 컨테이너다</p>
+  <p>2. 객체에 변수를 선언하면 속성(prompt)를 사용할수 있다.</p>
+  <p>3. 객체에 함수를 선언하면 속성(methood)를 사용할수 있다.</p>
+  
+
+
+<script>
+//사용자 정의 객체 선언하기
+let car = new Object();
+
+car.type = "현대자동차";
+car.model = "그렌져";
+car.color = "흰색";
+
+//객체를 호출해 데이터 출력하기
+document.write('<p>'+car.type+'</p>')
+document.write('<p>'+car.model+'</p>')
+document.write('<p>'+car.color+'</p>')
+document.write('<p>나의 자동차 모델은'+ car.type+'의'+car.model+'이며 차량의 색상은 '+ car.color+'입니다</p>')
+
+//객체를 선언하는 두번째 방법
+let person ={
+firstName : '홍',
+lastName : '길동',
+age:'23',
+height:175,
+}
+// 나의 이름은 홍길동이고 나이는 23세이며 키는 175입니다
+document.write('<p>나의 이름은'+person. firstName+person.lastName+'이고 나이는'
++person.age+'세이며, 키는'+person.height+'입니다</p>');
+
+// 문.자신의 스마트폰을 객체로 생성하여 스마트폰의 화면크기,해상도,카메라화소,컬러 속성 값을 출력하세이
+/*
+출력예)
+화면크기:4.7인치
+해상도:1334*750
+카메라 화소 1200만 화서
+색상:실버
+위4가지 속성값에 대해서는 글자색 빨강+굵게,배경색:노랑 서식적용
+*/
+
+let phone = {
+  size: '6.12',
+  resolution: '2556*1179',
+  camera:1200,
+  color:'gold'
+}
+
+document.write(`<p class="p01">화면크기:${phone.size}</p> <p class="p01">해상도:${phone.resolution}</p>  
+<p class="p01">카메라 화소:${phone.camera}</p> <p>컬러:${phone.color}`);
+
+
+
+
+
+</script>
+</body>
+</html>

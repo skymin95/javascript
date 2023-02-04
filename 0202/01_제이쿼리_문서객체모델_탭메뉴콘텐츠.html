@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_제이쿼리_문서객체모델_탭메뉴콘텐츠</title>
+    <style>
+        ul,li,ol{list-style: none;}
+        a{text-decoration: none; color: #333;}
+        body{
+            font-family: '맑은 고딕',Arial, sans-serif;
+            font-size: 12px;
+            color: #333;
+        }  
+        .tab_con *{margin: 0px;padding: 0px;}
+        .tab_con{
+            width: 895px;height: 461px;
+            border: 3px solid #000;
+            margin: 0px auto;
+            position: relative;
+        } 
+        .tab_con > h2{
+            line-height: 46px;
+            font-size: 26px;
+        }
+        .tab_con > ul{display: flex;}
+        .tab_con > ul >li{
+            text-align: center;
+            width: 25%; height: 50px;
+        }
+        .tab_con > ul > li >a{
+            font-size: 16px;
+            display: block; line-height: 50px;
+            border-bottom: 1px solid #333;
+
+        }
+        .tab_con .con{
+            width: 895px; height: 335px;
+            position: absolute; left: 0px;
+            bottom: 0px;
+        }
+        .c01{background: #f00;}
+        .c02{background: #0f0;}
+        .c03{background: #ff0;}
+        .c04{background: #00f;}
+
+        /* 부정선택자 해당하는 클래스가 존재하지 않는 요소를 찾는다. */
+        div:not(.c01){display: none;}
+        
+        .act{
+            border: 1px solid #333;
+            border-bottom: none !important;
+            font-weight: bold;
+        }
+
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    $(function(){
+        let t_mnu = $('.tab_con li a');
+
+    t_mnu.click(function(){
+        $(this).addClass('act').parent().siblings().find('a').removeClass('act');
+        // 방법1 인덱스값을 사용해 해당하는 eq()메서드를 사용
+        // 방법2. this next()
+        // $('.tab_con div').hide();
+        // $(this).next().show();
+        $(this).next().show().parent().siblings().find('div').hide();
+
+
+
+        return false;
+    });
+
+    });
+</script>
+
+
+
+
+
+
+</head>
+<body>
+    <h2>01_제이쿼리_문서객체모델_탭메뉴콘텐</h2>
+    <p>노랑풍선 사이트의 '해외여행패키지' > 페이지의 탭메뉴 콘텐츠 구현한다. </p>
+    <p>탭메뉴 콘텐츠는 메뉴 클릭시 해당하는 콘텐츠가 바로 아래 나오면서 기존 콘텐츠는 숨겨지고 영역안에서만 변경되는 콘텐츠이다.</p>
+    <p>특정영역에서만 보여지기 때문에 좁은 공간에서 많은 콘텐츠를 보여주고자 할 때 사용</p>
+    <!-- 탭메뉴는 가로 세로 크기 정하고 하기  895/461   46/50/355 -->
+    <article class="tab_con">
+        <h2>테마로 만나는 패키기 여행</h2>
+        <ul>
+            <li>
+                <a href="#" title="소아동반" class="act">소아동반</a>
+                <div class="con c01">탭메뉴 콘텐츠 내용이 들어가 있는박스</div>
+            </li>
+            <div><img src="./img/01.jpg" alt=""></div>
+
+            <li>
+                <a href="#" title="워터파크">워터파크</a>
+                <div class="con c02">1</div>
+
+            </li>
+
+            <li>
+                <a href="#" title="가성기甲">가성기甲</a>
+                <div class="con c03">2</div>
+
+            </li>
+
+            <li>
+                <a href="#" title="시내중심">시내중심</a>
+                <div class="con c04">3</div>
+
+            </li>
+        </ul>
+
+    </article>
+
+
+
+</body>
+</html>

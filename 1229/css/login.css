@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+
+h2{text-align: center;
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+p{
+  text-align: center;
+}
+
+label{display: none;}
+label[for=id_save]{
+  display: inline;
+}
+
+
+
+
+#id_txt,#pw_txt,.login_btn,
+.naver,.kakao{
+  width: 400px;height: 40px;
+  text-align: center;
+  display: block;
+  
+}
+
+.fieldset01{
+  width: 425px; 
+  margin: 100px auto;
+  
+  /* background: red; */
+}
+
+#id_txt,#pw_txt{
+  margin-bottom: 25px;
+  background: #ccc;
+  border: 1px solid #ccc;
+}
+
+div{margin-bottom: 25px;}
+
+.naver{
+  margin-bottom: 25px;
+}
+
+.login_btn{
+  background: #f00;
+  border: 1px solid #f00;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+/* 회원가입 로그인 배치 다른방법 찾아보기 */
+.p01{
+  margin-top: 15px;
+ 
+  width: 120px;
+  /* border: 1px solid #ff0; */
+  text-align: left;
+}
+.p02{
+  position: relative; right: -320px; top: -14px;
+  display: inline;
+  /* border: 1px solid #ff0; */
+}
+
+
+
+
+
+.naver{
+  background: #68f318;
+  border: 1px solid #68f318;
+  color: #fff;
+  font-weight: bold;
+}
+.kakao{
+  background: yellow;
+  border: 1px solid yellow;
+  color: rgb(29, 28, 28);
+  font-weight: bold;
+}

@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+*{margin: 0px; padding: 0px;}
+ul,li,ol{
+    list-style: none;
+}
+body{
+    font-family: "맑은 고딕",Arial, sans-serif;
+        font-size: 12px;
+        color: #333;
+        overflow-x: hidden;
+}
+a{
+    color: #333;
+    text-decoration: none;
+}
+#wrap{
+    width: 100%;
+    position: absolute;
+    right: 0px;
+    transition: 0.5s; /*시간속성*/
+}
+header{
+    width: 100%; height: 80px;
+    background: #ffe6ee;
+    position: relative;
+}
+header > h1{
+    text-align: center;
+}
+header > h1 img{
+    width: 120px;
+    padding-top: 10px;
+}
+#toggle{
+    position: fixed; right: 34px; top: 12px;
+    width: 50px; cursor: pointer;
+    padding: 12px 10px 10px 10px;
+    z-index: 9999;
+    text-align: center;
+    line-height: 14px;
+}
+#toggle > span{
+    display: inline-block;
+    background: #ef426f;
+    width: 40px; height: 4px;
+    transition: 0.3s;
+    
+}
+/* 1. 토글버튼 들어갈 서식 */
+.act01{
+    transform:rotate(45deg);
+    background-color: #ef426f !important;
+    position: absolute ; top: 26px; right: 13px;
+}
+
+.act02{display: none !important; }
+
+.act03{transform:rotate(-45deg);
+    background-color: #ef426f !important;
+    position: absolute;right: 13px; top: 26px;
+}
+/* 내비게이션 서식 */
+.gnb{
+    width: 80%;height: 100%;
+    background-color: rgba(214, 66, 66, 0.7);
+    position: absolute; right: -80%;top: 0px;
+    padding: 20% 3% 0% 5%;
+    box-sizing: border-box;/*패딩
+    테두리값을 전체크기에 포함되어 계산*/    
+}
+.gnb>ul{}
+.gnb>ul > li{}
+.gnb>ul >li >a{}
+
+
+.wrap_pos{
+    right: 80% !important; 
+}
+.on{
+    right: 10px; top: 10px;
+    position: absolute !important;
+    z-index: 9999;
+}
+.slide ul{
+    display: flex;
+    overflow: hidden;
+    width: 300%;
+}
+.slide ul li{
+    width: 100%;
+}
+.slide ul li img{width: 100%;}
+
+
+main{overflow: hidden;}
+
+
+footer{
+background: #333;
+color: #fff;
+text-align: center;
+}
+footer > address{
+line-height: 60px;
+font-style: normal;
+}

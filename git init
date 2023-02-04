@@ -1,0 +1,10 @@
+user.name=skymin95
+user.email=minseok9036@naver.com
+user.password=[200~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~
+core.autocrlf=true
+safe.diectory=D:/jts/html/react_/study/build
+safe.directory=D:/jts/html/react_/study/build
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true

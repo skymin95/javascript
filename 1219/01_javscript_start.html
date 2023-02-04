@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 자바스크립트 소개와 기초문법 p441</title>
+  <style>
+    h3{
+      background-color: #ff0;
+      text-align: center; 
+      color: #f00;
+    }
+    footer{
+      background-color: #333; color: #fff;
+      text-align: center; line-height: 50px;
+    }
+  </style>
+  <script>
+    //1.내부스크립트로 내용 추가하기//
+    document.write('<h3>내부 자바스크립트로 내용 출력하기</h3>')
+  </script>
+</head>
+<body>
+  <h2>01 자바스크립트 소개와 기초문법 p441</h2>
+  <p>자바스크립트는 html문서안에서 삽입되어 동작된다.</p>
+  <p>기본적으로 css 언어와 같이 head안에서 작성되며,필요에 따라 body태그 안에서 작성이 가능하다</p>
+  <p>자바스크립트는 주석을 작성할 때 2가지 종류가 있으며,한줄주석과 두줄이상 주석이 있다. 한줄주석은 '//1줄주석' <br>
+'/*
+2줄주석 
+*/'
+</p>
+<p>html,css언어는 대,소문자를 구별 안하지만 자바스크립트는 대 ,소문자를 구별한다</p>
+<p>자바스크립트에서는 여러 데이터 형식이 존재하는데 그 중에서 '문자데이터'를 표시할 때 '', ""구분기호를 사용해야 한다.</p>
+<p>자바스크립트는 css 처럼 현재 문서에서만 적용할 수 있는 '내부스크립트'와 별도의 js문서를 작성하여 html문서에 연결해서 적용하는 '외부스크립트'가 있다.</p>
+<p>스크립트 작성시 script,/script으로 종료한다</p>
+
+
+<!-- 외부스크립트 
+  css서식 배경 #333, 글자색#fff
+text-align:center,line-height:50px  -->
+<script src="../script/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+@charset "utf-8";
+
+@media screen and (max-width:767px) {
+  
+  label[for=toggle], .cart_btn{
+    display:block;
+  }
+  header{
+    height:60px;
+    position:relative;
+    background:#4B4B4B;
+  }
+  .h_top > h1{
+    width:130px;
+    margin:0px auto;
+}
+  .h_top > h1 img{
+    padding-top:4px;
+    width:100%;
+  }
+  /* 전체메뉴, 카트버튼 위치서식 */
+  .total_btn, .cart_btn{
+    position:absolute;
+    top:10px;
+    padding:10px;
+  }
+  .total_btn{left:10px; }
+  .cart_btn{right:10px;}
+  .fa-bars, .fa-shopping-cart{
+    font-size: 24px;
+    color:#fff;
+  }
+
+  /* 내비게이션 서식 */
+  .h_bottom{
+    width:100%;height:100%;
+    position:fixed;top:0px;left:-100%;
+    background-color:#333;
+    z-index:1000;
+    transition:0.5s;
+  }
+  .h_bottom .c_btn{
+    position:fixed; right:100%;top:2%;
+    color:#fff;
+    font-size:2.2rem;
+    padding:6px;
+    transition:0.5s;
+  }
+  /* 검색폼 */
+fieldset{
+  position:fixed !important;
+  width:100%;
+  left:-100%;top:3%;
+  z-index:1001;
+  text-align:center;
+  transition:0.5s;
+}
+.gnb{
+  width:100%;
+  position:absolute;
+  left:0px;top:13%;
+  z-index:1001;
+}
+.gnb ul{
+  padding:0px 1.2%;
+}
+.gnb ul li{
+  border-bottom:1px solid #ccc;
+  text-indent: 20px;
+}
+.gnb ul li a{
+  color:#fff;
+  line-height:220%;
+  font-size:1rem;
+  display: block;
+}
+.lnb{
+  position:fixed;
+  width:100%;
+  top:420px;  left:-100%;
+  z-index:1001;
+  transition:0.5s;
+}
+.lnb ul{
+  display:flex;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+.lnb ul li{
+  width:44%;
+  margin:0px 2px 4px 2px;
+  background:#ccc;
+  display:inline-block;
+  text-align:center;
+}
+.lnb ul li a{
+  line-height:40px;
+  display:block;
+}
+
+/* 전체메뉴 클릭시 닫기, 검색, lnb, h_bottom */
+#toggle:checked + header > .h_bottom .c_btn{
+  right:3%;
+}
+#toggle:checked + header > .h_top fieldset{
+  left:0px;
+}
+#toggle:checked + header > .h_bottom{
+  left:0px;
+}
+#toggle:checked + header > .h_top .lnb{
+  left:0px;
+}
+
+.sub{display:none;}
+
+/* 메인 콘텐츠 서식 */
+main > .slide img{
+  /* width:100%; */
+  /* transform:scale(2); */
+  height:400px;
+  /* transform:translateX(-100px); */
+  object-fit:cover;/*이미지 크기 비율을 높이기준으로 맞춤 (가로가 짤림)*/
+}
+/* 사료무료체험 */
+.free_ex{
+  padding:50px 0px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.free_ex article > img{width:70%;}
+.free_ex_right{color:#fff;}
+@media screen and (max-width:500px) {
+  .free_ex article > img{
+    transform:translateY(70%);
+  }
+  .free_ex_right{
+    transform: translateY(-360px);
+  }
+}
+@media screen and (min-width:501px) and (max-width:767px){
+  .free_ex article > img{
+    max-width:60%;
+    transform:translateY(70%);
+  }
+  .free_ex_right{
+    transform: translateY(-360px);
+    color:#fff;
+  }
+}
+.free_ex_right > h2{
+  font-size:2rem;
+  font-weight:200;
+  padding-bottom:16px;
+}
+.free_ex_right > h2 > img{
+  padding-bottom: 10px;
+  width:60px;
+}
+.free_ex_right p{
+  font-size:1.125rem;
+  line-height:24px;
+  padding:10px 0px 30px 0px;
+}
+/* 버튼 공통서식 */
+.button{
+  font-size:16px;
+  background:#fff;
+  padding:6px 30px;
+  border:1px solid #ccc;
+  transition:0.5s;
+}
+
+/* 상품목록 */
+  .shop{padding:50px 0px 50px 0px;}
+  .shop > h2{
+    text-align:center;
+    font-size:2rem;  /*16*2=2rem */
+    padding:20px 0px 60px 0px;
+    font-weight:200;
+  }
+  .shop > h2 > img{
+    width:40px;
+    padding-right:10px;
+    transform:translateY(8px);
+  }
+  .p_center{
+    text-align:center;
+    margin-bottom:80px;
+  }
+  .product{
+    width:160%;
+    display:flex;
+    justify-content: space-around;
+  }
+  .product > li{
+    width:80%;
+    text-align:center;
+  }
+  .product > li img{
+    width:220px;
+    float:left;
+    padding:0px 0px;
+  }
+  .info{
+    width:160px;
+    float:right;
+    padding-top:10px;
+    font-size:1rem;
+  }
+  .info> h3{
+    font-weight:500;
+    font-size:1.2rem;
+  }
+  .info > p {line-height:40px;}
+  .info > .price{
+    padding-top:20px;
+    font-weight: bold;
+    font-size: 18px;
+    color:#f00;
+    display:inline-block;
+  }
+  .info > p:last-of-type{
+    padding:20px 0px 0px 0px;
+  }
+
+  /* 펫스토리서식 */
+  .story{
+    clear:both;
+    background:#f0f0f0;
+    height:720px;
+  }
+  .story > h2{ display:none;}
+  .story > article{
+      padding:50px 0px;
+      text-align:center;
+  }
+  .story > article > h2{
+    font-size:36px;
+    color:#333;
+    font-weight:200;
+    padding-top:120px;
+    padding-bottom:60px;
+  }
+  .story_left{
+    text-align:center;
+  }
+  .story_left > h2{
+    font-size:36px;
+    color:#333;
+    font-weight:200;
+    padding-top:40px;
+    padding-bottom:30px;
+  }
+  .story_left p{
+    font-size:18px;
+    line-height:30px;
+    padding-bottom:40px;
+  }
+  .story_left > h2 img{width:40px;}
+  .s_img{
+    width:320px;
+    padding-top:50px;
+  }
+
+  /* 인스타그램 서식 */
+  .instar{padding:20px 0px;}
+  .instar > h2{
+    text-align:center;
+    font-size:1.85rem;
+    color:#333;
+    font-weight:300;
+    padding-top:60px;
+    padding-bottom:40px;
+    text-transform: uppercase;
+  }
+  .id_name{
+    display:block;
+    font-size:1rem;
+    padding:10px 0px;
+    text-transform: lowercase;
+  }
+  h2 img{
+    width:40px;transform:translateY(10px);
+  }
+  .gallery{
+    width:100%;
+    padding:10px;
+    grid-gap:10px;
+    display:grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3,160px);
+    box-sizing: border-box;
+  }
+  .gallery li{overflow:hidden;}
+  .gallery img{
+    width:100%;
+    object-fit: cover;
+  }
+  /* li 7번 ~ 12번 안보이게 함. */
+  .gallery li:nth-child(6) ~ li{display:none;}
+
+
+/* 푸터영역 */
+footer{height:auto;}
+.f_nav{
+  width:100%;
+  flex-wrap: wrap;
+  justify-content: center;
+	align-content: stretch;
+}
+.f_nav > ul{
+  width:100%;
+  order:2;
+}
+.f_nav > dl{
+  width:100%;
+  order:1;
+}
+.f_nav dl dd > span{padding-left:10px;}
+.f_lnb li a{
+  color:#fff;
+  font-size:0.875rem;
+}
+.f_info{
+  width:100%;
+  padding:50px 0px 15px 0px;
+}
+.f_info dl{
+  flex-wrap:wrap-reverse; /*순서뒤바꿈*/
+}
+.f_info dd{
+  font-size:0.9rem;
+  line-height:240%;
+}
+.number{font-size:1.6rem;}
+.f_info dl dd:first-of-type{width:50%}
+.f_info dl dd:nth-of-type(2){width:50%}
+.f_info dl dd:nth-of-type(2) ~ dd{
+  width:100%;
+  text-align:center;
+}
+address{
+  width:100%;
+  display: block;
+}
+address .a_info, address .a_pay{
+  width:100%;
+  padding:10px 0px;
+}
+
+
+}

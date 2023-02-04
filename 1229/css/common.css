@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+/* 체크박스, 전체메뉴, 장바구니 아이콘 숨기기 */
+#toggle, label[for=toggle], .cart_btn{
+  display:none;
+}
+
+header{
+  background:#4B4B4B;
+  position:relative;
+  z-index:100;
+}
+
+fieldset legend, fieldset span{display:none;}
+header fieldset {
+  position:absolute;
+  right:-10px;top:60px;
+}
+#search{
+  width:230px;height:30px;
+  border-radius:26px;
+  text-align:center;
+  border:none;
+  /* transition:0.3s; */
+}
+/* #search:focus{width:230px;} */
+label.fa-search{
+  font-size:22px;
+  transform:translate(-36px, 4px);
+}
+
+/* 메인공통서식 */
+main > .slide > h2, .free_ex > h2, .free_ex > article > h2{
+  display:none;
+}
+.free_ex{background:#E32929;}
+
+
+/* 푸터영역 */
+footer{
+  background:#464545;
+  height:360px;
+}
+.f_top{
+  height:60px;
+  background:#989898;
+}
+.f_nav{
+  width:1200px;
+  margin:0px auto;
+  display:flex;
+  justify-content:space-evenly;
+}
+.f_lnb, footer dl{
+  display:flex;
+  justify-content:space-evenly;
+}
+.f_lnb li{margin:0px 15px;}
+.f_lnb li a{
+  font-weight:bold;
+  font-size: 14px;
+  color:#333333;
+  line-height:60px;
+}
+.f_nav dl{
+  width:600px;
+  line-height:60px;
+  font-size:14px;
+  color:#fff;
+}
+.f_nav a{color:#fff;}
+.f_nav dl > dt{}
+.f_nav dl > dd{}
+.f_nav dl dd > span{padding-left:100px;}
+
+/* 푸터영역정보서식 */
+.f_info{
+  width:1200px;
+  margin:0px auto;
+  padding:15px 0px;
+  color:#fff;
+  position:relative;
+}
+.f_info dt{display:none;}
+.f_info dd{
+  font-size:18px;
+  color:rgb(233, 232, 232);
+  line-height:46px; 
+}
+.f_info dd > h3{
+  font-weight:200;
+}
+.number{
+  font-size:34px;
+  font-weight:400;
+  color:#fff;
+}
+.sns{
+  /* position:absolute;
+  right:0px; top:40px; */
+}
+.sns a {
+  color:#fff;
+  padding:0px 10px;
+}
+.sns a span{
+  display: none;}
+.siteurl label{display:none;}
+.siteurl select{
+  height:30px;
+  width:200px;
+  border-radius:6px;
+}
+  address{
+    width:1200px;
+    margin:0px auto;
+    border-top:1px solid #ccc;
+    color:#ccc;
+    padding:30px 30px 10px 30px;
+    box-sizing: border-box;
+    line-height:24px;
+    display:flex;
+    justify-content: space-evenly;
+  }
+  address .a_info{width:55%;}
+  address .a_pay{width:40%;}

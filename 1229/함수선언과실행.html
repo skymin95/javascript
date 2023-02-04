@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수의 샐행과 선언</title>
+  <script>
+    // let n;   //변수선언 뒤에다 쓰면 오류나서 앞에써주자
+    n=5;//값입력
+    document.write(n);//변수 출력
+    var n;//변수뒤에도 되지만 var => let const를 쓰자
+    // 변수 호이스팅으로 인해 위해 선언하지 않고도 출력이 잘됨;
+    // let n://let 키워드사용시 아래에서 선언하고 위에서 츨력하면 에러남
+    
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+  <h2>01 함수의 실행과 선언</h2>
+  <p>함수를 작성하고 실행하는 순서를 확인해본다.</p>
+
+  <h3>자바스크립트 호이스팅</h3>
+  <p>자바스크립트가 실행되면parser가 빌드하면서 문법을 검사합니다. 이 와중에 끌어올릴 값을 선택해
+내부적으로 최상단으로 끌어 올려 처리합니다.
+  </p>
+  <p>여기서 끌어 올려질 내용물은 선언입니다. var,let,const,function등이 대표적입니다</p>
+  <p>전역범위(global scope)내에서는 스크릅트 최상단으로 끌어올립니다.</p>
+  <p>함수범위(function scope)내에서는 함수의 최상단으로 끌어올립니다.</p>
+  <img src="./images/hosting.png" alt="호이스팅">
+
+  <h3>자바스크립트 ECMAS Script6(ES6)에서 새로 추가된 변수 키워드</h3>
+  <p>변수 선언시 var키워드는 생략을 해도 변수사용이 가능하였으며, 변수선언뒤 다음에 또 다시 같은 변수를 선언을 
+    하면 프로개림이 에러나지 않고 실행이 되는 문제점이 있었다.</p>
+    <p>let: 값이 변하는 변수를 설정하고자 할 떄 사용하는 키워드</p>
+    <p>const: 값이 고정된 변수를 설정하고자 할 떄 사용하는 키워드</p>
+
+
+  <script>
+    // const let_btn=document.getElementById('left_btn');
+
+
+
+
+    // 위치가 어디든간에(순서) 함수호출시 실행값으로 나타남-호이스팅
+    print01();
+
+    //함수선언
+    function print01(){
+      document.write('<p>함수로 내용출력하기</p>'); // 여기까지하고 실행시 출력안됨 (함수 실행 안해서)
+    }
+    
+    // 함수명으로 호출
+    print01();
+    </script>
+  
+</body>
+</html>

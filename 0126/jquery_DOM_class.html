@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jquery_DOM_class조작</title>
+  <style>
+    .box01{
+      border:3px solid #000;
+      background:#ccc;
+      width:500px;height:150px;
+      margin-bottom:10px;
+    }
+    .act{
+      background:#ff0;
+      border:3px double #f00;
+    }
+    .act01{transform:rotate(180deg);}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <!--  제이쿼리 라이브러리 연결하기 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+  $(function(){
+    $('#btn01').click(function(){
+      $('.box01').addClass('act');
+    });
+    $('#btn02').click(function(){
+      $('.box01').removeClass('act');
+    });
+    $('#btn03').click(function(){
+      $('.box01').toggleClass('act');
+    });
+    $('i.fas').click(function(){
+      $(this).toggleClass('act01');
+    });
+    $('#btn04').click(function(){
+      if($('.box01').hasClass('act')==false){
+        alert('act클래스 서식이 존재하지 않습니다.');
+      }else{
+        alert('act클래스 서식이 존재합니다.');
+      }
+    });
+    $('#btn05').click(function(){
+      $('.box01').css('color','#00f');
+    });
+  });
+</script>
+</head>
+<body>
+  <h2>jquery_DOM_class조작</h2>
+  <p>문서객체모델(DOM) - class조작은 사용자가 선택한 요소에 클래스 서식을 추가하거나 삭제 또는 클래스가 없는 요소를 찾아서 서식을 적용하는 메서드이다.</p>
+  <ul>
+    <li>addClass(); - 선택한 요소에 클래스 서식을 추가한다.</li>
+    <li>removeClass(); - 선택한 요소에 클래스 서식을 제거한다.</li>
+    <li>toggleClass(); - 선택한 요소에 클래스 서식을 추가하거나 제거한다.</li>
+    <li>hasClass(); - 선택한 요소에 해당 클래스 이름이 있는지 여부를 판단하여 true, false값으로 표시</li>
+    <li>css(); - 사용자가 선택한 요소에 스타일 서식을 적용한다.</li>
+  </ul>  
+
+  <h3>실습 - 메서드 테스트</h3>
+  <div class="box01">
+    아래의 버튼을 클릭하면 현재 박스에 서식을 적용하거나 제거됩니다.
+  </div>
+  <!-- input[type=button value= id=btn0$]*5 -->
+  <input type="button" value="addClass적용하기" id="btn01">
+  <input type="button" value="removeClass적용하기" id="btn02">
+  <input type="button" value="toggleClass적용하기" id="btn03">
+  <input type="button" value="hasClass적용하기" id="btn04">
+  <input type="button" value="css적용하기" id="btn05">
+
+  <br><br><br>
+
+  <h3>실습 - 방향버튼 클릭시 toggleClass로 서식 변경하기</h3>
+  <i class="fas fa-angle-down"></i>
+
+  <p>addClass, removeClass : 화면스크롤시 헤더영역의 배경색 서식적용 또는 제거, top버튼 화면 나오게 또는 숨기기</p>
+  <p>toggleClass : 방향버튼의 방향을 위, 아래 변경 또는 좌, 우로 변경</p>
+  <p>hasClass : 해당 서식의 존재 여부를 판단하여 서식을 추가, 제거하여 모양변경, 방향변경 가능</p>
+
+</body>
+</html>

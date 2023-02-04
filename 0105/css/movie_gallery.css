@@ -1,0 +1,36 @@
+@charset "utf-8";
+*{margin:0px;padding:0px;}
+ul, ol, li{list-style:none;}
+
+h2{padding:30px;text-align:center;}
+.gallery{
+  width:1200px;
+  border:3px solid #000;
+  margin:0px auto;
+}
+/* 사진크기 맞게 조절 */
+.gallery img{
+  width:100%;
+  object-fit:cover;
+}
+.gallery .lnb{
+  display:flex;
+}
+#big_img{position:relative;}
+#big_img i.fas{
+  position:absolute;
+  top:47%;
+  color:#fff;
+  background:rgba(0,0,0,.7);
+  padding:12px 10px;
+  font-size:40px;
+  cursor:pointer;
+}
+i.fa-angle-left{left:0px;}
+i.fa-angle-right{right:0px;}
+#page{
+  position:absolute;
+  right:0px;bottom:0px;
+  color:#fff;
+  background:rgba(0,0,0,.7);
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03_내장객체(object)_Date(날짜와 시간)</title>
+  <script>
+    // 날짜객체 선언
+    let today = new Date();
+    // 날짜와 시간을 출력
+    document.write(today+'<br>');//날짜와 시간정보 모두 출력
+    document.write(today.getFullYear()+'<br>');//년도만 출력
+    document.write(today.getMonth()+1+'월<br>');//월만 출력
+    document.write(today.getDate()+'일<br>');//일만 출력
+    document.write(today.getDay()+'<br>');//(0~6)요일 출력
+
+// let yoil = today.getDay();//요일번호 구하여 변수에 대입한다.
+// switch (yoil){
+//   case 0: document.write('일');break 
+//   case 1: document.write('월');break 
+//   case 2: document.write('화');break 
+//   case 3: document.write('수');break 
+//   case 4: document.write('목');break 
+//   case 5: document.write('금');break 
+//   default: document.write('토');
+  
+// }
+// document.write('요일입니다');
+
+let yoil2= ['(일)','(월)','(화)','(수)','(목)','(금)','(토)',]
+// document.write('오늘의 요일은'+yoil2[yoil]+'요일입니다.')
+
+
+document.write(`${today.getMonth()+1}.${today.getDate()}${yoil2[today.getDay()]}`);
+
+let n = today.getMonth()+1;//월
+let d = today.getDate();//일
+
+// 1~9까지 일때만 m에 앞에 '0'문자를 붙여야
+if(m<10){
+  m = '0'+m;
+}else{
+  m=m;
+}
+// 일이 1~9까지 일땜나 d앞에 '0'문자를 붙여야
+if(d<10){
+  d = '0' +d;
+
+}else{
+  d=d;
+}
+
+//1.2(월)
+document.write('<p>'+m+'.'+d+yoil2[yoil]+'<p>')
+
+  </script>
+
+
+</head>
+<body>
+  <h2>03_내장객체(object)_Date(날짜와 시간)</h2>
+  <p>Date객체는 현재 또는 특정 날짜와 시간에 대한 정보를 제공하는 객체이다.</p>
+  <p>작성법) let 변수명 = new Date();</p>
+
+  <h3>날짜와 시간 정보를 제공하는 속성</h3>
+  <p>getFullYear(): 날짜정보에서 연도에 대한 정보를 제공</p>
+  <!-- 책은 0부터 출력인데 실제 출력이 안되서  출력시: 월+1을 더한다 -->
+  <p>getMonth(): 날짜정보에 월(0-11)에 대한 정보를 제공</p>
+  <p>getDate(): 날짜정보에서 일에 대한 정보를제공</p>
+  <p>getDay(): 날짜정보에서 요일에 대한 정보를 제공(0-일,1-월,2-화,3-수,4-목,5-금,6-토,7-일)</p>
+  <p>getHour(): 날짜정보에서 시간(0-23)에 대한 정보를 제공</p>
+  <p>getMinutes(): 날짜정보에서 분에 대한 정보를 제공</p>
+  <p>getSecond(): 날짜정보에서 초(0-59)에 대한 정보를 제공</p>
+  <p>getMilliseconds(): 날짜정보에서 밀리초(1/1000)에 대한 정보를 제공</p>
+
+<h3>실시간 디지털 시계 표시하기</h3>
+<p>글자색:파랑색, 크기:30px, 배경색:노랑</p>
+<div id="clock"></div>
+
+<h3>날짜객체를 활용한 오늘의 추천요리 표시하기</h3>
+
+<script>
+// 함수로 묶기
+function clock(){
+let today1 = new Date();
+
+// 시간출력하기
+let h1 = today1.getHours();//시간
+
+// 분출력
+let m1 = today1.getMinutes();//분
+
+// 초출력
+let s1 = today1.getSeconds();//초
+
+// document.write(h1+'<br>');
+// document.write(mi+'<br>');
+// document.write(s1+'<br>');
+// 시,분,초 앞에 '0'문자열 붙이기
+h1 =checkTime(h1);
+m1 =checkTime(m1);
+s1 =checkTime(s1);
+
+document.getElementById('clock').innerHTML=h1 + '.'+m1 +'.'+s1;
+// 시간객체: 매 지정한 시간마다 함수를 호출함 setTimeout(함수명,시간);
+let t =setTimeout(clock,500);//시간객체를 사용해 매 0.5초마다 반복 함수호출 실행
+}
+// 시 분 초가 0~9까지일때 앞에 문자열 '0'붙이는 함수
+function checkTime(i){
+  if (i<10){//만약 i라는 변수가 0보다 적다면(0-9)
+    i = '0'+i;//조건에 맞으면 숫자 앞에 문자열 '0'붙임
+  }return i;//숫자가 2자일 경우는 '0'을 안붙인다.
+}
+
+// 시간함수 실행
+clock();
+
+</script>
+
+<h3>날짜객체를 활용한 오늘의 추천요리 표시하기</h3>
+<p>현재 요일번호를 구하여 배열본호에 맞는 이미지 파일명을 대입하여 이미지를 출력</p>
+
+<div id="food"></div>
+
+<script>
+//1.요일을 구한다 
+let today2 = new Date();
+today2 = today2.getDay();
+console.log(today2);//1이면 월
+
+// 2.배열 변수를 만들고 요일데이터 작성
+let yoil3 = ['일','월','화','수','목','금','토',];
+
+// 3.해당 food박스에 아래와 같은 내용을 출력한다.
+document.getElementById('food').innerHTML = '오늘'+yoil3[today2]+'요일의 추천요리는<br><img src="./img2/food'+today2+'.jpg" alt="">';
+// <img src="./img2/food1.jpg"alt="">
+
+</script>
+
+<p>food박스에 innerHTML매서드로 내용을 입력한다</p>
+<p>yoil3[today2]: 요일번호에 맞는 요일명을 배열데이터에서 출력</p>
+<p>img src = './img2/food + today2 + 'jpg':위에서 구한 요일번호를 파일명 food에 대입해 이미지가 변경되도록한다.</p>
+
+
+
+
+
+</body>
+</html>

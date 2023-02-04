@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리(소개,문법)</title>
+  <!-- 제이쿼리 라이브러리 연결하기 -->
+  
+  <!-- 1번 직접다운받은 파일 연결 -->
+  <script src="./script/jquery-3.6.3.min.js"></script>
+  <!-- 2번 방식 cdn방식으로 파일 연결 -->
+
+
+
+  <!-- 제이쿼리 쓰는방법 -->
+  <script>
+    $(document).ready(function(){//html문서가 로딩이 끝나면 함수안에 내용을 실행한다.
+      // 자바스크립트로 제목 서식 변경하기
+      let h1 = document.getElementById('title');
+      h1.style.color="#f00";
+
+      $('h2').css('color','#00f');
+      $('p').css('background','#ccc');
+      $('ol').css('background','#ff0');
+
+      /*.css()메소드 사용법
+      서식이 1개일때
+      .css('속성','값');
+
+      서식이 2개이상일때
+      .css('속성','값').css('속성','값').css('속성','값')-속성들을 엮을수 있다해서 (=체이닝 기법) *서식 작성시 복잡
+      
+      서식이 2개이상일때 .css({'속성':'갑','속성':'갑','속성':'갑'})
+*/
+  });
+  </script>
+
+</head>
+<body>
+  <h1 id="title">1.제이쿼리소개와 문법</h1>
+  <p>제이쿼리란? 자바스크립트의 생산성을 향상시켜주는 자바스크립트 라이브러리 언어입니다. 자바스크립트
+    라이브러리란? 자주 사용하는 코드들을 재사용 할 수 있는 형태로 가공해서 프로그래밍의 효율성을 높여주도록 만든 코드들을 말한다.
+  </p>
+
+<h2>2. 제이쿼리 특징</h2>
+  <ol>
+    <li>엘리먼트 (html요소)를 선택하는 강력한 기능을 제공한다.</li>
+    <li>선택된 엘리먼트를 제어할 수 있는 다양한 함수를 제공한다.</li>
+    <li>자바스크립트의 자주 사용하는 기능을 라이브러리화 한 언어이다.</li>
+  </ol>
+
+  <h2>3. 제이쿼리 라이브러리 연결방법</h2>
+  <ol>
+    <li>jquery라이브러리 파일을 직접 다운받아 html문서에 연결</li>
+    <li>CDN(content delivery network)-서비스를 제공하는 업체로부터 링크 주소를 사용해 문서에 연결하여 사용한다.</li>
+  </ol>
+
+  <h2>4.제이쿼리 작성법</h2>
+  <ol>
+  <li>$('대상').메소드();</li>
+  <li>jquery('대상').메소드();</li>
+  </ol>
+
+  <h2>5.제이쿼리에서 '$' 기호의 의미?</h2>
+  <p>
+    jQuery에서 부호($)의 역활은 괄호안에 넣을 요소를 선택하는 역활을 한다.
+  </p>
+
+  <h2>6.제이쿼리에서'$'기호 다음에 들어가는 대상은 무엇인가?</h2>
+  <ol>
+    <li>html태그--  예) $('body') </li>
+    <li>css선택자-- 예) $('#id명')</li>
+    <li>자바스크립트 객체-- 예)(document)</li>
+  </ol>
+
+<h2>7.제이쿼리 래퍼(wrapper)</h2>
+<ol>
+  <li>$(document).ready(function(){실행할 내용;})</li>
+  <li>$(function(){실행할 내용;})</li>
+  <li>$jQuery(function(){실행할 내용;})</li>
+  <li>$(function(){실행할내용;})(jQuery)</li>
+</ol>
+
+</body>
+</html>

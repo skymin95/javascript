@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_자바스크립트로 만들 수 있는 콘텐츠 찾아보기/만들기</title>
+  <style>
+    #wrap *{margin:0px;padding:0px;}
+    #wrap{
+      width:375px;
+      border:3px solid #000;
+    }
+    #wrap header img, #wrap footer img{width:100%;}
+    #wrap header img{
+      display:block;
+      /* vertical-align: top; */
+    }
+    #wrap nav{
+      text-align:center;
+      background-color:#cbcbd3;
+    }
+    #wrap nav img{width:80px;}
+  </style>
+</head>
+<body>
+  <h2>02_자바스크립트로 만들 수 있는 콘텐츠 찾아보기/만들기</h2>
+  <p>웹페이지에서 자바스크립트로 만들어진 콘텐츠 수집하기</p>
+  <ul>
+    <li>네이버 날씨, 뉴스, 증시정보</li>
+    <li>언론사 아이콘목록 좌, 우버튼</li>
+    <li>우측하단 트렌드 쇼핑 콘텐츠</li>
+    <li>오늘 읽을 만한글</li>
+    <li>새로고침시 랜덤배너</li>
+    <li>좌, 우버튼</li>
+    <li>쿠키정보를 활용한 오늘하루 열지 않음</li>
+    <li>움직이는 배너 슬라이드</li>
+    <li>패밀리 사이트</li>
+  </ul>
+
+  <h3>자바스크립트 활용예제1 이미지 2장을 활용하여 버튼을 클릭하면 해당 이미지의 경로를 변경하여 전구에 불이 들어오게 하기</h3>
+  <img src="./img/pic_bulboff.gif" alt="전구" id="bulb">
+  <p>
+    <input type="button" value="전구켜기" onclick="document.getElementById('bulb').src='./img/pic_bulbon.gif'">
+    <input type="button" value="전구끄기" onclick="document.getElementById('bulb').src='./img/pic_bulboff.gif'">
+  </p>
+
+  <h3>활용예제2 - 버튼을 클릭시 해당하는 요소를 선택하여 글자의 크기를 변경하기</h3>
+  <p id="txt01">건강보험공단, 산업인력공단 등 사이트에서 사용하는 글자확대, 축소하기</p>
+  <input type="button" value="글자확대(32px)" onclick="document.getElementById('txt01').style.fontSize='32px'">
+  <input type="button" value="글자축소(16px)" onclick="document.getElementById('txt01').style.fontSize='16px'">
+
+  <h3>활용예제3 - 웹페이지의 하단(푸터)영역에 select, option태그요소를 활용하여 family site이동하기 - 점프메뉴</h3>
+  <select onChange='siteUrl(this)'>
+    <option value="">Family Site</option>
+    <option value="http://www.naver.com">네이버</option>
+    <option value="http://www.daum.net">다음</option>
+    <option value="http://www.nate.com">네이트</option>
+    <option value="http://www.google.co.kr">구글</option>
+  </select>
+
+  <h3>활용예제4 - 모바일 화면에서 버튼을 클릭시 조명끄기, 조명켜기 기능을 구현하기</h3>
+
+  <div id="wrap">
+    <header>
+      <img src="./img/car_01.jpg" alt="상단이미지" id="car">
+    </header>
+
+    <nav id="gnb">
+      <img src="./img/light_off.png" alt="조명끄기" onclick="imgOff();">
+      <img src="./img/light_on.png" alt="조명켜기" onclick="imgOn();">
+    </nav>
+
+    <footer>
+      <img src="./img/car_03.jpg" alt="하단이미지" id="footer">
+    </footer>
+  </div>
+  <script>
+    function siteUrl(a){ //사용자가 선택목을 선택하면 siteUrl함수가 호출됨.
+      if(a.value!='none'){ //옵션을 선택하면
+        window.open(a.value, '_self'); //선택한 사이트가 열리게 하고
+        a.value='none'; //기존 값을 지운다.
+      }else{ //선택을 하지 않으면
+        return; //프로그램을 종료한다.
+      }
+    }
+
+    function imgOff(){ //전원끄기 버튼을 클릭하면 호출되는 함수
+      document.getElementById('car').src="./img/car01_01.jpg"; //어두운 이미지
+      document.getElementById('gnb').style.backgroundImage="url(./img/btn_back.jpg)"; //버튼배경색 변경
+      document.getElementById('footer').src='./img/car01_03.jpg'; //하단이미지 배경 변경
+    }
+
+    function imgOn(){ //전원켜기 버튼을 클릭하면 호출되는 함수
+      document.getElementById('car').src="./img/car_01.jpg"; //밝은 이미지
+      document.getElementById('gnb').style.backgroundImage="none"; //버튼배경색 원래대로
+      document.getElementById('footer').src='./img/car_03.jpg'; //하단이미지 원래 배경 변경
+    }
+
+
+  </script>
+
+</body>
+</html>

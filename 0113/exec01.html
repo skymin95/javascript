@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exec01</title>
+  <style>
+    *{margin: 0px; padding: 0px;}
+    ul,li,ol{
+      list-style: none;
+    }
+    .wrap{
+      margin: 0px auto;
+      width: 340px;
+      height: 378px;
+      position: relative;
+      
+      border: 3px solid #ff0;
+      box-sizing: border-box;
+    }
+  .banner{
+    display: flex;
+    position: relative;
+  }
+    .c_btn{
+      position: absolute;
+      bottom: 10px; left: 120px;
+      display:flex;
+
+    }
+    .c_btn > li{
+      width:15px;height:15px;
+      background:#333;
+      border-radius:50%;
+      margin:0px 2px;
+      transition:0.3s;
+    }
+    .on{
+      background:rgb(104, 231, 248) !important;
+      width:50px !important;
+      border-radius:10px !important;
+    }
+  </style>
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  
+<script>
+
+  $(function(){
+
+//1. 인덱스값을 저장하기 위한 변수선언;
+let n  = $('.c_btn li').index();
+console.log(n); //0이 나온다.
+
+//2. 사용자가 콘트롤 버튼을 클릭시 해당 index값 구해보기
+$('.c_btn li').click(function(){
+  n = $(this).index();
+  console.log(n); //0, 1, 2, 3............
+
+  let img_w = $('.banner img').width();
+  //이미지 너비값 구하기
+
+  console.log(img_w); //0, 250, 500, 750............
+
+  $('.banner').animate({'left':-(img_w*n)},500);
+
+  $('.c_btn li').removeClass('on'); //콘트롤 버튼 전체 서식을 변경하고
+  $(this).addClass('on');//사용자가 선택한 콘트롤 버튼만 서식을 적용
+});
+
+//자동슬라이드
+
+function auto(n){
+  n= -(n)
+}
+
+});
+
+</script>
+
+
+
+</head>
+<body>
+  <article class="wrap">
+    <ul class="banner">
+      <li><img src="./images/01-1.jpg" alt=""></li>
+      <li><img src="./images/02-1.jpg" alt=""></li>
+      <li><img src="./images/03-1.jpg" alt=""></li>
+    </ul>
+    <ul class="c_btn">
+    <li class="on">&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>
+    </ul>
+  </article>
+</body>
+</html>

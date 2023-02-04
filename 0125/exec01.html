@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쿠팡 실습예제</title>
+  <style>
+    * {margin: 0px; padding: 0px;}
+    ul,ol,li{list-style: none;}
+    a{text-decoration: none; color: #000;}
+
+    .wrap{position: relative;}
+    /* .wrap > div img{width: 100%;} */
+
+    .wrap  nav{
+      /* height: 80%; */
+      width: 150px; height: 380px;
+      background: rgba(255, 255, 255, 0.8);
+      position: absolute; top: 35px; right: 10px;
+    }
+    .wrap nav li{
+      line-height: 63px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .wrap nav li:hover{
+      border: 3px solid rgb(21, 114, 236);
+    }
+  </style>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+$(function(){
+  $('.wrap nav li a').mouseenter(function(){
+  let url = $(this).attr('href');
+  $('.wrap div img').attr('src',url);
+});
+
+let pang = 1;
+setInterval(function(){
+pang++;
+if(pang>6){pang=1;}
+$('.wrap div img').attr("src","./exec-img/쿠팡"+pang+".jpg");
+},3000);
+})
+
+// $('.wrap nav li a').mouseout(function(){
+//   clearInterval(Timer);
+//   Timer.setInterval(moveLeft,3000);
+// })
+
+
+
+
+
+</script>
+ 
+</head>
+<body>
+  <article class="wrap">
+    <div>
+      <img src="./exec-img/쿠팡1.jpg" alt="">
+    </div>
+    <nav>
+      <ul>
+      <li><a href="./exec-img/쿠팡1.jpg">바닐라코</a></li>
+      <li><a href="./exec-img/쿠팡2.jpg">직수입 신년 빅세일</a></li>
+      <li><a href="./exec-img/쿠팡3.jpg">설연휴 끝! 특가</a></li>
+      <li><a href="./exec-img/쿠팡4.jpg">인기간식</a></li>
+      <li><a href="./exec-img/쿠팡5.jpg">프렌치카페</a></li>
+      <li><a href="./exec-img/쿠팡6.jpg">생필품 쟁여두기</a></li>
+    </ul>
+    </nav>
+  </article>
+  
+</body>
+</html>

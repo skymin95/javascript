@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수를 활용해 배너 구현하기</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+      
+    .banner{
+      width: 500px; border: 2px solid #000;
+      height: 294px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .banner *{margin: 0px; padding: 0px;}
+    .banner img{width: 105%;}
+    .banner i.fas{
+      position: absolute;top: 45%;
+      font-size: 30px;
+      color: #ccc;
+      border: rgba(0, 0, 0, .7);
+      padding: 10px;
+    }
+
+
+
+
+    .banner i.fa-angle-left{left: 0px;}
+    .banner i.fa-angle-right{right: 0px;}
+    #page{
+      position: absolute;
+      right: 0px; bottom: 0px;
+      background: rgba(0, 0, 0, .7);
+      padding: 0px 10px;
+      color: #fff;
+    }
+  </style>
+
+</head>
+<body>
+  <h2>함수를 활용해 배너 구현하기</h2>
+  <dl>
+    <dt>구현순서</dt>
+    <dd>banner영역을 만들고 이미지 태그요소를 사용해 첫번째 이미지를 삽입한다.</dd>
+    <dd>아이콘 폰트를 사용해, 좌,우 끝을 방향표시 버튼을 삽입한다.</dd>
+    <dd>자바스크립트에서 nextImg, prevImg함수를 각각 작성하여 총 이미지개수 4장을 촤가하지 않게 조건식을 작성한다.</dd>
+    <dd>좌,우 버튼에 이벤트를 사용해 각각 클릭하면 해당함수가 호출되게 하고.이미지,해당 번호가 표시하게된다.</dd>
+  </dl>
+  <div class="banner">
+    <img src="./img/디즈니01.jpg" alt="디즈니" id="banner">
+    <i class="fas fa-angle-left" onclick="prevImg();"></i>
+    <i class="fas fa-angle-right" onclick="nextImg();"></i>
+    <span id="page">&nbsp;</span>
+  </div>
+  <script>
+    // 변수선언
+    let n = 1;
+    document.getElementById('page').innerHTML=n+'/4';
+
+    // 함수작성하기
+    function nextImg(){//1,2,3,4,1...
+      // alert('다음이미지');
+      if(n==4){
+        n = 1;
+      }
+      else{ 
+        n++;
+      }
+      // console.log(n);
+      document.getElementById('banner').src='./img/디즈니0'+n+'.jpg'
+      document.getElementById('page').innerHTML=n+'/4';
+    }
+    function prevImg(){//1,4,3,2,1...
+      // alert('이전이미지');
+      if(n==1){
+        n = 4;
+      }else{
+        n--;//1씩감소
+      }
+      // console.log(n);
+      document.getElementById('banner').src='./img/디즈니0'+n+'.jpg'
+      document.getElementById('page').innerHTML=n+'/4';
+    }
+
+
+    // 시간객체를 사용해 매 초마다 반복실행하기 
+    //setInterval
+    let Timer =setInterval(nextImg,3000);
+
+
+
+
+  </script>
+
+
+
+
+</body>
+</html>

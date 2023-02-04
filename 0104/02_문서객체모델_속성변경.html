@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_문서객체모델_속성변경(attribute)속성</title>
+</head>
+<body>
+  <h2>02_문서객체모델_속성변경</h2>
+  <p>웹문서에서 요소를 삽입할 때 속성을 사용하여 입력하는 경우가 있다. 자바스크립트에서 사용자가 선택한 
+    태그요소의 속성을 선택하고 설정을 변경하는 방법에 대해 알아본다.</p>
+  <ul>
+    <!-- 가져온다 -->
+    <li>getAttribute('속성명')</li>
+    <!-- 바꾼다 -->
+    <li>setAttribute('속성명','값')</li>
+  </ul>
+
+
+<img src="./pic_bulboff.gif" alt="버튼끄기" id="bulb">
+<!-- <img src="./pic_bulbon.gif" alt="버튼 켜기" id="bulb_on"> -->
+
+
+
+<script>  
+// #bulb를 클릭시 src속성값을 가져와서 출력해보기
+let b = document.getElementById('bulb');
+let img_src=b.getAttribute('src');//getAttribute()는 ()안에 잇는 속성을 가져온다.
+
+// 온클릭말고(온클릭은 테스트용 ) 에드이벤트 쓰면 같이됨(실무는 이거써야함)
+b.addEventListener('click',function(){
+  this.setAttribute('src','./pic_bulbon.gif'); //this 자기자신의 속성 src값을 변경한다 .
+  }
+)
+
+// let d = document.getElementById('bulb_on');
+// let img_src1=d.getAttribute('src');
+// d.addEventListener('click',function(){
+//   this.setAttribute('src','./pic_bulboff.gif');
+// }
+// )
+
+// console.log(img_src);
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0px; padding: 0px;}
+    ul,li,ol{ list-style: none;}
+    a{text-decoration: none; color: #333;}
+    
+    
+    .tab_mnu{
+      width: 400px; height: 250px;
+      border: 1px solid #000;
+      position: relative;
+    }
+    .list{display: flex;
+    justify-content: space-around;}
+
+    .list > li{text-align: center;
+    width: 100%;}
+    .list > li > a{text-align: center;
+    display: block;
+    line-height: 40px;
+  
+  }
+    .cont{
+      position: absolute; left: 0px; top: 50px;
+      width: 100%; height: 200px;
+      text-align: left;
+      display: none;
+    }
+    .cont > li {text-indent: 10px;
+      text-overflow: ellipsis;  /*글자가 한줄 넘길때 ...생략기호 나오게*/
+      overflow: hidden;
+      white-space: nowrap;/*글자가 많으면 두줄로 나오는데 한줄로 나오게끔  설정*/
+    }
+  #t01{
+    background: #f00;
+  }
+    
+  #t02{
+    background: #ff0;
+  }
+    
+  #t03{
+    background: #f0f;
+  }
+    
+  #t04{
+    background: rgb(0, 176, 182)
+  }
+
+  /* on클래스가 적용된 li태그의 자손 뉴스목록이 보인다 */
+  .tab_mnu .list li.on .cont{display:block;}
+
+  /* 2.라디오 버튼으로 탭메뉴 구현하기 */
+  .tab_con{
+    width: 400px; height: 250px;
+    border: 1px solid #000;
+  }
+  input[type=radio]{
+    display: none;
+  }
+
+  label{
+    display: inline-block;
+    width: 49.1%;
+    background: #ccc;
+    text-align: center;
+  }
+  .c01,.c02{
+    display: none;
+  }
+  /* 라디오 버튼이 체크가 되면 동생들 중에서 해당 클래스를 선택한다. */
+  #tabmenu01:checked~.c01{display: block;}
+  #tabmenu02:checked~.c02{display: block;}
+  /* 라디오버튼이 체크가 되면 바로 뒤에 있는 레이블 서식을 변경한다. */
+  input[type=radio]:checked +label{background: #ff0;}
+
+
+
+  </style>
+</head>
+<body>
+  <div class="tab_mnu">
+    <ul class="list">
+      <li class="on"><a href="#" title=">MBC" id="t01" class="btn">MBC</a>
+      <ul class="cont">
+
+        <li><a href="#" title="">화물차 운전자 입건.'펑'소리나더니 불ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</a></li>
+        
+        <li><a href="#" title="">한 총리"중국발 입국 전후 코로나 검사 의</a></li>
+
+        <li><a href="#" title="">연쇄살인범 신상 공개.31살 이기영</a></li>
+
+        <li><a href="#" title="">신생아4명 사망</a></li>
+
+        <li><a href="#" title="">윤 대통령 "다수 의석 야당의 발목잡기로 법</a></li>
+
+        <li><a href="#" title="">[World Now]영면에 든 펠레.. 예전 활약</a></li>
+        
+        <li><a href="#" title="">제2경인고속 화재 최초 화재 운전자 입건</a></li>
+        
+      </ul>
+      </li>
+
+
+      <li><a href="#" title="포털"  id="t02" class="btn">포털</a>
+        <ul  class="cont">
+
+          <li><a href="#" title="" >화물차 운전자 입건.'펑'소리나더니 불2</a></li>
+          
+          <li><a href="#" title="">한 총리"중국발 입국 전후 코로나 검사 의</a></li>
+  
+          <li><a href="#" title="">연쇄살인범 신상 공개.31살 이기영</a></li>
+  
+          <li><a href="#" title="">신생아4명 사망</a></li>
+  
+          <li><a href="#" title="">윤 대통령 "다수 의석 야당의 발목잡기로 법</a></li>
+  
+          <li><a href="#" title="">[World Now]영면에 든 펠레.. 예전 활약</a></li>
+          
+          <li><a href="#" title="">제2경인고속 화재 최초 화재 운전자 입건</a></li>
+          
+        </ul>
+      </li>
+
+
+      <li><a href="#" title="SNS"  id="t03" class="btn">SNS</a>
+        <ul  class="cont">
+
+        <li><a href="#" title="">화물차 운전자 입건.'펑'소리나더니 불3</a></li>
+        
+        <li><a href="#" title="">한 총리"중국발 입국 전후 코로나 검사 의</a></li>
+
+        <li><a href="#" title="">연쇄살인범 신상 공개.31살 이기영</a></li>
+
+        <li><a href="#" title="">신생아4명 사망</a></li>
+
+        <li><a href="#" title="">윤 대통령 "다수 의석 야당의 발목잡기로 법</a></li>
+
+        <li><a href="#" title="">[World Now]영면에 든 펠레.. 예전 활약</a></li>
+        
+        <li><a href="#" title="">제2경인고속 화재 최초 화재 운전자 입건</a></li>
+        
+      </ul>
+    </li>
+
+
+      <li><a href="#" title="유튜브"  id="t04" class="btn">유튜브</a
+        ><ul  class="cont">
+
+        <li><a href="#" title="">화물차 운전자 입건.'펑'소리나더니 불4</a></li>
+        
+        <li><a href="#" title="">한 총리"중국발 입국 전후 코로나 검사 의</a></li>
+
+        <li><a href="#" title="">연쇄살인범 신상 공개.31살 이기영</a></li>
+
+        <li><a href="#" title="">신생아4명 사망</a></li>
+
+        <li><a href="#" title="">윤 대통령 "다수 의석 야당의 발목잡기로 법</a></li>
+
+        <li><a href="#" title="">[World Now]영면에 든 펠레.. 예전 활약</a></li>
+        
+        <li><a href="#" title="">제2경인고속 화재 최초 화재 운전자 입건</a></li>
+        
+      </ul>
+    </li>
+
+    </ul>
+
+  </div>
+
+
+
+
+  
+
+
+  <article class="tab_con">
+    <input type="radio" id="tabmenu01" name="a" checked>
+    <label for="tabmenu01">MBC</label>
+    
+    <input type="radio" id="tabmenu02" name="a">
+    <label for="tabmenu02">포털</label>
+
+    <ul class="c01">
+      
+      <li><a href="#" title="">화물차 운전자 입건.'펑'소리나더니 불1</a></li>
+      
+      <li><a href="#" title="">한 총리"중국발 입국 전후 코로나 검사 의</a></li>
+      
+      <li><a href="#" title="">연쇄살인범 신상 공개.31살 이기영</a></li>
+      
+      <li><a href="#" title="">신생아4명 사망</a></li>
+      
+      <li><a href="#" title="">윤 대통령 "다수 의석 야당의 발목잡기로 법</a></li>
+      
+      <li><a href="#" title="">[World Now]영면에 든 펠레.. 예전 활약</a></li>
+      
+      <li><a href="#" title="">제2경인고속 화재 최초 화재 운전자 입건</a></li>
+      
+    </ul>
+    
+    <ul class="c02">
+
+      <li><a href="#" title="">화물차 운전자 입건.'펑'소리나더니 불2</a></li>
+      
+      <li><a href="#" title="">한 총리"중국발 입국 전후 코로나 검사 의</a></li>
+
+      <li><a href="#" title="">연쇄살인범 신상 공개.31살 이기영</a></li>
+
+      <li><a href="#" title="">신생아4명 사망</a></li>
+
+      <li><a href="#" title="">윤 대통령 "다수 의석 야당의 발목잡기로 법</a></li>
+
+      <li><a href="#" title="">[World Now]영면에 든 펠레.. 예전 활약</a></li>
+      
+      <li><a href="#" title="">제2경인고속 화재 최초 화재 운전자 입건</a></li>
+      
+    </ul>
+
+
+
+
+  </article>
+
+
+
+  <script>
+    //1. 탭메뉴 목록 변수선언
+    const tabList = document.querySelectorAll('.tab_mnu .list > li');
+
+    //2. for문을 사용하여 사용자가 선택한 항목에 대한 목록만 나오게 한다.
+    for(let i=0;i<tabList.length;i++){ //li태그의 개수만큼 반복하여 기능을 설정함.
+      tabList[i].querySelector('.btn').addEventListener('click', function(e){
+        e.preventDefault(); //클릭시 이벤트를 무력화하여 아무일도 없게 함.
+
+        for(let j = 0; j < tabList.length; j++){ //li태그 on클래스 적용
+          tabList[j].classList.remove('on');
+        }
+        this.parentNode.classList.add('on'); //사용자가 선택한항목에 on클래스적용
+      });
+    }
+  </script
+
+</body>
+</html>

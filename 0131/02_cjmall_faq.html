@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cj몰</title>
+  <!--폰트어썸-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <style>
+    *{margin: 0px; padding: 0px;}
+    fieldset{
+      
+      border: none;
+      width: 668px;
+      margin: 0px auto;
+    }
+    legend{display: none;}
+    input[type=search]{
+      width: 100%;
+      height: 33px;
+      margin: 0px auto;
+      border: 1px solid #640faf;
+      border-radius: 20px;
+      padding-left: 20px;
+      margin-top: 24px;
+    }
+    article{
+      width: 668px;
+      margin: 0px auto;
+    }
+    article h2{
+      margin-top: 24px;
+    }
+    dl{
+      margin-top: 16px;
+      border-top: 1px solid #ccc;
+    }
+    dl dt,dl dd{font-size: 16px;}
+    dl dt{
+      border-bottom: 1px solid #ccc;
+      padding: 16px 0px;
+      position: relative;
+    }
+    dl dd{
+      background: #f4f4f2;;
+      padding: 8px 0px 8px 32px;
+      display: none;
+    }
+    dl dt span{
+      display: inline-block;
+      width: 16px;
+      text-align: center;
+      color: #640faf;
+      font-weight: bold;
+      margin-right: 16px;
+    }
+    dl dt i{
+    position: absolute;
+    right: 8px;
+    font-size: 24px;
+    transform: rotate(180deg);
+    }
+    .act01{transform: rotate(360deg);}
+  </style>
+  <!-- 제이쿼리 라이브러리 -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+  <!-- 제이쿼리 ui라이브러리 -->
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <script>
+    $(function(){
+      $('dt').click(function(){
+        $(this).find('i.fas').toggleClass('act01').parent().siblings().find('i.fas').removeClass('act01');
+        $(this).next().slideToggle().siblings('dd').slideUp();
+      });
+    });
+  </script>
+</head>
+<body>
+  <fieldset>
+    <legend>검색폼</legend>
+    <input type="search" placeholder="검색어입력해라">
+  </fieldset>
+  <article>
+    <h2>자주하는 질문 TOP10</h2>
+    <dl>
+      <dt><span>1</span>반품 신청은 어떻게 하나요?<i class="fas fa-angle-up"></i></dt>
+      <dd>구글 검색 ㄱ</dd>
+      <dt><span>2</span>주문을 취소하고 싶어요.<i class="fas fa-angle-up"></i></dt>
+      <dd>ㄴㄴ 하지마세요.</dd>
+      <dt><span>3</span>리뷰는 어떻게 작성하나요?<i class="fas fa-angle-up"></i></dt>
+      <dd>구글 검색 ㄱㄱ</dd>
+      <dt><span>4</span>반품 시 별도 택배비가 부과되나요?<i class="fas fa-angle-up"></i></dt>
+      <dd>당연한거 아닌가요?</dd>
+      <dt><span>5</span>원하는상품 방송시간을 문자로 받고 싶어요<i class="fas fa-angle-up"></i></dt>
+      <dd>알림문자신청하세요.</dd>
+      <dt><span>6</span>회원 탈퇴는 어떻게 하나요?<i class="fas fa-angle-up"></i></dt>
+      <dd>하지마세요 1년뒤 자동 탈퇴됩니다.</dd>
+      <dt><span>7</span>배송지를 변경 할 수 있나요?<i class="fas fa-angle-up"></i></dt>
+      <dd>당연한거 아닌가요?</dd>
+      <dt><span>8</span>교환 신청은 어떻게 하나요?<i class="fas fa-angle-up"></i></dt>
+      <dd>직접오세요</dd>
+      <dt><span>9</span>CJ온스타일 앱(어플리케이션)은 어떻게 설치하나요?<i class="fas fa-angle-up"></i></dt>
+      <dd>앱스토어나 플레이스토어에 검색해서 설치하세요</dd>
+      <dt><span>10</span>결제수단 변경하려면 주문취소하고 재주문하나요?<i class="fas fa-angle-up"></i></dt>
+      <dd>네</dd>
+    </dl>
+  </article>
+</body>
+</html>

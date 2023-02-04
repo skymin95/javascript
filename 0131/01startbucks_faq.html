@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 문서객체(dom)-탐색메서드를 활용한 스타벅스 자주 하는 질문</title>
+    <link rel="stylesheet" href="./css/faq.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+$(function(){
+    let q = $('.faq > dt')
+    // 1.첫번째 질문에 서식을 적용하기
+    q.first().addClass('act01')
+    // 답변이 보이게 한다.
+    q.first().next().show()
+    // 첫번째 질문에 있는 화살표 방향 반대로 돌린다.
+    q.first().find('i.fas').addClass('act02')
+    //사용자가 선택한 질문에 해당하는 서식을 적용
+    q.click(function(){
+        
+        // 스타벅스 처럼
+        // $(this).toggleClass('act01');//제목 서식적용
+        // $(this).find('i.fas').toggleClass('act02');//화살표방향
+        // $(this).next().slideToggle();//답변나오게
+        
+        // 내가 선택한것만 나오고 나머지 숨기는거
+        $(this).addClass('act01').siblings().removeClass('act01')
+        $(this).find('i.fas').addClass('act02').parent().siblings().find('i.fas').removeClass('act02');
+        
+        $(this).next().slideDown().siblings('dd').slideUp();  
+    });
+
+    $('.page > li').not().click(function(){
+        $(this).css('color','#f00')
+        $(this).siblings().css('background','#fff')
+    });
+
+
+
+
+
+
+
+
+});
+</script>
+</head>
+<body>
+    <section>
+        <h2>자주하는 질문</h2>
+        <p><span class="t_color01">e-Git Card</span>에 대한 궁금점이 많으신가요? 고객님의 문의사항에 대한 답변을 빠르게 찾으실 수 있습니다.</p>
+        <fieldset>
+            <legend>검색</legend>
+            <input type="search" id="search">
+            <input type="submit" value="검색">
+        </fieldset>
+
+            <dl class="faq">
+                <dt> Star Code (스타코드)란 무엇인가요?<i class="fas fa-angle-down"></i></dt>
+
+                <dd> 스타벅스 “별”을 적립할 수 있는 코드번호로 Star Code 10자리를 부여받은 경우에 한하여 사용 가능합니다.
+                    Star Code 이벤트가 진행되는 스타벅스 카드 구매 후 스타벅스 APP 또는 홈페이지에 등록 시 코드번호 입력이 가능하며, 코드번호 등록 즉시 스타벅스 리워드인 “별”로 전환이 됩니다.
+                    Star Code 입력 가능 기간은 이벤트에 따라 상이하며, 자세한 내용은 스타벅스 홈페이지를 통해 안내되는 이벤트 페이지를 꼭 참고해 주세요.
+                </dd>
+                
+                <dt> Star 쿠폰이란 무엇인가요? <i class="fas fa-angle-down"></i></dt>
+                <dd> 스타벅스 리워드 회원에 한해서 등록 및 사용 가능한 쿠폰으로 Star 쿠폰은 등록 즉시 스타벅스 리워드인 “별”로 
+                    전환이 됩니다.Star 쿠폰 번호 13자리와 PIN 번호를 부여받은 경우에 한하여 사용 가능한 쿠폰입니다.
+                </dd>
+
+                <dt> [쿠폰] 회원 계정에 등록된 스타벅스 카드를 이용하여 원두를 구매했으나, 쿠폰이 발행되지 않았습니다 <i class="fas fa-angle-down"></i></dt>
+                <dd> 타 계정에 등록된 스타벅스 카드/e-쿠폰/e-Gift Item을 사용한 복합 결제 시, 쿠폰 발행이 정상적으로 되지
+                    않을 수  있습니다. 그린/골드 레벨 회원이 원두 구매 시 제공되는 카페 아메리카노 e-쿠폰 발행을 원하실 경우, 반드시 회원 본인 계정에 등록된 스타벅스 카드만 사용하여 원두를 구매해 주시기 바랍니다.
+                    (리저브 원두 구매 시 리저브 원두 e-쿠폰, 티바나 패키지 티 구매 시 풀 리프 티 e-쿠폰의 발행 기준 또한 위와 동일합니다.)</dd>
+
+                <dt> [골드카드] 골드카드 발급 신청을 했는데 아직 수령하지 못했습니다. 제작 기간이 얼마나 소요되나요? <i class="fas fa-angle-down"></i></dt>
+                <dd> 실물 골드카드 발급 서비스는 2020년 1월 1일부로 종료되었습니다.
+                    서비스 종료 전에 발급 신청하셨던 건들은 2020년 7월 31일까지 매장에서 수령 가능하시도록 최대한 수령 기간을 길게 지정하였으며, 그 이후에는 모두 폐기 처리되어 수령 불가함을 안내드립니다.
+                    실물 골드카드는 종료되었으나, e-골드카드 발급은 지속 운영하오니 골드회원님들의 많은 이용 부탁드립</dd>
+
+                <dt> [골드카드] e-골드카드는 무엇인가요? <i class="fas fa-angle-down"></i></dt>
+                <dd> 골드레벨 진입 시, 바로 신청하여 사용 가능한 온라인 e-골드카드 입니다.</dd>
+
+                <dt> [레벨혜택] 웰컴 레벨 혜택 중 웰컴 첫 구매 쿠폰은 무엇인가요?<i class="fas fa-angle-down"></i></dt>
+                <dd>웰컴 레벨 진입 후, 처음 구매를 하시는 경우 다음날 계정으로 발행되는 무료 음료 쿠폰입니다.
+                    웰컴 레벨 회원에게만 1회 제공되는 혜택으로, 쿠폰을 사용하시고, 회원 탈퇴 후 재가입 하신 경우에는 쿠폰이 재 발행 되지 않습니다.(e-Gift Item 선물은 구매에 해당하지 않습니다.)
+                </dd>
+
+                <dt> [웰컴레벨] 웰컴레벨의 유효기간이 있나요? <i class="fas fa-angle-down"></i></dt>
+                <dd>아니오, 한 번 웰컴레벨에 진입하시면 지속적으로 유지할 수 있습니다.</dd>
+
+                <dt> [골드레벨] 골드레벨의 유효 기간이 있나요? <i class="fas fa-angle-down"></i></dt>
+                <dd>골드레벨 진입일로부터 1년입니다.</dd>
+
+                <dt> [골드레벨] 골드레벨은 어떻게 진입할 수 있나요? <i class="fas fa-angle-down"></i></dt>
+                <dd>웰컴레벨에서 첫 번째 별 적립 일로부터 1년 안에 30개의 별을 적립해야 합니다.</dd>
+
+                <dt> [골드레벨] 골드레벨의 유효기간 만료 후 유지 방법은 무엇인가요?<i class="fas fa-angle-down"></i></dt>
+                <dd>골드레벨 진입일로부터 1년 안에 별 30개를 적립하시면 유효기간이 1년 연장됩니다.</dd>
+            </dl>
+            <ul class="page">
+
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+
+            </ul>
+            
+
+
+
+    </section>
+</body>
+</html>

@@ -1,0 +1,96 @@
+/* scroll_layout.css */
+@charset "utf-8";
+:root{
+  --bc-color01:#d63384;
+  --t-color01:#333;
+  --t-color02:#fff;
+  --t-color03:#ff0;
+}
+
+*{margin:0px auto;}
+ul, ol, li{list-style:none;}
+a{
+  color:var(--t-color01);
+  text-decoration:none;
+}
+body{
+  font-family: "맑은 고딕",arial,sans-serif;
+  font-size:12px;
+  color:var(--t-color01);
+}
+header{
+  width:100%;
+  height:60px;
+  position:fixed;
+  top:0px;left:0px;
+  background:var(--bc-color01);
+}
+header > h1{
+  font-size:30px;
+  line-height:60px;
+  margin-left:100px;
+}
+header > h1 > a{color:var(--t-color02);}
+.gnb{
+  position:absolute;
+  width:1000px;
+  right:100px;top:0px;
+}
+.gnb > ul{
+  display:flex;
+  justify-content:space-around;
+}
+.gnb > ul > li{}
+.gnb > ul > li > a{
+  color:#fff;
+  line-height:60px;
+  font-size:20px;
+  text-transform: capitalize;
+  transition:0.3s;
+}
+.gnb > ul > li > a:hover{
+  color:var(--t-color03) !important;
+  font-size:24px !important;
+  font-weight:bold;
+}
+.t_act{
+  color:var(--t-color03) !important;
+  font-size:24px !important;
+  font-weight:bold;
+}
+
+
+
+/* 콘텐츠 서식 */
+main{
+  width:1200px;
+  margin:0px auto;
+  padding-top:50px;
+}
+main > section{
+  height:850px;
+}
+main > section:nth-child(2n){
+  background-color:rgb(255, 193, 193);
+}
+main > section:nth-child(2n-1){
+  background-color:rgb(255, 230, 230);
+}
+main > section > h2{
+  text-align:center;
+  padding:20px 0px;margin-top:50px;
+  font-size:30px;
+  text-transform: uppercase;;
+}
+
+/* 푸터영역서식 */
+footer{
+  width:100%;
+  background:var(--t-color01);
+  text-align:center;
+}
+footer > address{
+  line-height:50px;
+  color:var(--t-color02);
+  font-style:normal;
+}

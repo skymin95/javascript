@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+main{}
+main > section{}
+#main_intro{}
+#main_intro > h2{display:none;}
+#main_intro article{
+  position:absolute;
+  width:100%;top:50%;
+  transform:translateY(-50%);
+  z-index:100;
+  text-align:center;
+  color:var(--t-color02);
+}
+#main_intro article > h3 {
+  font-size: 60px;
+  font-weight:bold;
+}
+#main_intro article > p {
+  line-height: 80px;
+  font-size: 16px;
+}
+#main_intro a{
+  color:var(--t-color02);
+  font-size:14px;
+  text-decoration: underline;
+  margin:0px 20px;
+  padding:5px 10px;
+}
+#main_intro a:first-of-type{
+  background:var(--bg-color01);
+}

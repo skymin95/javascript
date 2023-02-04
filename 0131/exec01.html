@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cj-exec</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* 초기화 */
+       *{margin: 0px; padding: 0px;}
+        ul,ol,li{list-style: none;}
+        a{text-decoration: none; color: #000;}
+        /* 서식 */
+        section{
+            /* border: 1px solid #333; */
+            width: 800px; height: 1100px;
+            margin: 0px auto;
+        }
+        dl{
+            /* width: 800px;height: 700px; border: 1px solid #000; */
+            margin: 20px auto;
+        }
+        /* dt서식 */
+        .faq> dt{
+            border-top: 1px solid #000;
+            padding: 10px;/*이걸로 높이*/
+            height: 35px;
+            font-size: 18px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        span{
+            display: inline;
+            padding: 0px 7px; 
+            font-weight: bold;
+            color: #620FAC;}
+        i.fas{
+            position: absolute; right: 0px;
+            font-size: 25px;
+        }
+        /* dd서식 */
+        .faq > dd{
+            background: #ccc;
+            /* padding: 0px 25px; */
+            text-indent: 30px;
+            display: none;
+        }
+        .on{transform: rotate(180deg);}
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            let i = $('.faq > dt')
+
+            i.click(function(){    
+                $(this).next().toggle().siblings('dd').hide();
+
+                
+
+                // $(this).find('i.fas').addClass('on').parent().siblings().find('i.fas').removeClass('on');
+                $(this).find('i.fas').toggleClass('on');
+            });
+        });
+    </script>
+</head>
+<body>
+    <section>
+    <input type="search" id="search">
+    <input type="submit" value="검색">
+        <h2>자주하는 질문 TOP10</h2>
+        <dl class="faq">
+            <dt><span>1</span>반품 신청은 어떻게 하나요? <i class="fas fa-angle-down"></i></dt>
+            <dd>1</dd>
+
+            <dt><span>2</span>주문을 취소하고 싶어요 <i class="fas fa-angle-down"></i></dt>
+            <dd>2</dd>
+            
+            <dt><span>3</span>리뷰는 어떻게 작성하나요? <i class="fas fa-angle-down"></i></dt>
+            <dd>3</dd>
+
+            <dt><span>4</span>반품시 별도 택배비가 부과되나요? <i class="fas fa-angle-down"></i></dt>
+            <dd>4</dd>
+
+            <dt><span>5</span>원하는 상품 방송시간을 문자로 받고 싶어요 <i class="fas fa-angle-down"></i></dt>
+            <dd>5</dd>
+
+            <dt><span>6</span>회원 탈퇴는 어떻게 하나요? <i class="fas fa-angle-down"></i></dt>
+            <dd>6</dd>
+
+            <dt><span>7</span>배송지를 변경할 수 있나요 <i class="fas fa-angle-down"></i></dt>
+            <dd>7</dd>
+            
+            <dt><span>8</span>교환 신청은 어떻게 하나요? <i class="fas fa-angle-down"></i></dt>
+            <dd>8</dd>
+            
+            <dt><span>9</span>CJ온스타일 앱(어플리케이션)은 어떻게 설치하나요? <i class="fas fa-angle-down"></i></dt>
+            <dd>9</dd>
+
+            <dt><span>10</span>결제수단 변경하려면 주문취소하고 재주문하나요? <i class="fas fa-angle-down"></i></dt>
+            <dd>10</dd>
+        </dl>
+    </section>
+</body>
+</html>

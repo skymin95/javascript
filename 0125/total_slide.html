@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리 슬라이드 좌_우(페이지번호,플레이,스탑버튼,좌,우버튼</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <style>
+    * {margin: 0px; padding: 0px;}
+    ul,ol,li{list-style: none;}
+    a{text-decoration: none;}
+    body{
+      font-family: "맑은 고딕",Arial,sans-serif;
+      font-size: 12px;
+      color: #333;    
+    }
+    h2,h2+ul{padding: 10px;}
+    .slide{
+      width: 340px;
+      height: 378px;
+      margin: 0px auto;
+      position: relative;
+    }
+    /* .slide > ul{display: flex;} */
+    .slide > ul{position: absolute;}
+    i.fas{
+      position: absolute;bottom: 10px;
+      color: #fff; font-size: 24px;
+      cursor: pointer;
+    }
+    i.fa-angle-left{right: 100px;}
+    i.fa-angle-right{right: 70px;}
+    i.fa-play{right: 40px;}
+    i.fa-pause{right: 10px;}
+    .page{
+      position: absolute;
+      left: 10px; bottom: 10px;
+      color: #fff; font-size: 18px;
+    }
+  </style>
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(function(){
+    // 변수선언
+    let slide = $(".slide ul");
+    let n = $(".page");
+    let l_btn = $("i.fa-angle-left");
+    let r_btn = $("i.fa-angle-right");
+    let p_btn = $("i.fa-play");
+    let s_btn = $("i.fa-pause");
+    let img_w = $('.slide img').width();
+    let num = 1;
+    let img_h = $('.slide img').height();
+      n.text(num+'/3');//페이지 번호 호출하기
+    // 1번 슬라이드 앞에 3번 슬라이드를 배치한다.
+    $('.slide ul > li:last-child').insertBefore('.slide ul > li:first-child');
+    // slide.css('margin-left','-340px');
+    // slide.css('margin-left',-img_w);
+    slide.css('margin-top',-img_h);
+
+    // 3.moveLeft함수
+    function moveLeft(){
+      slide.animate({'margin-top':-img_h*2},500,function(){
+        $('.slide ul > li:first-child').insertAfter('.slide ul > li:last-child');
+    slide.css('margin-top',-img_h);
+    if(num==3){
+      num=1;
+    }else{
+      num++
+    }
+    n.text(num+'/3');
+      });
+    }
+     // 3.moveRight함수
+     function moveRight(){
+      slide.animate({'margin-top':'0px'},500,function(){
+        $('.slide ul > li:last-child').insertBefore('.slide ul > li:first-child');
+    slide.css('margin-top',-img_h);
+    if(num==1){
+      num=3;
+    }else{
+      num--;
+    }
+    n.text(num+'/3');
+      });
+    }
+    //4.시간객체로 3초마다 함수호출
+    let Timer = setInterval(moveLeft,3000);
+
+    // pause버튼누르면 시간 제거하고 멈추게
+      s_btn.click(function(){
+        clearInterval(Timer);
+      });
+    // play 버튼 클릭시시간을 생성해 다시 플레이 하기
+      p_btn.click(function(){
+        Timer =setInterval(moveLeft,3000);
+      });
+
+      // 좌우버튼 클릭시 해당방향으로
+      l_btn.click(function(){
+        clearInterval(Timer);
+        moveLeft();
+      });
+
+// 우측
+      r_btn.click(function(){
+        clearInterval(Timer);
+        moveRight();
+      });
+      
+      // 좌우 버튼 마우읏 아웃시 다시 시간을 넣어서 움직이게 한다.
+      $('i.fa angle-left,i.fa angle-right').mouseout(function(){
+        clearInterval(Timer);//기존시간을 제거
+        Timer.setInterval(moveLeft,3000);
+      })
+
+      // 페이지 번호 삽입하기
+
+
+
+  })
+  </script>
+</head>
+<body>
+  <h2>제이쿼리 슬라이드 좌_우(페이지번호,플레이,스탑버튼,좌,우버튼</h2>
+  <ul>
+    <li>3장의 사진을 가로배치한다.</li>
+    <li>오른쪽 끝에 있는 목록을 1번의 앞으로 배치한다.</li>
+    <li>moveLeft,moveRight함수를 작성해 좌,우측으로 각각 움직이는 애니메이션을 작성한다.</li>
+    <li>setInterval객체를 사용해 3초마다 함수를 호촐하여 자동으로 움직이게 한다.</li>
+    <li>슬라이드의 왼쪽 하단에 페이지 번호를 삽입한다.</li>
+    <li>슬라이드의 오른쪽에 좌,우 버튼을 만들고 클릭시 각각 해당 함수가 호출되어 슬라이드가 움직이게 한다.</li>
+    <li>슬라이드의 오른쪽 하단 끝에 '플레이','스탑'버튼을 만들고 각각 클릭시 시간이 플레이, 스탑이 되도록한다.</li>
+
+  </ul>
+  
+
+<article class="slide">
+  <ul>
+    <li><a href="#" title=""><img src="./images01/01.jpg" alt=""></a></li>
+    <li><a href="#" title=""><img src="./images01/02.jpg" alt=""></a></li>
+    <li><a href="#" title=""><img src="./images01/03.jpg" alt=""></a></li>
+  </ul>
+  <i class="fas fa-angle-left"></i>
+  <i class="fas fa-angle-right"></i>
+  <i class="fas fa-play"></i>
+  <i class="fas fa-pause"></i>
+  <span class="page">&nbsp;</span>
+</article>
+
+
+
+
+
+</body>
+</html>

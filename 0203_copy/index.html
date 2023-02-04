@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>현대자동차 캐스퍼 - 스크롤레이아웃</title>
+  <!-- 초기화 -->
+  <link href="./css/reset.css" rel="stylesheet" type="text/css">
+  <!-- 기본서식, 공통서식 -->
+  <link href="./css/base.css" rel="stylesheet" type="text/css">
+  <!-- 레이아웃서식 -->
+  <link href="./css/layout.css" rel="stylesheet" type="text/css">
+  <!-- 콘텐츠 영역서식 -->
+  <link href="./css/main.css" rel="stylesheet" type="text/css">
+  <!-- 아이콘폰트 주소 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- css3추가속성시 접두사 자동으로 붙여주는 스크립트 -->
+  <script src="./script/prefixfree.min.js"></script>
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- 제이쿼리 ui라이브러리 -->
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <!-- 제이쿼리 쿠키파일 -->
+  <script src="./script/jquery.cookie.js"></script>
+  <!-- 공통스크립트 -->
+  <script src="./script/layout.js"></script>
+  <!-- 콘텐츠 스크립트 -->
+  <script src="./script/main.js"></script>  
+</head>
+<body>
+  <header>
+    <h1>
+      <a href="index.html" title="메인페이지로 바로가기">
+        <img src="./images/logo-casper-white.png" alt="상단로고">
+      </a>
+    </h1>
+
+    <!-- 상단 스크롤시 고정 내비게이션 -->
+    <nav>
+      <ul class="gnb">
+        <li><a href="javscript" title="소개">소개</a></li>
+        <li><a href="#" title="체험">체험</a></li>
+        <li><a href="#" title="이벤트">이벤트</a></li>
+        <li><a href="#" title="구매안내">구매안내</a></li>
+        <li><a href="#" title="고객지원">고객지원</a></li>
+      </ul>
+    </nav>
+
+    <i class="fas fa-user"></i>
+    <i class="fas fa-bell"></i><!-- 알림아이콘 -->
+  </header>
+
+<!-- 원형내비게이션 -->
+  <nav id="m_nav">
+    <ul>
+      <li><span>1</span>
+        <a href="#" title="소개">소개</a></li>
+      <li><span>2</span>
+        <a href="#" title="체험">체험</a></li>
+      <li><span>3</span>
+        <a href="#" title="이벤트">이벤트</a></li>
+      <li><span>4</span>
+        <a href="#" title="구매">구매</a></li>
+      <li><span>5</span>
+        <a href="#" title="고객지원">고객지원</a></li>
+    </ul>
+  </nav>
+
+  <!-- 메인콘텐츠 영역 -->
+  <main>
+    <section id="top3">
+      <h2>가장 많이 찾은 캐스퍼 TOP3</h2>
+      <p>지금 가장 인기 있는 조합을 확인해보세요.</p>
+
+      <div>
+      <span>1위</span>
+      <h3>가솔린 1.0 터보 인스퍼레이션
+      </h3>
+      <img src="./images/color_khaki.02b812c.png" alt="가솔린 1.0터보 인스퍼레이션">
+      <div class="wrap_info">
+      <div class="info">
+        <div class="asd">
+          <span>&nbsp;</span>
+          <p>외장색상</p>
+          <p>톰보이 카키</p>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="asd">
+          <span>&nbsp;</span>
+          <p>내장색상</p>
+          <p>블랙</p>
+        </div>
+      </div>
+
+      <div class="info">
+      <p>선택품목</p>
+      캐스퍼 엑티브
+      </div>
+      
+      <div class="info">
+        19,600,000원
+      </div>
+    </div>
+      <!-- <input type="button" value="견적내기>" class="button"> -->
+    </div>
+      <div>
+      <span>1위</span>
+      <h3>가솔린 1.0 터보 인스퍼레이션
+      </h3>
+      <img src="./images/color_khaki.02b812c.png" alt="가솔린 1.0터보 인스퍼레이션">
+      <div class="wrap_info">
+      <div class="info">
+        <div class="asd">
+          <span>&nbsp;</span>
+          <p>외장색상</p>
+          <p>톰보이 카키</p>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="asd">
+          <span>&nbsp;</span>
+          <p>내장색상</p>
+          <p>블랙</p>
+        </div>
+      </div>
+
+      <div class="info">
+      <p>선택품목</p>
+      캐스퍼 엑티브
+      </div>
+      
+      <div class="info">
+        19,600,000원
+      </div>
+    </div>
+      <!-- <input type="button" value="견적내기>" class="button"> -->
+    </div>
+      <div>
+      <span>1위</span>
+      <h3>가솔린 1.0 터보 인스퍼레이션
+      </h3>
+      <img src="./images/color_khaki.02b812c.png" alt="가솔린 1.0터보 인스퍼레이션">
+      <div class="wrap_info">
+      <div class="info">
+        <div class="asd">
+          <span>&nbsp;</span>
+          <p>외장색상</p>
+          <p>톰보이 카키</p>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="asd">
+          <span>&nbsp;</span>
+          <p>내장색상</p>
+          <p>블랙</p>
+        </div>
+      </div>
+
+      <div class="info">
+      <p>선택품목</p>
+      캐스퍼 엑티브
+      </div>
+      
+      <div class="info">
+        19,600,000원
+      </div>
+    </div>
+      <!-- <input type="button" value="견적내기>" class="button"> -->
+    </div>
+    </section>
+
+    <section id="intro">
+      <h2>캐스퍼 세일 페스타</h2>
+      
+      
+    </section>
+
+    <section id="test">
+      <h2>시승신청</h2>
+    </section>
+
+    <section id="event">
+      <h2>이벤트&프로모션</h2>
+    </section>
+
+    <section id="buy">
+      <h2>캐스퍼 구매 안내</h2>
+    </section>
+
+    <section id="cs">
+      <h2>고객지원</h2>
+    </section>
+  </main>
+
+  <footer></footer>
+</body>
+</html>

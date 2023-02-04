@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>팝업(popup)</title>
+  <style>
+    *{margin: 0px; padding: 0px;}
+    div{width: 360px; height: 365px;}
+
+    div > p {
+      background: #000;
+      line-height: 40px;
+      text-align: center;
+    }
+
+
+    input[type=button]{
+     color: #fff;
+     background: none;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div>
+    <a href="#" title="광고이미지"><img src="./images/banner.jpg" alt="광고이미지">
+    </a>
+    <!-- self,window.close();를 써서 자기창을 닫기 -->
+    <p><input type="button" value="닫기" onclick="self.close();">닫기</p>
+  </div>
+</body>
+</html>

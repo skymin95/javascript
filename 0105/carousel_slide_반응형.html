@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>캐러셀 슬라이드 구현하기-반응형</title>
+  <style>
+    *{margin:0px;padding:0px;}
+    ul,ol,li{list-style:none;}
+    h2{text-align:center;}
+    .slide-wrapper{
+      width:100%;height:500px;
+      position:relative;
+    }
+    /* 자식요소가 5개라 100%*5 */
+    .slide{
+      display:flex;  width:500%;
+      position:absolute;
+      left:0px;top:0px;
+      transition:0.3s;
+    }
+    .slide > li{width:100%;height:500px; }
+    .slide > li:first-child{background:rgb(252, 252, 179);}
+    .slide > li:nth-child(2){background:rgb(216, 216, 62);}
+    .slide > li:nth-child(3){background:rgb(179, 255, 0);}
+    .slide > li:nth-child(4){background:rgb(0, 255, 213);}
+    .slide > li:last-child{background:rgb(252, 173, 255);}
+    /* li태그 마지막 번째를 제외한 나머지에게 마진값 설정 */
+    .slide > li:not(:last-child){margin-right:0px;}
+    /* .slide > li > div{}
+    .btn_group{} */
+    .btn_group > input[type=button]{
+      position:absolute;top:47%;
+    }
+    .btn_group .prev{left:0px;}
+    .btn_group .next{right:0px;}
+  </style>
+</head>
+<body>
+  <h2>캐러셀 슬라이드(반응형) 구현하기</h2>
+  <article class="slide-wrapper">
+    <ul class="slide">
+      <li><div>1</div></li>
+      <li><div>2</div></li>
+      <li><div>3</div></li>
+      <li><div>4</div></li>
+      <li><div>5</div></li>
+    </ul>
+    <div class="btn_group">
+      <input type="button" class="prev" value="이전">
+      <input type="button" class="next" value="다음">
+    </div>
+  </article>
+
+  <h3>선택한 요소의 크기(가로)를 자동으로 구하기 - clientWidth</h3>
+  <p>clientWidth : padding 포함한 px단위의 요소 가시너비 반환.</p>
+  <p>사용법) element.clientWidth</p>
+  <pre>
+    사용 예)
+    function 함수명(){
+      let box = document.getElementById("wrap");
+      let txt = "padding 포함 높이: " + wrap.clientHeight + "px<br>";
+      txt += "padding 포함 너비: " + wrap.clientWidth + "px";  
+      document.getElementById("demo").innerHTML = txt;
+    }
+  </pre>
+
+  <script>    
+    //변수선언
+    const slide_w = document.querySelector('.slide-wrapper')
+    const slide = document.querySelector('.slide');
+    const slide_img = document.querySelectorAll('.slide li');
+    const l_btn = document.querySelector('.prev');
+    const r_btn = document.querySelector('.next');
+
+    const img_n = slide_img.length;  //목록개수
+    console.log(img_n);
+    const img_w = 100; //이미지 한장 너비
+    const m = 0; //마진값
+    const s_con = 1; //보여줄 개수
+
+    let count = 0;
+
+    //감싸는 부모요소의 너비를 구하기
+    slide.style.width = (img_w+m)*img_n - m + '%';
+    //1620=(300+30)*5-30px
+
+    //함수작성
+    function mslide(n){
+      slide.style.left = (img_w+m)* -n  + '%'; //
+      count = n;
+      console.log(slide.style.left); //-330, -660..
+      console.log(count);
+    }
+
+    //3초마다 mslide를 호출하여 자동으로 움직이게 함.
+    var Timer = setInterval(function(){
+      if(count < img_n-s_con){
+        mslide(count+1);
+      }else{
+        mslide(0);
+      }
+    },3000);
+
+
+    //이전버튼 클릭시 해당 방향으로 움직이게
+    l_btn.addEventListener('click', function(){
+      if(count > 0){
+        mslide(count-1);
+      }else{
+        mslide(img_n - s_con);
+      }
+    });
+
+    //다음버튼
+    r_btn.addEventListener('click', function(){
+      if(count < img_n-s_con){
+        mslide(count+1);
+      }else{
+        mslide(0);
+      }
+    });
+  </script>
+
+</body></html>

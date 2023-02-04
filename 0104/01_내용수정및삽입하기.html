@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_문서객체모델_내용수정_삽입하기</title>
+  <style>
+    #clock{font-size: 30px; color: #00f;}
+    .box{border: 3px solid #f00; background: #f0f;}
+  </style>
+</head>
+<body>
+  <h2>01_문서객체모델_내용수정_삽입하기</h2>
+  <p>웹문서의 요소를 선택해 내용을 삽입하거나 수정할 수 있다.</p>
+  <ul>
+    <li>요소명.inner Text = 내용;</li>
+    <li>요소명.inner HTML = 내용;</li>
+  </ul>
+
+<h3>버튼을 클릭하면 현재 시각을 #clock요소에 표시하기</h3>
+<div id="clock">이곳에 버튼을 클릭시 이곳에 현재시각이 표시됩니다.</div>
+
+<input type="button" value="innerText속성으로 시간표시하기" onclick="inText()">
+<input type="button" value="innerHTML속성으로 시간표시하기" onclick="inHTML()">
+
+<script>
+let today = new Date(); // 시간객체생성한다
+let h =today.getHours();//시간을 변수에 담는다
+let m =today.getMinutes();//분을 변수에 담는다
+let s =today.getSeconds();//초를 변수에 담는다
+  
+  function inText(){
+    //#clock에 내용 삽입하기
+    //innerText는 문자만 삽입가능하고
+    document.getElementById('clock').innerText= h+"."+m+"."+s;
+  }
+
+
+  function inHTML(){
+    // innerHTML태그도 같이 쓸수잇다
+document.getElementById('clock').innerHTML="<div class=box>"+h+"."+m+"."+s;
+  }
+</script>
+
+
+</body>
+</html>

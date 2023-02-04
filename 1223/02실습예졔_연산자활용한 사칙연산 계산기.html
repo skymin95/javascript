@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습예제_연산자를 활용한 사칙연산 모바일 계산기</title>
+</head>
+<body>
+  <h2>실습예제_연산자를 활용한 사칙연산 모바일 계산기</h2>
+
+  <article>
+    <!-- 출력박스 -->
+    <input type="text" id="calOutput">
+    <div class="btn_box">
+      <p>
+      <input type="button" value="1" class="btn" onclick="cal(1)">
+      <input type="button" value="2" class="btn" onclick="cal(2)">
+      <input type="button" value="3" class="btn" onclick="cal(3)">
+      <input type="button" value="+" class="btn" onclick="cal('+')">
+    </p>
+
+    <p>
+      <input type="button" value="4" class="btn" onclick="cal(4)">
+      <input type="button" value="5" class="btn" onclick="cal(5)">
+      <input type="button" value="6" class="btn" onclick="cal(6)">
+      <input type="button" value="-" class="btn" onclick="cal('-')">
+    </p>
+
+    <p>
+      <input type="button" value="7" class="btn" onclick="cal(7)">
+      <input type="button" value="8" class="btn" onclick="cal(8)">
+      <input type="button" value="9" class="btn" onclick="cal(9)">
+      <input type="button" value="*" class="btn" onclick="cal('*')">
+    </p>
+
+    <p>
+      <input type="button" value="0" class="btn" onclick="cal(0)">
+      <input type="button" value="=" class="btn" onclick="result()">
+      <input type="button" value="/" class="btn" onclick="cal('/')">
+      <input type="button" value="." class="btn" onclick="cal('.')">
+    </p>
+    <input type="button" value="clear" class="btn" onclick="init()">
+
+
+    </div>
+  </article>
+
+  <script>
+    // 계산기 스크립트 내용 작성하기
+    // 출력박스 변수 선언
+    let res = document.getElementById('calOutput');
+
+    // 2.버튼을 클릭시 버튼에 들어간 매개변수값을 함수에 넘겨줘서 연산처리하게 한다.
+    function cal(op){
+      // console.log(op);
+
+      //출력결과 박스에 누른 값들을 표시함.
+      let outputValue=res.value+op;//연산식
+      
+      // 숫자와 연산기호 모두 보이게함
+      res.value= outputValue;
+    }
+
+    //3.사용자가 = 버튼을 클릭시 result()함수가 실행되게 하여 연산결과를 input태그에 출력하게 한다.
+    function result(){
+      // 연산된 결과값을 input태그에 나오게함
+      res.value=eval(res.value);
+    }
+
+    // 4.clear버튼을 클릭하면 id가 calOutput에 들어간 문자열을 모두 삭제한다.
+    function init(){
+      res.value=null;
+    }
+
+
+
+  </script>
+
+
+
+
+  
+</body>
+</html>

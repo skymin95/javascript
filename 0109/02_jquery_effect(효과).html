@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      border: 5px solid #f00; 
+      width: 332px;
+      margin-top: 50px;      
+    }
+    .box img{
+      /* 이미지 사이즈 맞추기 위해 인라인 블럭요소라  */
+      vertical-align: top;
+    }
+.box2{position: absolute; left: 0px; top: 0px;
+  border: 3px solid #f00;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, .8);
+  text-align: center;
+  display: none;
+  
+}
+.box2 img {
+  display: block;
+  width: 760px; height: 710px;
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+
+
+
+
+
+  </style>
+<!-- 제이쿼리 라이브러리 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      let b1 = $('#btn1');
+      let b2 = $('#btn2');
+      let b3 = $('#btn3');
+      let b4 = $('#btn4');
+      let b5 = $('#btn5');
+      let b6 = $('#btn6');
+      let b7 = $('#btn7');
+      let b8 = $('#btn8');
+      let b9 = $('#btn9');
+      let b10 = $('#btn10');
+      let b11 = $('#btn11');
+      
+      b1.click(function(){
+        $('.box').show()
+      });
+
+      b2.click(function(){
+        $('.box').hide()
+      });
+
+      b3.click(function(){
+        $('.box').toggle()
+      });
+
+      b4.click(function(){
+        $('.box').slideDown()
+      });
+
+      b5.click(function(){
+        $('.box').slideUp()
+      });
+
+      b6.click(function(){
+        $('.box').slideToggle()
+      });
+      b7.click(function(){
+        $('.box').fadeIn()
+      });
+      b8.click(function(){
+        $('.box').fadeOut()
+      });
+      b9.click(function(){
+        $('.box').fadeToggle()
+      });
+      b10.click(function(){
+        $('.box').fadeTo(5000,0.5)
+      });
+      b11.click(function(){
+        $('.box2').fadeIn()
+      });
+      b11.click(function(){
+        $('.box2').fadeOut()
+      });
+
+
+    });
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+</head>
+<body>
+  <h2>a</h2>
+  <p>효과(effect)란? 사용자가 지정한 html요소를 선택해 숨기거나 나타내기,페이드 효과,슬라이드다운,
+    없,애니메이션 기능을 사용하기 위한 메소드들이있다.
+  </p>
+
+
+  <ul>
+    <li>show(); - 선택한 요소를 보이게 한다.</li>
+    <li>hide(); - 선택한 요소를 숨긴다.</li>
+    <li>toggle(); - 선택한 요소를 숨기거나 나타낸다.</li>
+    <li>slideDown(); - 선택한 요소를 아래로 펼친다</li>
+    <li>slideUp(); - 선택한 요소를 위로 접는다.</li>
+    <li>slideToggle(); - 선탁한요소를 아래로 펼치거나 위로 접는다</li>
+    <li>fadeln(); - 선택한 요소를 서서히 나타낸다.</li>
+    <li>fadeOut(); - 선택한 요소를 서서히 사라지게한다.</li>
+    <li>fade Toggle(); - 선택한 요소를 서서히 나타내거나/사라지게한다.</li>
+    <li>fade TO(): - 선택한 요소를 지정한 시간만큼 서서히 사라지게한다.</li>
+    <li></li>
+  </ul>
+  <input type="button" value="show()" id="btn1">
+  <input type="button" value="hide()" id="btn2">
+  <input type="button" value="toggle()" id="btn3">
+  <input type="button" value="slideDown()" id="btn4">
+  <input type="button" value="slideUp()" id="btn5">
+  <input type="button" value="slideToggle()" id="btn6">
+  <input type="button" value="fadeln()" id="btn7">
+  <input type="button" value="fadeOut()" id="btn8">
+  <input type="button" value="fadeToggle()" id="btn9">
+  <input type="button" value="fadeTo()" id="btn10"> 
+  <div class="box">
+    <img src="./images/banner1.jpg" alt="배너">
+  </div>
+
+  <p>효과메서드 사용시 괄호 ()안에 시간을 설정하는 값인 'slow', 'normal(기본값)','fast',속도와 시간(1/1000=1초) 설정이 가능하다.</p>
+  <p>예) show('fast'),slideDown(100);</p>
+
+
+
+
+  <h3>실습예제_'버튼'을 클릭시 모달 레이어가 뜨고,닫기 버튼시 서서히 사리지게 하기</h3>
+  <input type="button" value="이 버튼을 클릭하면 모달레이가 뜹니다" id="btn11">
+  <div class="box2">
+  <img src="./images/popup.jpg" alt="배너">
+</div>
+</body>
+</html>

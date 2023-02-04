@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jquery_DOM_modal_window(모달윈도) 띄우기</title>
+  <style>
+     /*    모달서식 */
+     .modal{
+          width:100%;height:100%;
+          position:fixed;
+          top:0px;left:0px;
+          background-color:rgba(0,0,0,.9);
+        }        
+        .popup{
+          position:relative; top:50%;left:50%;
+          transform:translate(-50%, -50%);
+          width:350px;height:350px;
+        }
+        .popup img{width:350px;}
+        .popup input{display:none;}
+        .popup a{
+          text-decoration:none;
+          color:#fff;font-size:14px;
+          padding:6px 30px;
+          position:relative;
+          top:-40px;left:84px;
+        }
+        .popup label{
+          color:#fff;font-size:14px;
+          cursor:pointer;
+          position:relative;
+          top:-40px;left:26px;
+          z-index:10;
+        }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(function(){
+      let modal = `
+        <div class="modal">
+          <div class="popup">
+            <img src="./images01/popup.jpg" alt="광고배너">
+            <input type="checkbox" id="ch" checked>
+            <label for="ch">오늘 하루 열지 않음</label>
+            <a href="#" title="닫기">닫기</a>
+          <div>
+        </div>`;
+
+      $('body').append(modal);
+
+      $('.modal a').click(function(){
+        $('.modal').fadeOut();
+      });
+
+    });
+  </script>
+</head>
+<body>
+  <h2>jquery_DOM_modal_window(모달윈도) 띄우기</h2>
+  <h3>모달윈도 = 팝업레이어</h3>
+  <p>모달윈도(Modal Window)는 사용자 인터페이스(UI)디자인 개념에서 자식 윈도에서 부모 윈도우로 돌아가기 전에 사용자의 상호동작을 요구하는 창을 말한다.<br>
+    모달 윈도우는 부모창을 배경으로 어둡게 하고 자식요소가 화면의 가운데 중앙에 배치하도록 하며, 오른쪽 상단에 '닫기'버튼을 만들어서 닫을 수 있도록 한다.<br>
+    '오늘 하루 열지 않음'을 클릭하면 체크박스에 체크되고, '닫기'버튼 클릭시 쿠키가 생성되며 모달이 숨겨짐
+    <br>
+  '오늘 하루 열지 않음'을 클릭해도 모달이 닫혀지도록 하기</p>
+
+  <h3>제이쿼리 쿠키를 활용한 '더이상 창띄우지 않기'</h3>
+  <p>제이쿼리 쿠키 플러그인 주소 : https://plugins.jquery.com/cookie/</p>
+  <p>쿠키(cookie) : 서버에서 클라이언트에게 특정 정보를 저장하는 데이터</p>
+  <P>사용자 이름, 아이디, 방문 횟수 등을 기록하여 차후 접속 시 활용</P>
+  
+  <h3>제이쿼리 쿠키 작성법</h3>
+  <p>$.cookie('쿠키이름','쿠키값',{expires:만료일, path:'저장경로'});</p>
+
+
+  <!-- 제이쿼리 쿠키 연결하기 -->
+  <script src="./script/jquery.cookie.js"></script>
+  <script>
+    $(function(){
+      if($.cookie('popup')=='none'){//쿠키파일이 현재 브라우저에 저장되어 있는지를 따져서 none이면 모달이 안나오게 한다.
+        $('.modal').hide(); //보이지 않게 한다.
+      }
+
+      let ch = $('#ch'); //체크박스 변수
+
+      //오늘하루열지않음을 클릭시 쿠키가 생성이 되고 그렇지 않으면 그냥 모달을 숨기는 내용
+      function closePop(){
+        if(ch.is(':checked')){
+          $.cookie('popup','none', {expires:1, path:'/'}); //쿠키를 생성한다.
+        }
+        $('.modal').hide();
+      }
+      $('.modal label').click(function(){
+        closePop();
+      });
+      //닫기를 누르면 모달이 숨겨지도록 한다.
+      $('.modal a').click(function(){ 
+        $('.modal').fadeOut();
+        //$('.modal').hide();
+        //closePop();
+        //$('.modal').css('display','none');
+      });
+
+    });
+  </script>
+</body>
+</html>

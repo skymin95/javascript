@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01.javscript_함수(function) p.513</title>
+  <script>
+    //1.매개변수 없는 일반함수
+    function print01(){
+      document.write('<p>매개변수 없는 일반 함수입니다.</p>');
+    }
+    //함수실행하기
+    print01();
+    // 2.매개변수가 있는 사용자 정의 함수
+    let a = prompt('이름을 입력하세요');
+    let b = prompt('사는 지역을 입력하세요');
+    function print2(name,city){
+      document.write('<p>'+name+'가 사는 지역은 '+city+'입니다.</p>');
+    }
+    // 매개변수가 있는 함수호출
+    // print2('철수','서울');
+    print2(a,b);
+
+    // 3. 사용자가 입력한 숫자를 합산해주는 함수
+    let n1 = prompt('숫자1을 입력하세요');
+    let n2 = prompt('숫자2을 입력하세요');
+
+    function sum(num1,num2){
+      let sum = Number(num1)+Number(num2);
+      // break;
+      // return alert('함수종료');
+      document.write('<p>n1과n2의 합산 결과는'+sum+'입니다</p>');
+    }
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+  <h2>01.javscript_함수(function) p.513</h2>
+  <dl>
+    <dt>함수의 정의</dt>
+    <dd>함수란 일련의 내용을 삽입해 사용자가 언제든 호출하여 내용을 실행할 수 있는 실행문이다.</dd>
+    <dd>코드의 중복제거 및 재사용이 용이하다.</dd>
+    <dd>유지보수의 용이성이 높다</dd>
+    <dd>함수의 종류에는 사용자정의 함수와 내장함수(prompt,alert...)가 있다.</dd>
+  </dl>
+  <pre>
+    함수의 구조 3가지
+    1.매게변수가 없는 일반함수
+    function 함수명(){
+      실행할 내용;
+    }
+    2.매개변수가 있는 함수
+    function함수명 (변수1,변수2....){
+      실행할 내용;
+    }
+    3.리턴값이 있는 함수 function 함수명(변수1,변수2,변수3.....){
+      실행할 내용;
+      return 실행결과;
+    }
+  </pre>
+</body>
+</html>

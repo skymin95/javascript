@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>적응형 웹_pc화면</title>
+  <script>
+    // 배열객체를 사용해 스마트폰의 종류별 명칭을 넣어둔다.
+    let mobile_keys = new Array('Android','iPhone','iPad','SAMSUNG','BlackBerry','Windows Phone','Windows CE','MOT','SonyEnicsson','Nokia');
+    // 만약 주소에 move_pc_screen값이 없다면
+    if(document.Url_match('move_pc_screen')) mobile_keys = null;//값이 없다.
+    for(i in mobile_keys){//in키워드:키값이 있으면 ture,없으면 false
+      if(navigator.userAgent.match(mobile_keys[i]) != null){
+  location.href = "http://design2010.dothome.co.kr/0103/mindex.html"; 	// 모바일 홈 연결 주소
+    break;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>적응형 웹_pc화면입니다.</h2>
+  
+  <p>이 페이지를 pc에서 보면 index.html페이지가 보여지며, mobile사용자가 접속하면 자동으로 mindex.html페이지로 연결됩니다.</p>
+</body>
+</html>

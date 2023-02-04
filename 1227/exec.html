@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반복문을 활용한 자리배치도 만들기</title>
+  <style>
+    table, td{
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+      width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h2>반복문을 활용한 자리배치도 만들기</h2>
+  <p>한줄에 5명이 앉을 수 있는 자리배치도 이며, 사용자가 숫자를 입력하면 해당하는 자리배치도 만들기
+  </p>
+
+  <h3>자리 배치도</h3>
+  <script>
+    // 1.반복문
+    // 1 -> for(초기값; 조건식; 증감식){
+    //출력할 내용
+    // }
+    let i,j;
+    let rowNum = prompt('입장객은 몇명입니까?');
+    let colNum = prompt('한줄에 몇명씩 앉습니까?');
+    let memNum = rowNum;
+    document.write('<table>');
+    document.write('<caption>테이블로 좌석배치도 만들기</caption>');
+
+    for(i=0; i<=rowNum;i++){//입장객 수만큼 반복문을 실행한다
+      document.write('<tr>');
+    for(j=1; j<=colNum;j++){//한줄에 입력한 개수만큼 칸을 만든다.
+      seatNo = i * colNum+j;
+      if(seatNo>memNum) break;//한줄에 
+      document.write('<td>좌석' + seatNo +"</td>");
+    }  
+    document.write('<tr>');
+    }
+    document.write('</table>');
+
+  </script>
+
+
+</body>
+</html>

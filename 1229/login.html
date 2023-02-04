@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형웹-하림펫푸드에 오신것을 환영합니다.</title>
+  <!-- 초기화 -->
+  <link href="./css/reset.css" rel="stylesheet" type="text/css">
+  <!-- 기본서식 글꼴, 색상, 크기, 링크 -->
+  <link href="./css/base.css" rel="stylesheet" type="text/css">
+  <!-- 공통서식 pc, tablet, mobile 중복서식 -->
+  <link href="./css/common.css" rel="stylesheet" type="text/css">
+  <!-- pc 1025px이상일때 적용 -->
+  <link href="./css/pc.css" rel="stylesheet" type="text/css">
+  <!-- tablet 768-1024px 일때 적용 -->
+  <link href="./css/tablet.css" rel="stylesheet" type="text/css">
+  <!-- mobile 767px까지 일때 적용 -->
+  <link href="./css/mobile.css" rel="stylesheet" type="text/css">
+  <!-- 아이콘폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css">
+  <!-- 스와이퍼 슬라이드 서식 -->
+  <link href="./css/swiper.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="./css/login.css">
+<script src="./script/login.js"></script>
+
+
+</head>
+<body>
+  <form name="검색" method="post" action="search.php">
+    <input type="checkbox" id="toggle">
+    <!-- 상단헤더영역 -->
+    <header>
+      <div class="h_top">
+        <h1>
+          <a href="index.html" title="메인페이지로 바로가기">
+            <img src="./images/logo2.png" alt="상단로고">
+          </a>
+        </h1>
+
+        <nav class="lnb">
+          <ul>
+            <li><a href="login.html" title="로그인">로그인</a></li>
+            <li><a href="join.html" title="회원가입">회원가입</a></li>
+            <li><a href="order.html" title="주문조회">주문조회</a></li>
+            <li><a href="cart.html" title="장바구니">장바구니</a></li>
+          </ul>
+        </nav>
+
+        <!-- 검색폼 -->
+        <fieldset>
+          <legend>검색</legend>
+          <input type="search" id="search" placeholder="이달의 특가 5%" maxlength="50">
+          <label for="search" class="fas fa-search"><span>검색버튼</span></label>
+        </fieldset>
+      </div>
+
+      <label for="toggle" class="total_btn">
+        <i class="fas fa-bars"></i>
+      </label>
+
+      <a href="cart.html" title="장바구니로 바로가기" class="cart_btn">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+
+      <div class="h_bottom">
+        <nav class="gnb">
+          <label for="toggle" class="c_btn"><i class="fas fa-times"></i></label>
+          <ul>
+            <li><a href="brand.html" title="브랜드">브랜드</a>
+              <ul class="sub">
+                <li><a href="#" title="가장 맛있는 시간 30일">가장 맛있는<br> 시간 30일</a></li>
+                <li><a href="#" title="더리얼">더리얼</a></li>
+                <li><a href="#" title="밥이보약">밥이보약</a></li>
+              </ul>
+            </li>
+
+            <li><a href="delibery.html" title="정기배송">정기배송</a>
+              <ul class="sub">
+                <li><a href="#" title="정기배송">정기배송</a></li>
+              </ul>
+            </li>
+
+            <li><a href="dog.html" title="DOG">DOG</a>
+              <ul class="sub">
+                <li><a href="#" title="오늘생산">오늘생산&middot;배송</a></li>
+                <li><a href="#" title="브랜드별">브랜드별</a></li>
+                <li><a href="#" title="연령별">연령별</a></li>
+                <li><a href="#" title="유형별">유형별</a></li>
+                <li><a href="#" title="샘플신청">샘플신청</a></li>
+                <li><a href="#" title="상품후기">상품후기</a></li>
+              </ul>
+            </li>
+
+            <li><a href="cat.html" title="CAT">CAT</a>
+              <ul class="sub">
+                <li><a href="#" title="오늘생산">오늘생산&middot;배송</a></li>
+                <li><a href="#" title="브랜드별">브랜드별</a></li>
+                <li><a href="#" title="연령별">연령별</a></li>
+                <li><a href="#" title="유형별">유형별</a></li>
+                <li><a href="#" title="샘플신청">샘플신청</a></li>
+                <li><a href="#" title="상품후기">상품후기</a></li>
+              </ul>
+            </li>
+
+            <li><a href="member.html" title="맴버쉽">맴버쉽</a>
+              <ul class="sub">
+                <li><a href="#" title="멤버쉽">멤버쉽</a></li>
+                <li><a href="#" title="이벤트">이벤트</a></li>
+                <li><a href="#" title="#하림펫푸드">#하림펫푸드</a></li>
+                <li><a href="#" title="칼로리계산기">칼로리계산기</a></li>
+              </ul>
+            </li>
+            <li><a href="story.html" title="우리 이야기">우리 이야기</a>
+              <ul class="sub">
+                <li><a href="#" title="우리이야기">우리이야기</a></li>
+                <li><a href="#" title="우리의약속">우리의약속</a></li>
+                <li><a href="#" title="100%휴먼그레이드">100%휴먼그레이드</a></li>
+                <li><a href="#" title="이노베이션">이노베이션</a></li>
+                <li><a href="#" title="제조시설">제조시설</a></li>
+                <li><a href="#" title="반려견 동반">반려견 동반</a></li>
+              </ul>
+            </li>
+            <li><a href="tour.html" title="투어신청">투어신청</a>
+            </li>
+          </ul>
+        </nav> 
+      </div>
+    </header>
+
+    <!-- 메인콘텐츠영역 -->
+    <main>
+      <fieldset class="fieldset01">
+        <legend>로그인</legend>
+        <h2>로그인</h2>
+        <p>
+        <label for="id_txt">아이디</label>
+        <input type="text" id="id_txt" placeholder="아이디를 입력하세요">
+      </p>
+
+        <p> 
+        <label for="id_txt" >패스워드</label>
+        <input type="password" id="pw_txt" placeholder="비밀번호를 입력하세요">
+        </p>
+       
+      
+             
+        <p>   
+        <input type="button" value="LOGIN" class="login_btn"onclick="login_check();">
+        </p>
+      
+        
+        <p class="p01">
+        <a href="join.html" title="회원가입" class="new01">회원가입</a>&#x007C;
+        <a href="password.html" title="비번찾기">비번찾기</a>
+        </p>
+      </div>
+      
+     
+      <p class="p02">
+          <input type="checkbox" id="id_save">
+        <label for="id_save">아이디 저장</label>
+        </p>
+        </div>
+
+        <p class="new_id">
+        <input type="button" value="네이버 아이디로 화원가입" class="naver">
+        <input type="button" value="카카오 아이디로 화원가입" class="kakao">
+        </p>
+
+
+
+
+
+
+
+
+      </fieldset>
+
+    <!-- 푸터영역 -->
+    <footer>
+      <div class="f_top">
+        <nav class="f_nav">
+          <ul class="f_lnb">
+            <li><a href="b.html" title="개인정보처리방침">개인정보처리방침</a></li>
+            <li><a href="e.html" title="쇼핑몰 이용약관">쇼핑몰 이용약관</a></li>
+          </ul>
+  
+          <dl>
+            <dt><a href="notice.html" title="공지사항 페이지로 이동하기">공지사항</a></dt>
+            <dd><a href="http://design2010.dothome.co.kr/bbs/bbs/board.php?bo_table=notice01&wr_id=16" title="지니펫X한국헌혈견협회 '건강한' 밥이보약 상품출시">지니펫X한국헌혈견협회 '건강한' 밥이보약 상품출시</a><span>[2021-03-05]</span></dd>
+          </dl>
+        </nav>
+      </div>
+
+      <div class="f_info">
+        <dl>
+          <dt>푸터영역 정보</dt>
+          <dd>
+            <h3>주문 및 배송문의</h3>
+            <p class="number">02-2189-6543</p>
+            <p>평일 10:00 ~ 17:00(점심:12시 ~ 13시)</p>
+          </dd>
+          <dd>
+            <h3>고객센터</h3>
+            <p class="number">080-250-2304</p>
+            <p>평일 10:00 ~ 17:00(점심:12시 ~ 13시)</p>
+          </dd>
+          <dd class="sns">
+            <a href="i.html" title="인스타" class="fab fa-instagram"><span>인스타그램</span></a>
+
+            <a href="t.html" title="트위터" class="fab fa-twitter">
+              <span>트위터</span></a>
+
+            <a href="f.html" title="페이스북" class="fab fa-facebook-f"><span>페이스북</span></a>
+          </dd>
+          <dd class="siteurl">
+            <label for="family">패밀리사이트</label>
+            <select onchange="siteUrl(this)" id="family">
+              <option value="Family Site">Family Site</option>
+              <option value="http://www.naver.com">site1</option>
+              <option value="http://www.daum.net">site2</option>
+              <option value="http://www.daum.net">site3</option>
+              <option value="http://www.daum.net">site4</option>
+            </select>
+          </dd>
+        </dl>
+      </div>
+      <address>
+        <p class="a_info">대전광역시 대덕구 벗꽃길71 (평촌동) &#65372; 상호 및 대표자 : (주)한국인삼공사 000 &#124; 사업자번호 : 000-00-00000 &#124; 통신판매업신고번호 : 제0000-대전대덕
+          사업자정보확인 &#124; 호스팅서비스 제공자 : (주)한국인삼공사 Email : ginipet@kgc.co.kr
+          Copyright&copy;2018 by korea ginseng corp. all rights reserved.</p>
+        <p class="a_pay">구매안전(에스크로)서비스 가입사실 확인 고객님은 안전거래를 위해 현금등으로 결제시 저희 쇼핑몰에 가입한 KCP의 구매안전서비스를 이용하실 수 있습니다.</p>
+      </address>
+    </footer>
+  </form>
+
+  <script src="./script/swiper.js"></script>
+  <script>
+     메인슬라이드 스크립트
+      let swiper = new Swiper('.main_slide', {
+      autoplay:{
+        delay:4000,
+        disableOnInteraction:false,
+      },
+      navigation:{
+        nextEl : ".swiper-button-next",
+        prevEl : ".swiper-button-prev",
+      },
+      pagination : {
+        el:".swiper-pagination",
+        clickable: true,
+      }
+    });
+
+    // 패밀리사이트 바로가기
+    function siteUrl(a){ //함수
+     // console.log(a.value);
+      if(a.value!='none'){ //조건식을 사용하여 사용자가 선택한 목록에 만약에 값이 있다면 
+        window.open(a.value, '_self');//선택한 사이트가 열리게 
+        a.value='none'; //값을 초기화
+      }else{ //그렇지 않다면 
+        return; //프로그램 종료해라
+      }
+    }
+  </script>
+</body>
+</html>

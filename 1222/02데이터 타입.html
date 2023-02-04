@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>asd</title>
+  <style>
+    p:first-of-type{font-size: 30px; font-weight: bold;}
+    p:nth-of-type(2){color: #f00; font-weight: bold;}
+    p:nth-of-type(3){color: #00f}
+    p:nth-of-type(4){font-size: 14px; color: #333;}
+
+  </style>
+  <script>
+    // 1.기본형(원시형 데이터)
+
+
+    let s = '10';//문자데이터
+    let n =  10; //숫자데이터
+    let b = true;    //부울형 데이터 (참 ture ,거짓 false)
+    let n01; //undefined데이터 (값이 정의되지 않음)
+    let n02=null;//null데이터 - 값이 없다.
+    
+
+    // 2.참조형 데이터-한번에 여러개의 데이터를 저장(배열)
+
+    let array = [10,20,30,40,50];
+    let yoil = ['일','월','화','수','목','금','토'];
+    let info = ['홍길동', '23', '서울시 종로구 구기동 국일관 2층', '그린컴퓨터아트학원' ,'02-1111-1111'];
+
+//3.함수형 데이터- 미리 내용을 작성하여 사용자가 함수명을 사용하여 호출하면 프로그램이 실행.
+function sam(){
+  alert('함수형 데이터입니다. 호출하기전까지 출력이 안되요');
+
+}
+
+//4.사용자 객체
+let person={
+  'age' : '21',
+  'job' : '학생',
+  'height' : '175'
+};
+
+
+
+    //출력하기
+    // 사용자 객체 출력하기
+    document.write(`나의 나이는 ${person.age}이고,키는 ${person.height}이며 직업은 ${person.job}입니다<br>`);
+
+    // 마켓컬리 사이트에서 인기상품 내용을 객체로 만들어서 출력하기
+    // 상품명(굵게 ,30px), 가격(빨강,굵게), 할인가(파랑), 상세설명(#333,14px)이 출력되게
+
+let market={
+  'menu' : '한우 소갈비 셋트',
+  'cost' : '105,000',
+  'persent' : '33%',
+  'text'   :  '상세설명입니다'
+}
+
+document.write(`<p>${market.menu}</p> <p>${market.cost}</p> <p>${market.persent}</p> <p>${market.text}</p> `)
+
+    //함수명을 호출하여 내용 출력하기
+    sam();
+
+    // 홍길동의 나이는 23세이고, 주소는 서울시 종로구 구기동 국일관 2층 
+    document.write(`${info[0]}의 나이는${info[1]}이고,주소는${info[2]} <br>`)
+
+    document.write(`오늘의 요일은(${yoil[4]})요일 입니다 `)
+    document.write(array+'<br>');
+
+    document.write(s+'<br>');
+    document.write(n+'<br>');
+    document.write(b+'<br>');
+    document.write(n01+'<br>');
+    document.write(n02+'<br>');
+
+    // 데이터 타입 증명하기
+    document.write(`입력하신 데이터는${typeof s}입니다`);
+
+  </script>
+</head>
+<body>
+  <h2>02데이터 타입 (유형)p 468</h2>
+  <p>자바스크립트에서 사용하는 데이터 유형에 대해 알아보기</p>
+  <ul>
+    <li>문자데이터형(string)</li>
+    <li>숫자데이터형(number)</li>
+    <li>부울형(boolean)-ture(확인), faise(취소)</li>
+    <li>찾을 수 없는 데이터형(underfined)</li>
+    <li>값이 없는 데이터(null)</li>
+    <li>배열형 데이터(array)</li>
+    <li>함수형 데이터(function)</li>
+    <li>객체(object) - document, window, alert, confirm..........</li>
+  </ul>
+
+
+  <p>typeof-typeof연산자는 사용자가 입력한 데이터가 어떤종류의 형식인지 알려주는 연산자이며
+    변수앞에Number, String등을 작성하면 실제 데이터 형식을 변환할 수 있다.
+  </p>
+</body>
+</html>

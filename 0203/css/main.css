@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+main{}
+main > section{}
+#main_intro{
+  overflow: hidden;
+}
+#main_intro > h2{display:none;}
+#main_intro article{
+  position:absolute;
+  width:100%;top:46%;
+  transform:translateY(-30%);
+  z-index:100;
+  text-align:center;
+  color:var(--t-color02);
+}
+#main_intro article > h3 {
+  font-size: 60px;
+  font-weight:bold;
+}
+#main_intro article > p {
+  line-height: 80px;
+  font-size: 16px;
+}
+#main_intro a{
+  color:var(--t-color02);
+  font-size:14px;
+  text-decoration: underline;
+  margin:0px 20px;
+  padding:5px 10px;
+}
+#main_intro a:first-of-type{
+  background:var(--bg-color01);
+}
+#next_btn{
+  position: absolute; 
+  left: 50%; bottom: -100px;
+  text-indent: -9999px;
+  width: 20px; height: 28px;
+  transform: rotate(-45deg);
+  border-bottom: 3px solid #fff;
+  border-left: 3px solid #fff;
+  background: none !important;
+}
+#top3, #intro, #test, #event, #buy,#cs{
+  background: #ccc;
+  margin: 50px 0px;
+  height: 800px;
+
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+ <!-- 제이쿼리 라이브러리 -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+ <script src="https://kit.fontawesome.com/d657bbfbe9.js" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function(){
+    let a = $('#hide');
+    
+    a.click(function(){
+    $('.top').slideUp();
+    return false;
+  });
+  });
+</script>
+
+
+<body>
+<div class="top">
+  <img src="./images/coupang_02.jpg"alt="" id="up">
+  <a href="#" title="" id="hide"> <i class="fa-regular fa-x" ></i></a>
+</div>
+</body>
+</html>

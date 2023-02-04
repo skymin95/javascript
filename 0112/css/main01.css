@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+body{
+  font-family: "맑은 고딕",arial,sans-serif;
+  font-size:12px;
+  color:#333;
+  /* overflow-x:hidden;  
+  가로스크롤바 안나오게  */
+}
+a{text-decoration:none;color:#333;}
+
+header{
+  width:100%;
+  border-top:3px solid #ff7c98;
+  background-image:url('../images/bg_header.gif');
+}
+#h_top, nav{
+  width:1200px;
+  margin:0px auto;
+}
+#h_top h1{
+  width:92px;height:92px;
+  margin:0 auto;
+  padding:15px 0px;
+}
+#h_bottom{
+  width:100%;height:46px;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid rgb(51, 51, 51);
+  background-color:#fff;
+  overflow:hidden;
+  position:absolute;
+  z-index:10;
+}
+#h_bottom:after{
+  border-bottom:1px solid rgb(51, 51, 51,0);
+  transition:0.3s;
+  display:block;
+  content:"";
+}
+#h_bottom:hover::after{
+  border-bottom:1px solid rgb(51, 51, 51,1);
+}
+#h_bottom nav{
+  display:flex; /*가로 방향 배치 */
+  justify-content: space-between;/* 정렬 - 가운데, 왼쪽, 오른쪽 */
+}
+.lnb, .gnb{
+  display:flex;
+  justify-content: center; 
+}
+nav a{text-transform:uppercase;}
+.lnb{width:200px;}
+.lnb > li{
+  padding:0px 18px;
+  line-height:46px;
+  text-align:center;
+}
+.lnb > li > a{
+  font-size:13px;
+  font-weight:bold;
+  color:#aaa;
+}
+.lnb > li:first-child a{
+  color:#ff7c98;
+}
+.gnb{width:1000px;}
+.gnb > li{
+  width:170px;
+  line-height:46px;
+  text-align:center;
+  position:relative; /* 서브메뉴의 기준 */
+}
+.gnb > li > a{
+  font-size:13px;
+  font-weight:bold;
+  color:#3c0a0a;
+}
+/* 서브메뉴 서식 */
+.sub{
+  position:absolute;
+  width:100%;padding-top:10px;
+  display:none;
+}
+.sub li{line-height:46px;}
+.sub li:hover a{color:#ff7c98;}
+
+/* 메인 서식 */
+main{padding-top:46px;}
+.slide{
+  width:100%;
+  /* height:697px; */
+  margin:0px auto;
+  position:relative;
+}
+.slide > ul{
+  display:flex;
+  width:500%;
+}
+.slide > ul > li{
+  width:100%;
+  /* height:697px; */
+}
+.slide > ul > li img{width:100%;}
+.slide i.fas{
+  color:#fff;
+  padding:22px 30px;
+  border:3px solid #fff;
+  position:absolute;
+  top:43%;
+  font-size:40px;
+  border-radius:50%;
+  cursor:pointer;
+}
+.slide i.fas:hover{
+  background:rgba(255,255,255,.3);
+  border:3px solid rgba(255, 255, 255,.3);}
+.slide i.fa-angle-left{left:0.3%;}
+.slide i.fa-angle-right{right:0.3%;}

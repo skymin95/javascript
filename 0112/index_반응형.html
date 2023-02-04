@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리 애니메이트 응용_베스킨라빈스 상단헤더와 메인슬라이드</title>
+  <!-- 초기화 -->
+  <link rel="stylesheet" href="./css/reset.css" type="text/css">
+  <!-- 메인서식 -->
+  <link rel="stylesheet" href="./css/main01.css" type="text/css">
+  <!-- 폰트어썸 주소 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <!-- 제이쿼리 ui라이브러리 -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- 메인 제이쿼리 -->
+  <script src="./script/main01.js"></script>
+
+</head>
+<body>
+  <!-- 상단 헤더영역 -->
+  <header>
+    <div id="h_top">
+      <h1>
+        <a href="index.html" title="메인페이지로 바로가기">
+          <img src="./images/logo_baskinrobbins.png" alt="상단로고">
+        </a>
+      </h1>
+    </div>
+
+    <div id="h_bottom">
+      <nav>
+        <ul class="lnb">
+          <li><a href="#" title="로그인">login</a></li>
+          <li><a href="#" title="회원가입">join</a></li>
+        </ul>
+        <ul class="gnb">
+          <li><a href="#" title="">flavor of the month</a>
+            <ul class="sub">
+              <li><a href="#" title="이달의 아이스크림">
+                <img src="./images/img_monthly_fom_220930.png" alt="이달의 제품">
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="#" title="">menu</a>
+            <ul class="sub">
+              <li><a href="#" title="아이스크림">아이스크림</a></li>
+              <li><a href="#" title="아이크림케이크">아이크림케이크</a></li>
+              <li><a href="#" title="음료">음료</a></li>
+              <li><a href="#" title="커피">커피</a></li>
+              <li><a href="#" title="디저트">디저트</a></li>
+            </ul>
+          </li>
+          <li><a href="#" title="영양성분">영양 성분 및 알레르기</a>
+            <ul class="sub">
+              <li><a href="#" title="아이스크림">아이스크림</a></li>
+              <li><a href="#" title="음료">음료</a></li>
+              <li><a href="#" title="커피">커피</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#" title="이벤트">event</a>
+            <ul class="sub">
+              <li><a href="#" title="진행중인 이벤트">진행중인 이벤트</a></li>
+              <li><a href="#" title="당첨자 발표">당첨자 발표</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#" title="지점찾기">store</a>
+            <ul class="sub">
+              <li><a href="#" title="매장찾기">매장찾기</a></li>
+              <li><a href="#" title="고객센터">고객센터</a></li>
+              <li><a href="#" title="단체주문">단체주문</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#" title="소개">about</a>
+            <ul class="sub">
+              <li><a href="#" title="공지사항">공지사항</a></li>
+              <li><a href="#" title="보도자료">보도자료</a></li>
+              <li><a href="#" title="채용정보">채용정보</a></li>
+              <li><a href="#" title="점포설개문의">점포설개문의</a></li>
+              <li><a href="#" title="contact us">contact us</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 메인콘텐츠 영역 -->
+  <main>
+    <!-- 메인슬라이드 -->
+    <article class="slide">
+      <ul>
+        <li><a href="#" title="">
+          <img src="./images/slide01.png" alt=""></a></li>
+        <li><a href="#" title="">
+          <img src="./images/slide02.png" alt=""></a></li>
+        <li><a href="#" title="">
+          <img src="./images/slide3.jpg" alt=""></a></li>
+        <li><a href="#" title="">
+          <img src="./images/slide4.jpg" alt=""></a></li>
+          <li><a href="#" title="">
+            <img src="./images/slide5.jpg" alt=""></a></li>
+      </ul>
+      <i class="fas fa-angle-left"></i>
+      <i class="fas fa-angle-right"></i>
+    </article>
+  </main>
+
+  <!-- 푸터영역 -->
+  <footer></footer>
+
+</body>
+</html>

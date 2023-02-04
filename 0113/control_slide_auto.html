@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>control_slide02-콘트롤 버튼이 있는 슬라이드 구현(auto기능추가)</title>
+  <style>
+    *{margin:0px;padding:0px;}
+    a{color:#333;text-decoration:none;}
+    h2, dl, dt, dd{padding:10px;}
+    ul, li,ol{list-style:none;}
+    .b_wrap{
+      border:3px solid #000;
+      width:250px;height:200px;
+      background:#ff0;
+      margin:0px auto;
+    }
+    .banner{
+      display:flex;
+      position:relative;
+    }
+    .c_btn{
+      display:flex;
+      justify-content:center;
+      transform:translateY(10px);
+    }
+    .c_btn > li{
+      width:15px;height:15px;
+      background:#333;
+      border-radius:50%;
+      margin:0px 2px;
+      transition:0.3s;
+    }
+    .on{
+      background:#f00 !important;
+      width:50px !important;
+      border-radius:10px !important;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(function(){
+
+      //1. 인덱스값을 저장하기 위한 변수선언;
+      let n  = $('.c_btn li').index();
+      console.log(n); //0이 나온다.
+    
+      //2. 사용자가 콘트롤 버튼을 클릭시 해당 index값 구해보기
+      $('.c_btn li').click(function(){
+        n = $(this).index();
+        console.log(n); //0, 1, 2, 3............
+
+        //이미지 너비값 구하기
+        let img_w = -($('.banner img').width()*n);
+
+        console.log(img_w); //0, 250, 500, 750............
+
+        $('.banner').animate({'left':img_w},500);
+
+        $('.c_btn li').removeClass('on'); //콘트롤 버튼 전체 서식을 변경하고
+        $(this).addClass('on');//사용자가 선택한 콘트롤 버튼만 서식을 적용
+      });
+
+
+      //3초마다 반복호출하여 슬라이드가 자동으로 움직이게 한다.
+      function autoSlide(n){
+        n = -(n*$('.banner img').width());
+        $('.banner').animate({'left':n},500);
+      }
+
+      let Timer = setInterval(function(){
+        if(n==3){
+          n=0;
+          $('.c_btn li').removeClass('on'); 
+          $('.c_btn li').eq(n).addClass('on')
+        }else{
+          n++;
+          $('.c_btn li').removeClass('on'); 
+          $('.c_btn li').eq(n).addClass('on')
+        }        
+        autoSlide(n); 
+      }, 3000);
+
+      //3
+      $('c_btn').hover(function(){
+        clearInterval(Timer);
+      },function(){
+        Timer = setInterval(function(){
+        if(n==3){
+          n=0;
+          $('.c_btn li').removeClass('on'); 
+          $('.c_btn li').eq(n).addClass('on')
+        }else{
+          n++;
+          $('.c_btn li').removeClass('on'); 
+          $('.c_btn li').eq(n).addClass('on')
+        }        
+        autoSlide(n); 
+      }, 3000);
+
+      });
+
+
+    });
+  </script>
+</head>
+<body>
+  <h2>콘트롤 버튼이 있는 슬라이드 구현(auto기능추가)</h2>
+  <dl>
+    <dt>구현방법</dt>
+    <dd>1. 배너 박스에 이미지목록을 4개를 만들고 가로배치한다.</dd>
+    <dd>2. 목록태그로 콘트롤 버튼을 만들고 이미지의 아래쪽에 배치한다.</dd>
+    <dd>3. 콘트롤 버튼을 클릭하면 해당 li태그의 index값을 구하여 변수에 담는다.</dd>
+    <dd>4. 이미지 목록에 이미지 1장의 너비와 인덱스값을 곱한 값을 변수에 담는다.</dd>
+    <dd>5. 움직이는 너비변수를 이미지 목록 부모요소에 대입하여 animate메소드로 움직이게 한다.</dd>
+  </dl>
+
+  <article class='b_wrap'>
+    <ul class="banner">
+      <li><a href="#" title=""><img src="./images/emp-policy-slide2.png" alt="">
+      </a></li>
+      <li><a href="#" title=""><img src="./images/emp-policy-slide3.png" alt="">
+      </a></li>
+      <li><a href="#" title=""><img src="./images/emp-policy-slide4.png" alt="">
+      </a></li>
+      <li><a href="#" title=""><img src="./images/emp-policy-slide5.png" alt="">
+      </a></li>
+    </ul>
+    <ul class="c_btn">
+      <li class="on">&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>
+    </ul>
+  </article>
+</body>
+</html>

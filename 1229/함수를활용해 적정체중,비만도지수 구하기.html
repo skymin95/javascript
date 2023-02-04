@@ -1,0 +1,89 @@
+ <!DOCTYPE html>
+ <html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_함수를 활용해 적정체중_비만도 지수 구하기</title>
+  <style>
+    .yellow{background: yellow;}
+    .green{background: green;}
+    .blue{background: blue;}
+    .puple{background: purple;}
+    .red{background: red;}
+
+
+
+
+
+
+  </style>
+ </head>
+ <body>
+  <h2>02_함수를 활용해 적정체중_비만도 지수 구하기</h2>
+  <p>자신의 키(신장), 몸무게(체중)을 입력하여 적정체중 구하기</p>
+  <ol>
+    <li>신장을 입력하기 위한 input박스와 체중을 입력하기 위한 input 사용</li>
+    <li>함수의 신장, 체중값을 사용하여 계산기에 작성한다</li>
+    <li>적정체중인지 비교하여 결과를 출력한다</li>
+  </ol>
+  <p>BMI지수=몸무게(kg) 나누기 (신장m) 곱하기 신장(신장m)</p>
+    <p>BMI지수가 18.5이하면 저체중, 18.5~23은 정상, 23~25 과체중, 25~30은 비만, 30~35는 고도비만</p>
+    <p>저체중은 배경색 주황색, 정상은 녹색, 과체중은 파랑, 비만은 보라색, 고도비만은 빨간색 배경으로 서식지정</p>
+
+    <form action="a.php" method="post/get" name="bmi지수 구하기">
+      <fieldset>
+        <legend> BMI지수 구하기</legend>
+        <p>
+          <label for="height">신장:</label> <input type="text" id="height">m
+       </p>
+
+        <p><label for="weight">몸무게:</label> <input type="text" id="weight">kg
+       </p>
+       <!-- onclick cal()는 클릭하면 결과값 나오게 하기 즉 cal를 호출하겟다-->
+      <input type="button" value="결과확인" onclick="cal();">  
+      </fieldset>
+      <div id="result">출력결과</div>
+    </form>
+
+    <script>
+      
+      function cal(){
+        // 1.변수선언
+        const height= document.getElementById('height').value;
+        const weight = document.getElementById('weight').value;
+        // alert('함수동작 확인');
+        // console.log(height);
+        // console.log(weight);
+        //bmi지수
+        let sum =parseInt (Number(weight)/((Number(height)*Number(height))));
+        console.log(sum);//연산결과 출력하기
+        
+        if(sum<=18.5){
+          document.getElementById('result').innerHTML='<p class="yellow">저체중입니다.</p>';
+        }
+      else if((sum>18.5)&&(sum<=23)){
+        document.getElementById('result').innerHTML='<p class="green">정상입니다.</p>';
+      }
+      else if((sum>23)&&(sum<=25)){
+        document.getElementById('result').innerHTML='<p class="blue">과체중입니다.</p>';
+      }
+      else if((sum>25)&&(sum<=30)){
+        document.getElementById('result').innerHTML='<p class="puple">비만입니다.</p>';
+      }
+      else{
+        document.getElementById('result').innerHTML='<p class="red">고도비만입니다.</p>';
+      }
+    
+    }
+      
+      
+      
+      
+      </script>
+      
+
+
+
+ </body>
+ </html>

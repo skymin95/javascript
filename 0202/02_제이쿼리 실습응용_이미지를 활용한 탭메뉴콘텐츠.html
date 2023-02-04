@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_제이쿼리 실습응용_이미지를 활용한 탭메뉴콘텐츠</title>
+  <style>
+    *{margin:0px;padding:0px;}
+    ul, ol, li{list-style:none;}
+    a{color:#333;text-decoration:none;}
+    .tmnu{display:flex;}
+    .tmnu a{
+      padding:14px;display:inline-block;height:60px;
+    }
+    .tmnu span{display:block;}
+    .on{
+      background:orange;
+      color:#fff;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    $(function(){
+      // 1. 변수선언
+      let tmnu = $('.tmnu li');
+
+      tmnu.click(function(){
+        let src = $(this).find('img').attr('src');
+        // console.log(src);
+
+        src = src.replace('_off','_on');
+        console.log(src);
+
+        // a요소에 배경색 적용
+        $(this).find('a').addClass('on').parent().siblings().find('a').removeClass('on');
+
+        let n = $(this).index();
+        $('.tmnu li').each(function(i){ //li태그에 각각 기능을 삽입한다.
+          
+          $(this).find('img').attr('src',$(this).find('img').attr('src').replace('_off','_on'));
+
+          if(n!=i){ //만약에 선택한 요소의 인덱스 번호가 아니라면 아래 내용을 실행하고
+            $(this).find('img').attr('src',$(this).find('img').attr('src').replace('_on','_off'));
+          }
+        });
+      });
+
+    });
+  </script>
+</head>
+<body>
+  <h2>02_제이쿼리 실습응용_이미지를 활용한 탭메뉴 콘텐츠</h2>
+  <br><br>
+  <ul class="tmnu">
+    <li>
+      <a href="#" title="" class="on">
+        <img src="./img/ico_theme_zone_1_on.png" alt="">
+        <span>탭메뉴1</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" title="">
+        <img src="./img/ico_theme_zone_2_off.png" alt="">
+        <span>탭메뉴2</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" title="">
+        <img src="./img/ico_theme_zone_3_off.png" alt="">
+        <span>탭메뉴3</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" title="">
+        <img src="./img/ico_theme_zone_4_off.png" alt="">
+        <span>탭메뉴4</span>
+      </a>
+    </li>
+  </ul>
+</body>
+</html>

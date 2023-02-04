@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>에뛰드 모바일 웹 내비게이션</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div id="wrap">
+        <header>
+        <h1><a href="m_index.html" title="메인페이지로 바로가기">
+            <img src="./images/logo.png" alt="상단로고">
+        </a></h1>
+
+        <div id="toggle">
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+        </div>
+    </header>
+
+<!-- 글로벌 내비게이션 -->
+<nav class="gnb">
+    <ul>
+        <li><a href="#" title="menu01">menu01</a></li>
+        <li><a href="#" title="menu02">menu02</a></li>
+        <li><a href="#" title="menu03">menu03</a></li>
+        <li><a href="#" title="menu04">menu04</a></li>
+        <li><a href="#" title="menu05">menu05</a></li>
+        <li><a href="#" title="menu06">menu06</a></li>
+    </ul>
+</nav>
+
+<main>
+    <!-- 슬라이드 3장 (좌,우 / 페이드인,아웃/ 상,하 3개중 1개) -->
+    <ul>
+        <li>
+            <a href="#" title="">
+                <img src="./images/slide01_01.jpg" alt="">
+            </a>
+        </li>
+
+        <li>
+            <a href="#" title="">
+                <img src="./images/slide02_02.jpg" alt="">
+            </a>
+        </li>
+
+        <li>
+            <a href="#" title="">
+                <img src="./images/slide03_03.jpg" alt="">
+            </a>
+        </li>
+
+    </ul>
+</main>
+
+<footer>
+    <address>copyright2022&copy; 에뛰드 하우스 allrights reserved.</address>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+$(function(){
+    
+    // 토글버튼 변수
+    let t_btn = $('#toggle');
+    let t_n = 1;
+    t_btn.click(function(){
+        $(this).find('span').first().toggleClass('act01');
+        $(this).find('span').eq(1).toggleClass('act02');
+        $(this).find('span').last().toggleClass('act03');
+
+        // 토글버튼 클릭시 wrap의 위치가 왼쪽으로 80%위치에 배치
+        $('#wrap').toggleClass('wrap_pos');
+
+        if(t_n==1){
+            $('body').css('overflow','hidden');
+            t_n=0;
+        }else{
+            $('body').css('overflow','scroll');
+            t_n=1;
+        }
+    });
+
+    // 2.스크롤값이 0보다 크면
+    //헤더의 위치속성을 fixed로 설정해 위로올라가게 한다.
+$(window).scroll(function(){
+    let sPos =$(this).scrollTop();
+    console.log(sPos);//콘솔모드에 출력한다.
+if(sPos>0){
+    $('#toggle').addClass('on');
+}else{
+    $('#toggle').removeClass('on');
+}
+
+
+
+});
+
+});
+
+
+
+
+
+
+
+
+</script>
+</div>
+
+</body>
+</html>

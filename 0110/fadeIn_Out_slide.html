@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>효과메서드를 이용한 fadeIn_Out_slide</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    *{margin: 0px; padding: 0px;}
+    ol,li,ul{list-style: none;}
+    a{color: black; text-decoration: none;}
+    h2,p,dl,dt,dd{
+      padding: 10px;
+    }
+    article::after{
+      display: block;
+      content: "";
+      padding-bottom: 28.1%;
+    }
+    article > h2{
+      display: none;
+    }
+    /* 반응형 만들기 위해 이미지 100퍼센트 */
+    article{
+      border: 5px   solid #f00; 
+      box-sizing: border-box;
+      position: relative;
+      /* 혹시 넘어가면 숨기려고 */
+      overflow: hidden;
+    }
+
+    article img{
+  
+      width: 100%;
+      position: absolute;
+      
+     
+    }
+    /* 같은 부모 안에서 같은테그는 first child 섞여잇으면 of type */
+    article a:first-of-type img{z-index: 5;}
+    article a:nth-of-type(2) img{z-index: 4;}
+    article a:nth-of-type(3) img{z-index: 3;}
+    article a:nth-of-type(4) img{z-index: 2;}
+    article a:last-of-type img{z-index: 1;}
+    .c_btn{
+      color: #fff;
+      position: absolute;
+      width: 100px;
+      left: 50%; bottom: 3%;
+      z-index: 10;
+      /* 중앙배치 */
+      transform: translateX(-50%);
+      display: flex;
+      /* 좌우 간격 */
+      justify-content: space-around;
+    }
+    /* 여기서 부모높이가 포지션떄문에 없어서 부모 높이를 줘야함 */
+
+
+  </style>
+
+</head>
+<body>
+  <h2>효과메서드를 이용한 fadeIn_Out_slide</h2>
+  <p>이미지 5장을 순서대로 겹치게 하여 4초마다 fadin, fadout 효과주기</p>
+  <dl>
+    <dt>구현순서</dt>
+    <dd>1.html태그로 이미지 5장을 순서대로 삽입하고, 목록태그를 활용해 이미지 번호와 일시정지, 플레이버튼 목록을 작성한다.</dd>
+    <dd>2.css를 활용해 이미지 5장을 poistion속성으로 겹치게 하고 z-indenx속성으로 위/아래 순서를 정한다.</dd>
+    <dd>3.제이쿼리를 사용해 4초뒤 현재 보이는 이미지를 숨기고, 다음이지미가 보이도록 하여 해당하는 이미지가 보일때 페이지 번호를 표시한다.</dd>
+    <dd>4.일시정지 버튼을 클릭시 시간함수(setinterval)를 제거해 슬라이드를 멈추게하고 플레이 버튼을 클릭시 
+      시간함수(setinterval)를 다시 설정해 움직이도록 한다.
+    <dd>5.window객체의 resize이벤트를 사용해 화면의 너비가 조정되면 이미지크기와 부모요소크기도 같이 변하게 하여 반응형 슬라이드를 만든다.</dd>
+    </dd>
+  </dl>
+
+
+  <article>
+    <h2>페이드인 페이드 아웃반응형 슬라이드 </h2>
+    <div>
+    <a href="#" title=""><img src="./exec01/images/01.jpg" alt="배너1"></a>
+    <a href="#" title=""><img src="./exec01/images/02.jpg" alt="배너2"></a>
+    <a href="#" title=""><img src="./exec01/images/03.jpg" alt="배너3"></a>
+    <a href="#" title=""><img src="./exec01/images/04.jpg" alt="배너4"></a>
+    <a href="#" title=""><img src="./exec01/images/05.jpg" alt="배너5"></a>
+    </div>
+    <ul class="c_btn">
+      <li>&nbsp;</li><!--페이지 번호-->
+      <li><i class="fas fa-pause"></i></li>
+    </ul>
+  </article>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      // 1.초기값
+      let n = 0;
+
+      //2. 페이지 번호
+      $('.c_btn li:first-child').html((n+1)+'/5') 
+
+      //3.함수만들기(fadeInOut)
+      function fadeInOut(){
+        // .eq(0)=첫번쨰를 선택해라
+        $('article a img').stop().fadeOut();//모든 이미지를 숨긴다
+        if(n==4){//마지막 이미지라면
+          n=0;// 처음 이미지가 나오게 0을대입
+        }else{//만약아니라면
+          n++;//1씩 증가해 다음 이미지가 나오게한다.
+        }
+        $('article a img').eq(n).stop().fadeIn();//.stop넣어줌으로써 애니메이션 효과 부드럽게작용
+        $('article .c_btn li').eq(0).html((n+1)+'/5');
+      }
+      //4.시간객체를 사용해 4초마다 반복 함수 호출하기
+      let Timer = setInterval(fadeInOut,4000);
+
+      // 5.정지버튼
+      $('article .c_btn li:last-child').click(function(){//정지버튼을 클릭시
+        if($(this).find('i').hasClass('fas fa-pause')==true){//해당 클래스가 있는지 판단하여 있으면 아래내용 실행
+          clearInterval(Timer);//시간을 제거해 멈추게 한다.
+          $(this).find('i').attr('class','fas fa-play');//클래스명 찾아 강제로 변경
+        }else{// fa-pause클래스명이 없으면 아래 내용을 실행한다.
+          Timer = setInterval(fadeInOut,4000);//시간을 다시 넣어 움직이게 한다.
+          $(this).find('i').attr('class','fas fa-pause');//클래스명 찾아 강제로 변경
+        }
+       
+      });
+    });
+  </script>
+
+
+
+</body>
+</html>

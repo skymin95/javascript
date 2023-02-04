@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_제이쿼리 선택자와 css메소드 활용하기</title>
+  <!-- 제이쿼리 라이브러리 연결 -->
+  <script src="./script/jquery-3.6.3.min.js"></script>
+  <!-- 제이쿼리 레퍼 (무조건 써주기)    $(document).ready(function(){}) -->
+  <script>
+    $(document).ready(function(){
+      //기본선택자를 사용해 서식 변경하기
+      $('*').css({'margin':'0px','padding':'0px'})//
+      $('#title01').css('color','#f00');
+      $('.p01').css('background','#ccc');
+      $('h3').css('color','#00f');
+
+      $('ul>li').css('font-family','바탕체')//자손 선택자
+      $('body ul').css('border','2px solid #f00');//후손 선택자
+
+      //구조선택자 - n번째에 해당하는 요소를 찾아 서식 적용
+      $('ul>li:first-child').css('font-weight','bold');
+
+      // 동위선택자(*,~)
+      $('h2+p').css('padding','10px').css('border','2px solid #00f');
+
+      // 그룹선택자(,)
+      $('h2,h3').css('font-style','italic');
+
+      //탐색선택자
+      $('ul>li:odd').css('background','#00ff00');//인덱스 번호0부터 시작한다. 0,2,
+      $('ul>li:even').css('background','#b9a037');//1,3,5,7,9.....가 선택됨
+
+      // 속성선택자
+      $('input[type=text]').css('background','#00ff00');
+      // $('label[for=t1]').css('color','#f00');
+      $('input[type=button]').css({
+        'background':'#000',
+        'color':'#fff',
+        'border':'none'
+      });
+    });
+  </script>
+
+
+
+</head>
+<body>
+  <h2 id="title01">02_제이쿼리 선택자와 css메소드 활용하기</h2>
+  <p class="p01">제이쿼리에서는 css에서 사용하던 선택자를 활용해 서식을 적용할 수 있는데, 제이쿼리는 
+    css보다 좀더 세밀하게 선택할 수 있고, 그 개수도 많다.</p>
+    <p class="p01">http://oscarotero.com/jquery/ -API참고사이트의 왼쪽 'SELECTORES'에서 확인</p>
+
+    <h3>제이쿼리 선택자를 사용해 원하는 서식 적용하기</h3>
+    <ul>
+      <li>콜드브루</li>
+      <li>브루드 커피</li>
+      <li>에스프레소</li>
+      <li>프라푸치노</li>
+      <li>블랜디드</li>
+      <li>스타벅스 피지오</li>
+    </ul>
+
+
+    <label>Message:</label> <input type="text"><input type="button" value="제출">
+</body>
+</html>

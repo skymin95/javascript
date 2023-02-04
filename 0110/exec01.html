@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 클라스 지우고 child로 , display none 묶기 */
+    *{margin: 0px; padding: 0px;}
+    h2{display: none;}
+    article{
+      border: 5px solid #ff0;
+      box-sizing: border-box;
+      position: relative;
+    }
+    article::after{
+      display: block;
+      content: "";
+      padding-bottom: 32.2%;
+    }
+    
+    .coffee01{
+      width: 100%; 
+      position: absolute;
+    }
+    .coffee02{
+     display: none;
+    position: absolute; right: 30%; top: 9%;
+  width: 10%;
+    
+   }
+   .coffee03{
+    display: none;
+    width: 15%;
+    position: absolute; right: 30%; top: 30%;
+   }
+   .coffee04{
+    display: none;
+    width: 20%;
+    position: absolute;
+    right: 18%; top: 40%;
+   }
+.coffee06{
+  display: none;
+  position: absolute;
+  width: 15%;
+  right: 50%; top: 40%;
+}
+.coffee05{
+  display: none;
+  position: absolute;
+  width: 15%;
+  right: 40%; top: 7%;
+}
+.coffee07{
+  display: none;
+  position: absolute;
+  width: 12%;
+  right: 18%; top: 20%;
+}
+
+.coffee08{
+  display: none;
+  position: absolute;
+  width: 15%;
+  top: 25%; left: 10%;
+ 
+}
+
+
+
+
+article img:first-of-type{z-index: 1;}
+article img:nth-of-type(2){z-index: 2;}
+article img:nth-of-type(3){z-index: 3;}
+article img:nth-of-type(4){z-index: 4;}
+article img:nth-of-type(5){z-index: 5;}
+article img:nth-of-type(6){z-index: 6;}
+article img:nth-of-type(7){z-index: 7;}
+article img:last-of-type{z-index: 8;}
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <article>
+    <h2>실습예제_</h2>
+    <img src="./exec02/images/bev_bg.jpg" alt=""
+    class="coffee01">
+    <img src="./exec02/images/bev1_cup.png" alt="" class="coffee02">
+    <img src="./exec02/images/bev2_cup.png" alt=""class="coffee03">
+    <img src="./exec02/images/bev3_cup.png" alt=""class="coffee04">
+    <img src="./exec02/images/bev1_txt.png" alt="" class="coffee05">
+    <img src="./exec02/images/bev2_txt.png" alt=""class="coffee06">
+    <img src="./exec02/images/bev3_txt.png" alt=""class="coffee07">
+    <img src="./exec02/images/m_18_emblem.png" alt=""class="coffee08">
+
+
+  </article>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
+
+<script>
+  $(document).ready(function(){
+    /*
+    $('첫번째 사진').delay(100).fadin();
+    $('두번째 사진').delay(1500).fadin();
+    $('세번째 사진').delay(3000).fadin();
+    
+    */
+
+$('.coffee02').delay(100).fadeIn();
+$('.coffee03').delay(1500).fadeIn();
+$('.coffee04').delay(2000).fadeIn();
+
+$('.coffee05').delay(100).fadeIn();
+$('.coffee06').delay(1500).fadeIn();
+$('.coffee07').delay(2000).fadeIn();
+$('.coffee08').delay(3000).fadeIn();
+
+
+
+  })
+</script>
+</body>
+</html>
