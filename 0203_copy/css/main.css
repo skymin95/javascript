@@ -50,9 +50,9 @@ main > section{}
 }
 
 #top3, #intro, #test, #event, #buy, #cs{
-  background:#ccc;
+  /* background:#ccc; */
   margin:50px 0px;
-  height:800px;
+  /* height:800px; */
 }
 
 /* 가장많이 찾은 캐스퍼 top3 */
@@ -118,4 +118,114 @@ li:first-child, li:nth-child(2){
 .button{
   text-align: center;
   margin: 0px auto;
+}
+
+
+
+/* 메인콘텐츠 영역 제목서식 */
+.m_title{
+  font-size: 34px;
+  text-align: center;
+  font-weight: bold;
+  padding: 80px 0px 10px 0px;
+  color: #000;
+}
+
+#intro{ 
+  position:relative;
+  height: 910px;
+  overflow: hidden;
+}
+#intro h2{
+  width:100%;
+  text-align:center;
+  
+}
+#intro h2, #intro p{
+  position:absolute;
+  z-index: 10;
+}
+#intro .l_title{
+  left:50px;top:180px;
+}
+#intro .r_title{
+  right:80px;bottom:60px;
+  text-align:right;
+}
+.l_title, .r_title{
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 40px;
+}
+#intro video{
+  transform: translateY(-60px);
+}
+#intro .more_btn{
+  position: absolute; left: 50%; bottom: 90px;
+  transform: translateX(-50%);
+}
+/* 더보기버튼 */
+.more_btn{
+  font-size:var(--f-size);
+  border: 1px solid #333;
+  padding: 10px 30px;
+}
+.more_btn:hover{
+  background:var(--b-color);
+  color: var(--t-color02);
+}
+
+/* 시승신청 서식 */
+#test{text-align: center;}
+#test .p01{
+  text-align: center;
+  font-size:var(--f-size01);
+  line-height: 40px;
+}
+#test > article{
+  width: 430px; height: 260px;
+  border: 1px solid #ccc;
+  padding: 15px; 
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  margin-top: 50px;
+}
+.t_drive_l{
+  margin-right: 30px;
+} 
+.t_drive_r{
+  transform: translateY(-12px);
+}
+
+#test > article > h3{
+  font-size: 24px;
+  padding-top: 20px;
+  font-weight: bold;
+  line-height: 40px;
+}
+
+
+#test > article >p{
+  font-weight: 500;
+  font-size: var(--f-size);
+  line-height: 20px;
+  padding: 15px 0px; 
+}
+
+.test_d_btn{
+  background-color: var(--bg-color02);
+  color: #fff;
+  line-height: 30px;
+  padding: 10px 60px;
+}
+.test_d_btn01{
+  color: var(--bg-color01);
+  position: relative; top: 16px;
+}
+.t_drive_p2{
+  transform: translateY(70px);
+}
+.t_drive_r .t_drive_p2{
+  transform: translateY(81px);
 }

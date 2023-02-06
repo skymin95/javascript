@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>현대자동차 캐스퍼 - 스크롤레이아웃</title>
+  <!-- 초기화 -->
+  <link href="./css/reset.css" rel="stylesheet" type="text/css">
+  <!-- 기본서식, 공통서식 -->
+  <link href="./css/base.css" rel="stylesheet" type="text/css">
+  <!-- 레이아웃서식 -->
+  <link href="./css/layout.css" rel="stylesheet" type="text/css">
+  <!-- 콘텐츠 영역서식 -->
+  <link href="./css/main.css" rel="stylesheet" type="text/css">
+  <!-- 아이콘폰트 주소 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- css3추가속성시 접두사 자동으로 붙여주는 스크립트 -->
+  <script src="./script/prefixfree.min.js"></script>
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- 제이쿼리 ui라이브러리 -->
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <!-- 제이쿼리 쿠키파일 -->
+  <script src="./script/jquery.cookie.js"></script>
+  <!-- 공통스크립트 -->
+  <script src="./script/layout.js"></script>
+  <!-- 콘텐츠 스크립트 -->
+  <script src="./script/main.js"></script>  
+</head>
+<body>
+  <header>
+    <h1>
+      <a href="index.html" title="메인페이지로 바로가기">
+        <img src="./images/logo-casper-white.png" alt="상단로고">
+      </a>
+    </h1>
+
+    <!-- 상단 스크롤시 고정 내비게이션 -->
+    <nav>
+      <ul class="gnb">
+        <li><a href="#" title="소개">소개</a></li>
+        <li><a href="#" title="체험">체험</a></li>
+        <li><a href="#" title="이벤트">이벤트</a></li>
+        <li><a href="#" title="구매안내">구매안내</a></li>
+        <li><a href="#" title="고객지원">고객지원</a></li>
+      </ul>
+    </nav>
+
+    <i class="fas fa-user"></i>
+    <i class="fas fa-bell"></i><!-- 알림아이콘 -->
+  </header>
+
+<!-- 원형내비게이션 -->
+  <nav id="m_nav">
+    <ul>
+      <li><span>1</span>
+        <a href="#" title="소개">소개</a></li>
+      <li><span>2</span>
+        <a href="#" title="체험">체험</a></li>
+      <li><span>3</span>
+        <a href="#" title="이벤트">이벤트</a></li>
+      <li><span>4</span>
+        <a href="#" title="구매">구매</a></li>
+      <li><span>5</span>
+        <a href="#" title="고객지원">고객지원</a></li>
+    </ul>
+  </nav>
+
+  <!-- 메인콘텐츠 영역 -->
+  <main>
+    <section id="main_intro">
+      <h2>캐스퍼 인트로 영상</h2>
+      <article>
+        <h3>CASPER</h3>
+        <p>오직 캐스퍼 온라인에서만 구매하실 수 있습니다.</p>
+        <a href="https://casper.hyundai.com/vehicles/making/model" title="나만의 캐스퍼 만들기">나만의 캐스퍼 만들기</a>
+        <a href="https://casper.hyundai.com/vehicles/benefit" title="구매 혜택보기">구매 혜택보기</a>
+        <a href="https://casper.hyundai.com/vehicles/highlight" title="자세히 보기">자세히 보기</a>
+      </article>
+
+      <video autoplay muted loop='infinite'>
+        <source src="./images/casper_te_18.webm" type="video/webm">
+      </video>
+
+      <a href="#" title="아래로 이동" id="next_btn">아래로 이동</a>
+    </section>
+
+    <section id="top3">
+      <h2 class='m_title'>가장 많이 찾은 캐스퍼 TOP3</h2>
+    </section>
+
+    <section id="intro">
+      <h2 class='m_title'>소개</h2>
+      <!-- <img src="./images/intro.jpg" alt="소개"> -->
+      <video src="./images/highlight_intro.mp4" muted autoplay></video>
+      <p class="l_title">강인하고<br>아이코닉한 SUV</p>
+      <p class="r_title">젊고 역동적인<br>감성의<br>SUV디자인</p>
+
+      <a href="intro.html" class="more_btn" title="더보기">더보기</a>
+    </section>
+
+    <!-- 시승신청 -->
+    <section id="test">
+      <h2 class="m_title">시승신청</h2>
+      <p class="p01">캐스퍼가 제공하는 편리한 시승 서비스를 이용해 보세요.</p>
+      <article class="t_drive_l">
+        <h3>현대자동차 드라이빙 라운지 <br>/ CASPER STUDIO시승</h3>
+        <p class="t_drive_p1">드라이빙 라운지와 CASPER STUDIOD에서
+          캐스퍼를 체험해보세요.</p>
+          <a href="test_drive.html" title="시승 신청" class="test_d_btn">
+            시승 신청하기</a>
+          <br><a href="#" title="시승 신청조회">시승신청조회</a>
+          <p class="t_drive_p2">&middot; 시승 신청은 만 21세 이상 운전면허 소지자면 누구나 이용 가능합니다.</p>
+      </article>
+
+      <article class="t_drive_r">
+        <h3>쏘카<br> 카셰어링 시승</h3>
+        <p class="t_drive_p1">24시간 언제나 내 근처에서 편리하게
+          캐스퍼를 체험하실 수 있습니다.</p>
+          <a href="test_drive.html" title="시승 신청" class="test_d_btn">
+            시승 신청하기</a>
+        <p class="t_drive_p2">&middot;쏘카는 만 21세 이상, 운전면허 취득 1년 이상 시 이용할 수 있습니다.</p>
+      </article>
+    </section>
+
+    <!-- 이벤트 -->
+    <section id="event">
+      <h2 class="m_title">이벤트&프로모션</h2>
+    </section>
+
+    <!-- 캐스퍼 구매 -->
+    <section id="buy">
+      <h2 class="m_title">캐스퍼 구매 안내</h2>
+    </section>
+
+    <!-- 고객지원 -->
+    <section id="cs">
+      <h2 class="m_title">고객지원</h2>
+    </section>
+  </main>
+
+  <footer></footer>
+</body>
+</html>

@@ -10,6 +10,8 @@
   --bg-color01:#006eff;
   --bg-color02:#212772;
   --bg-color03:#fff;
+  --f-size:14px;
+  --f-size01:16px;
 }
 body {
   background:var(--bg-color03);

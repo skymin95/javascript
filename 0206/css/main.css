@@ -1,0 +1,406 @@
+@charset "utf-8";
+
+main{}
+
+main > section {
+    width: 100%;
+    position: relative;
+}
+
+#main_intro {
+    overflow: hidden;
+    height: 100vh;
+}
+
+#main_intro > h2 {
+    display: none;
+}
+
+#main_intro video {
+}
+
+#main_intro article {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    text-align: center;
+    color: var(--t-color02);
+}
+
+#main_intro article > h3 {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+#main_intro article > p {
+    line-height: 80px;
+    font-size: 16px;
+}
+
+#main_intro a {
+    color: var(--t-color02);
+    font-size: 14px;
+    text-decoration: underline;
+    margin: 0px 20px;
+    padding: 5px 10px;
+}
+
+.main_intro .first {
+    background: var(--bg-color01);
+}
+
+#next_btn {
+    padding: 0px;
+    text-indent: -9999px;
+    display: block;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+    width: 27px;
+    height: 35px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: rotate(45deg);
+}
+
+#top3, #intro, #test, #event, #buy, #cs {
+    background: #ccc;
+    margin: 50px 0px;
+    height: 865px;
+}
+
+#top3 {
+    padding-top: 20px;
+    text-align: center;
+    background-color: var(--t-color02);
+}
+
+#top3 > article {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0px auto;
+}
+
+.title > div {
+    overflow: visible;
+}
+
+#top3 > h2 {
+    font-size:  34px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+
+#top3 h3:first-of-type {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+#top3 h3 {
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.swiper-slide {
+    width: 1000px;
+}
+
+.rank {
+    width: 25px;
+    height: 20px;
+    display: block;
+    margin : 20px auto 30px auto;
+    font-size: 16px;
+    border: 3px solid var(--t-color03);
+    border-radius: 40px;
+    padding: 4px 20px;
+
+}
+
+.hidden {
+    display: none;
+}
+
+#top3 h4 {
+    display: block;
+    color: var(--bg-color02);
+    font-size: 30px;
+}
+
+#top3 ul {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin: 0px auto;
+}
+
+#top3 ul dl dt {
+    margin: 10px 0px;
+}
+
+#top3 ul dl,dt {
+    text-align: left;
+}
+
+#top3 ul li p img {
+    margin-top: 20px;
+    width: 50%;
+    padding: 40px 0px;
+}
+
+#top3 ul .flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    transform: translate(-10px, 10px);
+}
+
+.khaki {
+    background: darkkhaki;
+}
+
+.orange {
+    background: tomato;
+}
+
+.black {
+    background: black;
+}
+
+.blue {
+    background: darkblue;
+}
+
+
+
+.swiper-slide {
+    margin-bottom: 70px;
+}
+
+.emp_price {
+    color: var(--bg-color02);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.swiper .swiper-wrapper {
+    overflow: visible;
+}
+
+#intro {
+    position: relative;
+}
+
+.m_title {
+    font-size: 34px;
+    text-align: center;
+    font-weight: bold;
+    padding: 80px 0px 10px 0px;
+    color: #000;
+}
+
+
+#intro {
+    position: relative;
+    overflow: hidden;
+}
+
+#intro > h2 {
+    width: 100%;
+    text-align: center;
+    z-index: 5555;
+}
+
+#intro p, #intro > h2 {
+    position: absolute;
+}
+
+
+
+#intro .left_title {
+    left: 50px;
+    top: 180px;
+}
+
+#intro .right_title {
+    right: 80px;
+    bottom: 60px;
+    text-align: right;
+}
+
+.right_title, .left_title {
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+
+#intro video {
+    transform: translateY(-60px);
+}
+
+/*더보기 버튼 */
+
+.more_btn {
+    font-size: var(--f-size);
+    border: 1px solid #333;
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+
+.more_btn:hover {
+    background-color: var(--bg-color01);
+    color: var(--t-color02);
+}
+
+
+#intro .more_btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+}
+
+/*시승신청 서식 */
+
+#test {
+    background: #fff;
+    text-align: center;
+}
+
+#test .p01 {
+    text-align: center;
+    font-size: var(--f-size01);
+    line-height: 40px;
+}
+
+#test > article {
+    width: 430px;
+    height: 260px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    margin-top: 50px;
+}
+
+.t_drive_l {
+    margin-right: 30px;
+}
+
+.t_drive_r {
+ 
+}
+
+#test > article h3 {
+    font-size: 24px;
+    padding-top: 20px;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+#test > article > p {
+    font-weight: 500;
+    font-size: var(--f-size);   
+    line-height: 20px;
+    padding: 15px;
+}
+
+.test_d_btn {
+    background-color: var(--bg-color02);
+    color: #fff;
+    line-height: 30px;
+    padding: 10px 60px;
+}
+
+.test_d_btn01 {
+    color: var(--bg-color01);
+    position: relative;
+    top: 16px;
+}
+
+.t_drive_p2 {
+    transform: translateY(70px);
+}
+
+.under {
+    transform: translateY(80px);
+}
+
+.t_drive_r {
+    transform: translateY(-11px);
+}
+
+/* 이벤트프로모션 */
+
+
+#event > p{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.wrap{
+    width:100%;height:500px;
+    position:relative;
+  }
+  /* 자식요소가 5개라 100%*5 */
+  .slide{
+    display:flex;  width:500%;
+    position:absolute;
+    left:0px;top:0px;
+    transition:0.3s;
+  }
+  .slide > li{width:100%;height:500px; }
+  .slide> li img{
+    width: 100%; height: 440px;
+}
+.btn_group > input[type=button]{
+    position:absolute;top:47%;
+  }
+  .btn_group .prev{left:0px;}
+  .btn_group .next{right:0px;}
+
+  .modal{
+    width: 100%; height: 100%;
+    position: fixed;
+    left:0px; top: 0px;
+    background: rgba(0, 0, 0, .7);
+    z-index: 200;
+  }
+  .modal > .m_inner{
+    width: 450px; height: 640px;
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .m_inner > p{
+    line-height: 40px;
+    background: #fff;
+    color: var(--t-color01);
+    font-size: 16px;
+    padding: 0px 5px;
+    box-sizing: border-box;
+  }
+  .m_inner > p a{
+    background: #fff;
+    color: var(--t-color01);
+    position: absolute; right: 10px;
+  }
+  .m_inner > p >label[for=ch]{
+    color: var(--t-color01);
+  }
+
+
+
+
+
